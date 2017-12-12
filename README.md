@@ -1,5 +1,6 @@
 # Dev Setup
 
+
 # Vim configuration  
 My vim config uses Vundle
 To config vim like mine run this vimConfig.sh on your mac or linux machine
