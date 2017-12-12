@@ -8,3 +8,5 @@ cp ~/dotfiles/zsh/.zshrc ~/.zshrc
 # Then install tmux config file
 cp ~/dotfiles/tmux/.tmux.config ~/.tmux.config
 
+# Install powerline and powerline themes
+pacman -S powerline powerline-fonts
