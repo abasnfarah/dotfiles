@@ -10,7 +10,9 @@ To install vim on arch run
 `sudo pacman -S vim`
 or install to install on mac using [homebrew](https://brew.sh/)
 `brew install vim`
+
 #### Screenshot of vim setup
+![alt text](https://github.com/abasnfarah/dotfiles/Vim_ScreenShot.png "Vim Setup")
 
 to run enter `. ~/dotfiles/vimconfig.sh` on your console.
 
@@ -35,6 +37,7 @@ To change primary shell to zsh run
 `chsh -s $(which zsh)`
 
 #### ScreenShot of zsh setup
+![alt text](https://github.com/abasnfarah/dotfiles/Zsh_ScreenShot.png "Zsh Setup")
 
 To run enter `. ~/dotfiles/zshconfig.sh` on your console 
 
