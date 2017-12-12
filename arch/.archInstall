@@ -1,0 +1,85 @@
+# arch installation 
+
+# Network configuration
+wifi-menu
+ping 8.8.8.8
+
+# Partitioning disks
+cfdisk
+
+# formating disk partitions
+mkfs.ext4 /dev/sda1
+mkfs.ext4 /dev/sda3
+mkswap /dev/sda2
+swapon /dev/sda2
+
+# mount and install archlinux base system
+mount /dev/sda1 /mnt
+mkdir /mnt/home
+mount /dev/sda2 /mnt/home
+pacstrap /mnt base base-devel
+
+# generate fstab
+genfstab -U -p /mnt >> /mnt/etc/fstab
+
+# Change to root
+arch-chroot /mnt /bin/bash
+
+# Installing Grub
+pacman -S grub
+grub-mkconfig -o /boot/grub/grub.cfg
+grub-install --recheck /dev/sda
+
+# Reboot into installed media
+exit
+umount /mnt/home
+umount /mnt
+reboot
+
+# change root password
+passwd
+
+# change hostname
+hostnamectl set-hostname archbox
+
+# vim change locale
+vim /etc/locale.gen
+locale-gen
+localectl set-timezone America/Chicago
+
+# Enable 64-bit compatability
+vim /etc/pacman.conf # enable multilib
+pacman -Syy
+
+# setup user
+useradd -m -g users -s /bin/bash abas
+passwd abas
+pacman -S sudo
+visudo # give user sudo privlages
+
+# build utilities
+pacman -S multilib-devel fakeroot git jshon wget make pkg-config autoconf automake patch
+wget http://aur.archlinux.org/packages/pa/packer/packer.tar.gz
+tar zxvf packer.tar.gz
+cd packer && makepkg
+pacman -U packer<TAB>
+
+# installing xorg
+pacman -S xorg xterm xorg-twm xorg-xclock
+pacman -S xorg-xinit
+
+# installing yaourt and all of it's dependencies
+git clone https://aur.archlinux.org/package-query.git
+git clone https://aur.archlinux.org/yaourt.git
+cd package-query
+makepkg -ci
+cd ../yaourt
+makepkg -ci
+
+# installing slim login manager
+sudo pacman -S slim
+sudo systemctl enable slim.service
+
+# installing awesome
+sudo pacman -S awesome
+
