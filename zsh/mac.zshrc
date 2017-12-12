@@ -1,27 +1,19 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/home/abas/.oh-my-zsh
-export EDITOR=/usr/bin/vim
-#xmodmap .xmodmap
-compton -bc
-#export TERM="screen-256color"
+export ZSH=/Users/AbasFarah/.oh-my-zsh
+export TERM="screen-256color"
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-# ZSH_THEME="norm"
-ZSH_THEME="agnoster"
+ZSH_THEME="norm"
 #ZSH_THEME="powerlevel9k/powerlevel9k"
-archey
+# archey
 # screenfetch
-
-# powerline tools fr zsh
-#. {repository_root}/powerline/bindings/zsh/powerline.zsh
-. /usr/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
 
 # Uncomment the following line to use case-sensitive completion.
 # Tmux set up
-#alias tmux="TERM=screen-256color tmux -2"
+alias tmux="TERM=screen-256color tmux -2"
 
 # CASE_SENSITIVE="true"
 
