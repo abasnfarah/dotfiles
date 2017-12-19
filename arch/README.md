@@ -103,7 +103,7 @@ hwclock --systohc --utc
 ## Installing Grub
 logout then do this
 ```{r, engine='bash', count_lines}
-pacstrap -S /mnt grub
+pacstrap /mnt grub
 ```
 log in to arch root then do this
 ```{r, engine='bash', count_lines}
