@@ -82,7 +82,7 @@ set wildmenu
 
 " Create the tags file Install ctags with brew
 command! MakeTags !ctags -R
-colorscheme brogrammer
+colorscheme molokai
 let g:airline_theme='molokai'
 
 
