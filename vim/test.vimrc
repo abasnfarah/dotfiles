@@ -105,6 +105,7 @@ let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
 set tabstop=4
 set shiftwidth=4
 nnoremap ,main :-1read $HOME/.vim/.skeleton.javamain<CR>f{o
+nnoremap ,clas :-1read $HOME/.vim/.skeleton.javaclass<CR>3jf{o
 
 " NOW WE CAN:
 " - Take Over the World!
