@@ -1,8 +1,9 @@
 # Path to your oh-my-zsh installation.
 export ZSH=/home/abas/.oh-my-zsh
 export EDITOR=/usr/bin/vim
+export LANG=en_US.UTF-8
 #xmodmap .xmodmap
-compton -bc
+compton -cb
 #export TERM="screen-256color"
 
 # Set name of the theme to load.
@@ -49,7 +50,10 @@ alias vr="vagrant reload"
 alias vp="vagrant provision"
 alias workon="source ./env/bin/activate"
 alias gpd="git push origin --delete "
-alias tprof="vim ~/.tmux.conf"
+alias tprof="v ~/.tmux.conf"
+alias terprof="v ~/.config/termite/config"
+alias rcprof="v ~/.config/awesome/rc.lua"
+alias xprof="v ~/.xinitrc"
 #alias workon="source /Users/farah127/Documents/websiteEnv/bin/activate"
 
 # Java Compiling and running
