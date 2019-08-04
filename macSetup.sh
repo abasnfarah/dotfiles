@@ -40,7 +40,6 @@ brew cask install font-hack-nerd-font
 brew cask install google-chrome
 
 CASKS=(
-	google-drive
 	flux
 	iterm2
 	virtualbox
@@ -70,4 +69,4 @@ echo "Installing zsh dotfiles..."
 cp zsh/mac.zshrc ~/.zshrc
 sudo git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
  
-sudo chsh -s $(which zsh)
+chsh -s $(which zsh)
