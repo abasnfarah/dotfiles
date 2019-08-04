@@ -40,6 +40,7 @@ brew cask install font-hack-nerd-font
 brew cask install google-chrome
 
 CASKS=(
+  vlc
 	flux
 	iterm2
 	virtualbox
