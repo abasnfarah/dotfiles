@@ -28,6 +28,9 @@ packages=(
 echo "Installing packages..."
 brew install ${packages[@]}
 
+echo "Installing cask"
+brew install caskroom/cask/brew-cask
+
 echo "Cleaning up"
 brew cleanup
 
@@ -65,6 +68,6 @@ vim +PluginInstall +qall
 
 echo "Installing zsh dotfiles..."
 cp zsh/mac.zshrc ~/.zshrc
-git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
+sudo git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
  
-chsh -s $(which zsh)
+sudo chsh -s $(which zsh)
