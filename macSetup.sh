@@ -29,7 +29,7 @@ echo "Installing packages..."
 brew install ${packages[@]}
 
 echo "Installing cask"
-brew install caskroom/cask/brew-cask
+brew install ntfs-3g
 
 echo "Cleaning up"
 brew cleanup
@@ -37,9 +37,9 @@ brew cleanup
 echo "Downloading fonts"
 brew tap homebrew/cask-fonts
 brew cask install font-hack-nerd-font
+brew cask install google-chrome
 
 CASKS=(
-	google-chrome
 	google-drive
 	flux
 	iterm2
