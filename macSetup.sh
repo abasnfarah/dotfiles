@@ -67,4 +67,4 @@ echo "Installing zsh dotfiles..."
 cp zsh/mac.zshrc ~/.zshrc
 git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
  
-
+chsh -s $(which zsh)
