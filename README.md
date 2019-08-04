@@ -1,7 +1,9 @@
 # Dev Setup
 
+#Installation
+Installing these dotfiles on a mac is super easy. Just `git clone https://github.com/abasnfarah/dotfiles` and go ahead and run the script ` ./macSetup.sh` or `source macSetup.sh`
 
-# Vim configuration  
+## Vim configuration  
 My vim config uses Vundle
 To config vim like mine run this vimConfig.sh on your mac or linux machine
 ### Requirements 
@@ -22,7 +24,7 @@ What this accomplishes:
 |:---------:|:-------------------------------------------:|:------------------------------------------------------------------------------:|
 |Vundle     |Themes and useful vim tools such as NERDTree.|`git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim`| 
   
-# Zsh configuration
+## Zsh configuration
 My zsh config uses oh-my-zsh themes and built in commands namely for git and tmux
 
 ### Requirements:

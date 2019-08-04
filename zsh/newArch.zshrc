@@ -1,19 +1,28 @@
-# Path to your oh-my-zsh installation.
-export ZSH=/Users/abasfarah/.oh-my-zsh
-export TERM="screen-256color"
+#Matrix  Path to your oh-my-zsh installation.
+export ZSH=/home/abas/.oh-my-zsh
+export EDITOR=/usr/bin/vim
+export LANG=en_US.UTF-8
+#xmodmap .xmodmap
+compton -cb
+export TERM="xterm-256color"
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="powerlevel10k/powerlevel10k"
+# ZSH_THEME="norm"
+ZSH_THEME="agnoster"
 #ZSH_THEME="powerlevel9k/powerlevel9k"
-# archey
+archey
 # screenfetch
+
+# powerline tools fr zsh
+#. {repository_root}/powerline/bindings/zsh/powerline.zsh
+. /usr/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
 
 # Uncomment the following line to use case-sensitive completion.
 # Tmux set up
-alias tmux="TERM=screen-256color tmux -2"
+#alias tmux="TERM=screen-256color tmux -2"
 
 # CASE_SENSITIVE="true"
 
@@ -34,9 +43,9 @@ alias vprof="vim ~/.vimrc"
 alias v="vim"
 alias gpd="git push origin --delete "
 alias tprof="v ~/.tmux.conf"
-#alias terprof="v ~/.config/termite/config"
-#alias rcprof="v ~/.config/awesome/rc.lua"
-#alias xprof="v ~/.xinitrc"
+alias terprof="v ~/.config/termite/config"
+alias rcprof="v ~/.config/awesome/rc.lua"
+alias xprof="v ~/.xinitrc"
 alias wp=" cd ~/workspaces"
 #alias workon="source /Users/farah127/Documents/websiteEnv/bin/activate"
 
@@ -46,15 +55,10 @@ alias ta="tmux a -t"
 alias tls="tmux ls"
 alias tkill="tmux kill-server"
 
+
 # Java Compiling and running
 alias jc="javac"
 alias j="java"
-
-# File jumping
-
-function StarWars {
-    echo "Are you ready for some StarWars Brahh" && archey && sleep 2 && tree ~ && telnet towel.blinkenlights.nl 
-}
 
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
@@ -69,7 +73,7 @@ function StarWars {
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-COMPLETION_WAITING_DOTS="true"
+ COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -122,4 +126,5 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# OPAM configuration
 

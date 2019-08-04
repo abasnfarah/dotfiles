@@ -31,6 +31,10 @@ brew install ${packages[@]}
 echo "Cleaning up"
 brew cleanup
 
+echo "Downloading fonts"
+brew tap homebrew/cask-fonts
+brew cask install font-hack-nerd-font
+
 CASKS=(
 	google-chrome
 	google-drive
@@ -38,7 +42,7 @@ CASKS=(
 	iterm2
 	virtualbox
 	skype
-	sublime
+	sublime-text
 	disk-inventory-x
 )
 
@@ -50,7 +54,17 @@ echo "Installing Oh-My-Zsh..."
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" "" --unattended
 
 echo "Updating dotfiles..."
+echo "Installing vim dotfiles..."
+cp vim/mac.vimrc ~/.vimrc
+
+echo "Installing Vundle..."
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
+echo "Installing vim Plugins"
+vim +PluginInstall +qall
 
+echo "Installing zsh dotfiles..."
+cp zsh/mac.zshrc ~/.zshrc
+git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
+ 
 
