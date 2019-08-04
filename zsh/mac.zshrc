@@ -1,12 +1,12 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/AbasFarah/.oh-my-zsh
+export ZSH=/Users/abasfarah/.oh-my-zsh
 export TERM="screen-256color"
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="norm"
+ZSH_THEME="Agnoster"
 #ZSH_THEME="powerlevel9k/powerlevel9k"
 # archey
 # screenfetch
