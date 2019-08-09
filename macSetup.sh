@@ -23,6 +23,7 @@ packages=(
 	ssh-copy-id
 	screenfetch
 	archey
+  zsh-syntax-highlighting
 )
 
 echo "Installing packages..."

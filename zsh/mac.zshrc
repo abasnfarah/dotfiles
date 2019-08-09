@@ -1,3 +1,6 @@
+# Brew issues
+export PATH="/usr/local/sbin:$PATH"
+
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/abasfarah/.oh-my-zsh
 export TERM="screen-256color"
@@ -8,7 +11,7 @@ export TERM="screen-256color"
 # time that oh-my-zsh is loaded.
 ZSH_THEME="powerlevel10k/powerlevel10k"
 #ZSH_THEME="powerlevel9k/powerlevel9k"
-# archey
+archey
 # screenfetch
 
 # Uncomment the following line to use case-sensitive completion.
@@ -121,5 +124,13 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
+
+# Sourcing zsh-syntax-highligting
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 
