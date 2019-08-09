@@ -23,6 +23,7 @@ packages=(
 	ssh-copy-id
 	screenfetch
 	archey
+  zsh-completions
   zsh-syntax-highlighting
 )
 
