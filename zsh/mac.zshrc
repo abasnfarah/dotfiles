@@ -1,5 +1,12 @@
+# Go Enviroment/Path
+export GOBIN=/Users/abasfarah/go/bin
+export GOPATH=/Users/abasfarah/go
+
+export Path=$PATH:$GOBIN
+
 # Brew issues
 export PATH="/usr/local/sbin:$PATH"
+. ~/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
 
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/abasfarah/.oh-my-zsh
@@ -29,18 +36,21 @@ alias tmux="TERM=screen-256color tmux -2"
 
 # Meta Aliases
 alias subl="open -a sublime\ text"
+alias eprof="emacs ~/.zshrc"
 alias prof="vim ~/.zshrc"
 alias idle="open -a idle"
 alias reprof="clear && source ~/.zshrc"
 alias tree="tree -a"
 alias vprof="vim ~/.vimrc"
 alias v="vim"
+alias e="emacs"
 alias gpd="git push origin --delete "
-alias tprof="v ~/.tmux.conf"
+alias tprof="v ~/.tmux.conf"  
 #alias terprof="v ~/.config/termite/config"
 #alias rcprof="v ~/.config/awesome/rc.lua"
 #alias xprof="v ~/.xinitrc"
 alias wp=" cd ~/workspaces"
+alias p3="python3"
 #alias workon="source /Users/farah127/Documents/websiteEnv/bin/activate"
 
 # tmux aliases
@@ -49,11 +59,21 @@ alias ta="tmux a -t"
 alias tls="tmux ls"
 alias tkill="tmux kill-server"
 
-# Java Compiling and running
+# C++ C Java Compiling and running
 alias jc="javac"
 alias j="java"
 
+# Temp Aliases to open up textbooks
+alias math2243="open $HOME/Documents/2019_2020_SchoolYear/2019_Fall/Math2243_LinearAlgebraDiffEq/textbooks/Differential_Equations_Linear_Algebra.pdf"
+alias ee2015="open $HOME/Documents/2019_2020_SchoolYear/2019_Fall/EE2015_SigCircAndElec/textbooks/Electric_Circuits.pdf"
+alias see2015="open $HOME/Documents/2019_2020_SchoolYear/2019_Fall/EE2015_SigCircAndElec/textbooks/Solutions_Electric_Circuits.pdf"
+alias ee2301="open $HOME/Documents/2019_2020_SchoolYear/2019_Fall/EE2301_IntroToDigSysDesign/textbooks/Fundamentals_Of_Logic_Design.pdf"
+alias csci4041="open $HOME/Documents/2019_2020_SchoolYear/2019_Fall/CSCI2041_AlgAndDataStruc/textbooks/CLRS.pdf"
 # File jumping
+
+# GoLang Compiling and runing
+alias gor="go run"
+alias gob="go build"
 
 function StarWars {
     echo "Are you ready for some StarWars Brahh" && archey && sleep 2 && tree ~ && telnet towel.blinkenlights.nl 
@@ -134,3 +154,5 @@ source $ZSH/oh-my-zsh.sh
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"

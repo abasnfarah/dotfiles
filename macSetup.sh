@@ -68,8 +68,9 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 echo "Installing vim Plugins"
 vim +PluginInstall +qall
 
-echo "Installing zsh dotfiles..."
+echo "Installing zsh and tmux dotfiles..."
 cp zsh/mac.zshrc ~/.zshrc
+cp tmux/.tmux.conf ~/.tmux.conf
 sudo git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
  
 chsh -s $(which zsh)
