@@ -22,10 +22,11 @@ archey
 # screenfetch
 
 # Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
+
 # Tmux set up
 alias tmux="TERM=screen-256color tmux -2"
 
-# CASE_SENSITIVE="true"
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
@@ -77,6 +78,11 @@ alias gob="go build"
 
 function StarWars {
     echo "Are you ready for some StarWars Brahh" && archey && sleep 2 && tree ~ && telnet towel.blinkenlights.nl 
+}
+
+# Easy way to check for command_existing in shell scripts
+command_exists () {
+  type "$1" &> /dev/null ;
 }
 
 # Uncomment the following line to change how often to auto-update (in days).
