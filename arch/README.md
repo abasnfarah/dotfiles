@@ -1,10 +1,10 @@
 Arch Linux and Awesome WM Install Notes
 ===================
 So this install covers a fresh Arch Install with 
-windows ten duel boot. This is installed using UEFI 
-Firmware instead of BIOS firmware. It should work
-the same just without an EFI boot partition and 
-/mnt/boot mount. 
+windows 10 duel boot. 
+This is installed using UEFI instead of BIOS. 
+It should work the same just without an EFI boot partition and 
+the /mnt/boot mount. 
 
 Make sure you install Windows Before Arch. That way
 you don't pull your hair out.
@@ -15,8 +15,7 @@ you don't pull your hair out.
 If using Ethernet you can skip this step.
 
 Most laptops usually come with an atheros 
-wifi chipset included. If thats the case
-use wifi-menu then
+wifi chipset included. If that's the case, use wifi-menu 
 ```{r, engine='bash', count_lines}
 wifi-menu
 ping 8.8.8.8
@@ -71,13 +70,12 @@ Going to install archlinux base, linux and tools such as vim and vi.
 ```{r, engine='bash', count_lines}
 pacstrap /mnt base base-devel linux linux-firmware vim vi
 ```
-So after this the Arch is installed.
-We need to configure the system and install our desktop enviroment.
+So after installing Arch, we need to configure the system and install our desktop enviroment.
 
 
 # Configure the system
 
-### change hostname
+### 1. Change hostname
 ```{r, engine='bash', count_lines}
 hostnamectl set-hostname archbox
 ```
@@ -87,30 +85,30 @@ or
 echo archbox >> /mnt/etc/hostname
 ```
 
-### SetKeyboard Layout
-Keyboard is preset to US so no change needed. However, 
-if you want to know how to change to non-US keyboards
+### 2. SetKeyboard Layout
+Keyboard is preset to US,so no change needed. 
+However, if you want to know how to change to non-US keyboards
 check out [Arch Wiki for Details.](https://wiki.archlinux.org/index.php/installation_guide#Set_the_keyboard_layout)
 
-### generate fstab
+### 3. Generate fstab
 ```{r, engine='bash', count_lines}
 genfstab -U -p /mnt > /mnt/etc/fstab
 ```
 
-### Change to root and change root password
+### 4. Change to root and change root password
 ```{r, engine='bash', count_lines}
 arch-chroot /mnt /bin/bash
 passwd root
 ```
 
-### Setting timezone
+### 5. Setting timezone
 This sets timezone assuming central time. Change according to your local timezone.
 ```{r, engine='bash', count_lines}
 ln -s /usr/share/zoneinfo/America/Chicago /etc/localtime
 hwclock --systohc --utc
 ```
 
-### Setting locale 
+### 6. Setting locale 
 Uncomment en_US.UTF-8 UTF-8 and other needed localizations in /etc/locale.gen, and generate them.
 ```{r, engine='bash', count_lines}
 vim /etc/locale.gen
@@ -120,7 +118,7 @@ touch /etc/locale.conf                       # Create config locale file
 echo "LANG=en_US.UTF-8" >> /etc/locale.confi #Add our locale to config file
 ```
 
-### Installing Grub (Our Bootloader)
+### 7. Installing Grub (Our Bootloader)
 Make sure that your efi partition is mounted to /mnt/boot.
 if not run the command `mount /dev/sda# /mnt/boot` where # is your efi boot partition number.
 ```{r, engine='bash', count_lines}
@@ -133,13 +131,13 @@ grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
-### Enable dhcpd
+### 8. Enable dhcpd
 This is to make sure your ethernet works when you boot into ur arch.
 ```{r, engine='bash', count_lines}
 systemctl enable dhcpcd
 ```
 
-### Reboot into installed media
+### 9. Reboot into installed media
 umount -R unmounts the installed media recursivly. So both /mnt/home /mnt/boot and /mnt
 would be unmounted.
 
@@ -151,7 +149,7 @@ reboot
 ```
 On reboot windows isn't present but don't worry it will after some configuration.
 
-### Making Windows visable to grub
+### 10. Making Windows visable to grub
 In order to make windows visable in grub bootloader you need a package called
 OS-Prober. Install:
 ```{r, engine='bash', count_lines}
@@ -164,13 +162,13 @@ reboot
 ```
 # Post Installation ==> Installing Awesome WM and Light Display Manager
 
-### Updating Pacman and installing sudo
+### 1. Updating Pacman and installing sudo
 ```{r, engine='bash', count_lines}
 pacman -Syu
 pacman -S sudo
 ```
 
-### setup user
+### 2. Setup user
 ```{r, engine='bash', count_lines}
 groupadd sudo
 
@@ -181,7 +179,7 @@ visudo # give user sudo privlages
 when doing `visudo` make sure to uncomment the `%sudo` line.
 Log out and login to new user; in my case abas.
 
-### Xorg utilities and mesa 
+### 3. Xorg utilities and mesa 
 xf86-video-vesa has the nvideo drivers for GTX graphic cards. IE GTX3080. 
 Make sure that urs matches.
 ```{r, engine='bash', count_lines}
@@ -189,13 +187,13 @@ sudo pacman -S xorg xorg-server mesa
 sudo pacman -S xf86-video-vesa
 ```
 
-### build utilities
+### 4. Build utilities
 ```{r, engine='bash', count_lines}
 sudo pacman -S git wget curl 
 pacman -S multilib-devel fakeroot jshon make pkg-config autoconf automake patch
 ```
 
-### installing yay and all of it's dependencies
+### 5. Installing yay and all of it's dependencies
 ```{r, engine='bash', count_lines}
 git clone https://aur.archlinux.org/yay.git
 cd yay 
@@ -204,7 +202,7 @@ cd ..
 rm -rf yay
 ```
 
-### Pulseaudio and Alsa sound utilities 
+### 6. Pulseaudio and Alsa sound utilities 
 pacmixer is our frontend for managing our audio input/output.
 ```{r, engine='bash', count_lines}
 yay -S alsa-lib alsa-utils alsa-oss alsa-plugins
@@ -212,17 +210,17 @@ yay -S pulseaudio
 yay -S pacmixer
 ```
 
-### Installing neofetch 
+### 7. Installing neofetch 
 ```{r, engine='bash',count_lines}
 yay -S neofetch
 ```
 
-### installing xorg
+### 8. Installing xorg
 ```{r, engine='bash', count_lines}
 yay -S xorg xterm xorg-twm xorg-xclock
 ```
 
-### installing and setting up awesome
+### 9. Installing and setting up awesome
 The ttf installes are fonts for awesome.
 when changing `~/.xinitrc` make it match the `.xinitrc` file on github.
 ```{r, engine='bash', count_lines}
@@ -236,7 +234,7 @@ cp -r /usr/share/awesome/* .config/awesome/
 sudo yay -S rxvt-unicode pcmanfm
 ```
 
-### installing lightDm as our login manager 
+### 10. Installing lightDm as our login manager 
 ```{r, engine='bash', count_lines}
 yay -S lightdm
 yay -S lightdm-webkit-theme-litarvin #This is our greeter
