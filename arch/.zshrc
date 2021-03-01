@@ -3,10 +3,18 @@ export ZSH=/home/abas/.oh-my-zsh
 export EDITOR=/usr/bin/vim
 export LANG=en_US.UTF-8
 #xmodmap .xmodmap
+
+# system clock settings
+#ntpd -qg
+#hwclock --systohc
+# mapping caps lock to escape
+setxkbmap -option caps:escape &
+
+# Compton command for transparent terminal
 compton -cb
+
 export TERM="xterm-256color"
-eval $(ssh-agent)
-eval $(opam config env) # Ocaml Compiler
+#eval $(ssh-agent)
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -15,12 +23,12 @@ eval $(opam config env) # Ocaml Compiler
 # ZSH_THEME="norm"
 ZSH_THEME="agnoster"
 #ZSH_THEME="powerlevel9k/powerlevel9k"
-archey
+archey3
 # screenfetch
 
 # powerline tools fr zsh
 #. {repository_root}/powerline/bindings/zsh/powerline.zsh
-. /usr/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
+. /usr/lib/python3.8/site-packages/powerline/bindings/zsh/powerline.zsh
 
 # Uncomment the following line to use case-sensitive completion.
 # Tmux set up
@@ -42,6 +50,7 @@ alias idle="open -a idle"
 alias reprof="clear && source ~/.zshrc"
 alias tree="tree -a"
 alias vprof="vim ~/.vimrc"
+alias aprof="vim ~/.config/awesome/rc.lua"
 alias v="vim"
 alias gpd="git push origin --delete "
 alias tprof="v ~/.tmux.conf"
@@ -130,7 +139,3 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# OPAM configuration
-
-# opam configuration
-test -r /home/abas/.opam/opam-init/init.zsh && . /home/abas/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
