@@ -39,7 +39,7 @@ you don't pull your hair out.
     8. [Installing xorg](#xorg)
     9. [Setup Awesome (Window Manager)](#awesome)
    10. [Installing Lightdm](#lightdm)
-5. [Startup GUI](#starx)
+5. [Startup GUI](#startx)
 
 
 # Pre Installation <a name="preInstall"></a>
