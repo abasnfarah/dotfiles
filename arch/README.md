@@ -9,9 +9,51 @@ the /mnt/boot mount.
 Make sure you install Windows Before Arch. That way
 you don't pull your hair out.
 
-# Pre Installation
+## Table of Contents
+1. [Pre Install](#preInstall)
+    1. [Network Configuration](#network)
+    2. [Partitioning Disks](#partition)
+    3. [Formating Disk Partitioning](#format)
+    4. [Mount the File System](#mount)
+    5. [OPTIONAL: Change mirror list](#mirror)
+2. [Installing Arch](#install)
+3. [Configure the System](#config)
+    1. [Change Hostname](#hostname)
+    2. [Set Keyboard Layout](#keyboard)
+    3. [Generate fstab](#fstab)
+    4. [Setup Root Password](#root)
+    5. [Setup Timezone](#time)
+    6. [Setup Locale](#locale)
+    7. [Install Grub (Bootloader)](#grub)
+    8. [Enable dhcpcd](#dhcpcd)
+    9. [Reboot Into Installed Media](#reboot)
+   10. [Making Windows Visable to Grub](#windows)
+4. [Post Install](#postInstall)
+    1. [Installing Sudo](#sudo)
+    2. [Setup User](#user)
+    3. [Setup Graphics](#graphic)
+    4. [Instal Build Utilities](#utils)
+    5. [Install Yay (Package Manager)](#yay)
+    6. [Setup Audio with Pulseaudio](#sound)
+    7. [Install Neofetch](#neofetch)
+    8. [Installing xorg](#xorg)
+    9. [Setup Awesome (Window Manager)](#awesome)
+   10. [Installing Lightdm](#lightdm)
+5. [Startup GUI](#starx)
 
-### 1. Network configuration
+
+# Pre Installation <a name="preInstall"></a>
+
+### 1. Network configuration <a name="network"></a>
+
+If using Ethernet you can skip this step.
+5. [Startup GUI](#starx)
+
+
+# Pre Installation <a name="preInstall"></a>
+
+### 1. Network configuration <a name="network"></a>
+
 If using Ethernet you can skip this step.
 
 Most laptops usually come with an atheros 
@@ -21,7 +63,8 @@ wifi-menu
 ping 8.8.8.8
 ```
 
-### 2. Partitioning disks
+### 2. Partitioning Disks <a name="partition"></a>
+
 #### Make Swap and Linux Filesystem
 partition scheme should be the following 
 | partitions                                |
@@ -33,7 +76,7 @@ partition scheme should be the following
 cfdisk
 ```
 
-### 3. Formating disk partitions
+### 3. Formating disk partitions <a name="format"></a>
 the sda numbers can be different
 ```{r, engine='bash', count_lines}
 mkfs.btrfs /dev/sda1 #linux filesystem
@@ -41,14 +84,14 @@ mkswap /dev/sda3     #linux swap
 swapon /dev/sda3
 ```
 
-### 4. Mount the file System
+### 4. Mount the file System <a name="mount"></a>
 ```{r, engine='bash', count_lines}
 mount /dev/sda1 /mnt      #linux filesystem
 mkdir /mnt/{boot,home}
 mount /dev/sda2 /mnt/boot #this should be the EFI partition
 ```
 
-### 5. Change mirror list - can skip see below 
+### 5. Change mirror list - can skip see below <a name="mirror"></a>
 
 #### Top 3 mirrors
 | Mirrors               |
@@ -65,7 +108,7 @@ To change enter command:
 vim /etc/pacman.d/mirrorlist
 ```
 
-# Installation 
+# Installation <a name="install"></a>
 Going to install archlinux base, linux and tools such as vim and vi.
 ```{r, engine='bash', count_lines}
 pacstrap /mnt base base-devel linux linux-firmware vim vi
@@ -73,9 +116,9 @@ pacstrap /mnt base base-devel linux linux-firmware vim vi
 So after installing Arch, we need to configure the system and install our desktop enviroment.
 
 
-# Configure the system
+# Configure the system<a name="config"></a>
 
-### 1. Change hostname
+### 1. Change hostname <a name="hostname"></a>
 ```{r, engine='bash', count_lines}
 hostnamectl set-hostname archbox
 ```
@@ -85,30 +128,30 @@ or
 echo archbox >> /mnt/etc/hostname
 ```
 
-### 2. SetKeyboard Layout
+### 2. SetKeyboard Layout <a name="keyboard"></a>
 Keyboard is preset to US,so no change needed. 
 However, if you want to know how to change to non-US keyboards
 check out [Arch Wiki for Details.](https://wiki.archlinux.org/index.php/installation_guide#Set_the_keyboard_layout)
 
-### 3. Generate fstab
+### 3. Generate fstab <a name="fstab"></a>
 ```{r, engine='bash', count_lines}
 genfstab -U -p /mnt > /mnt/etc/fstab
 ```
 
-### 4. Change to root and change root password
+### 4. Change to root and change root password<a name="root"></a>
 ```{r, engine='bash', count_lines}
 arch-chroot /mnt /bin/bash
 passwd root
 ```
 
-### 5. Setting timezone
+### 5. Setting timezone<a name="time"></a>
 This sets timezone assuming central time. Change according to your local timezone.
 ```{r, engine='bash', count_lines}
 ln -s /usr/share/zoneinfo/America/Chicago /etc/localtime
 hwclock --systohc --utc
 ```
 
-### 6. Setting locale 
+### 6. Setting locale <a name="locale"></a>
 Uncomment en_US.UTF-8 UTF-8 and other needed localizations in /etc/locale.gen, and generate them.
 ```{r, engine='bash', count_lines}
 vim /etc/locale.gen
@@ -118,7 +161,7 @@ touch /etc/locale.conf                       # Create config locale file
 echo "LANG=en_US.UTF-8" >> /etc/locale.confi #Add our locale to config file
 ```
 
-### 7. Installing Grub (Our Bootloader)
+### 7. Installing Grub (Our Bootloader)<a name="grub"></a>
 Make sure that your efi partition is mounted to /mnt/boot.
 if not run the command `mount /dev/sda# /mnt/boot` where # is your efi boot partition number.
 ```{r, engine='bash', count_lines}
@@ -131,13 +174,13 @@ grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
-### 8. Enable dhcpd
+### 8. Enable dhcpcd<a name="dhcpcd"></a>  
 This is to make sure your ethernet works when you boot into ur arch.
 ```{r, engine='bash', count_lines}
 systemctl enable dhcpcd
 ```
 
-### 9. Reboot into installed media
+### 9. Reboot into installed media<a name="reboot"></a>
 umount -R unmounts the installed media recursivly. So both /mnt/home /mnt/boot and /mnt
 would be unmounted.
 
@@ -149,7 +192,7 @@ reboot
 ```
 On reboot windows isn't present but don't worry it will after some configuration.
 
-### 10. Making Windows visable to grub
+### 10. Making Windows visable to grub<a name="windows"></a>
 In order to make windows visable in grub bootloader you need a package called
 OS-Prober. Install:
 ```{r, engine='bash', count_lines}
@@ -160,15 +203,15 @@ Now we have to update grub.cfg and reboot to check if windows appear.
 grub-mkconfig -o /boot/grub/grub.cfg
 reboot
 ```
-# Post Installation ==> Installing Awesome WM and Light Display Manager
+# Post Installation ==> Installing Awesome WM and Light Display Manager<a name="postInstall"></a>
 
-### 1. Updating Pacman and installing sudo
+### 1. Updating Pacman and installing sudo<a name="sudo"></a>
 ```{r, engine='bash', count_lines}
 pacman -Syu
 pacman -S sudo
 ```
 
-### 2. Setup user
+### 2. Setup user<a name="user"></a>
 ```{r, engine='bash', count_lines}
 groupadd sudo
 
@@ -179,7 +222,7 @@ visudo # give user sudo privlages
 when doing `visudo` make sure to uncomment the `%sudo` line.
 Log out and login to new user; in my case abas.
 
-### 3. Xorg utilities and mesa 
+### 3. Xorg utilities and video drivers<a name="graphic"></a>
 xf86-video-vesa has the nvideo drivers for GTX graphic cards. IE GTX3080. 
 Make sure that urs matches.
 ```{r, engine='bash', count_lines}
@@ -187,13 +230,13 @@ sudo pacman -S xorg xorg-server mesa
 sudo pacman -S xf86-video-vesa
 ```
 
-### 4. Build utilities
+### 4. Build utilities<a name="utils"></a>
 ```{r, engine='bash', count_lines}
 sudo pacman -S git wget curl 
 pacman -S multilib-devel fakeroot jshon make pkg-config autoconf automake patch
 ```
 
-### 5. Installing yay and all of it's dependencies
+### 5. Installing yay and all of it's dependencies<a name="yay"></a>
 ```{r, engine='bash', count_lines}
 git clone https://aur.archlinux.org/yay.git
 cd yay 
@@ -202,7 +245,7 @@ cd ..
 rm -rf yay
 ```
 
-### 6. Pulseaudio and Alsa sound utilities 
+### 6. Pulseaudio and Alsa sound utilities <a name="sound"></a>
 pacmixer is our frontend for managing our audio input/output.
 ```{r, engine='bash', count_lines}
 yay -S alsa-lib alsa-utils alsa-oss alsa-plugins
@@ -210,17 +253,17 @@ yay -S pulseaudio
 yay -S pacmixer
 ```
 
-### 7. Installing neofetch 
+### 7. Installing neofetch <a name="neofetch"></a>
 ```{r, engine='bash',count_lines}
 yay -S neofetch
 ```
 
-### 8. Installing xorg
+### 8. Installing xorg<a name="xorg"></a>
 ```{r, engine='bash', count_lines}
 yay -S xorg xterm xorg-twm xorg-xclock
 ```
 
-### 9. Installing and setting up awesome
+### 9. Installing and setting up awesome<a name="awesome"></a>
 The ttf installes are fonts for awesome.
 when changing `~/.xinitrc` make it match the `.xinitrc` file on github.
 ```{r, engine='bash', count_lines}
@@ -234,7 +277,7 @@ cp -r /usr/share/awesome/* .config/awesome/
 sudo yay -S rxvt-unicode pcmanfm
 ```
 
-### 10. Installing lightDm as our login manager 
+### 10. Installing lightdm as our login manager <a name="lightdm"></a>
 ```{r, engine='bash', count_lines}
 yay -S lightdm
 yay -S lightdm-webkit-theme-litarvin #This is our greeter
@@ -242,7 +285,7 @@ systemctl enable lightdm
 ```
 
 
-# Start up your GUI to see the magic
+# Start up your GUI to see the magic<a name="startx"></a>
 ```{r, engine='bash', count_lines}
 startx
 ```
