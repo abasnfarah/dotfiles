@@ -9,9 +9,9 @@ the same just without an EFI boot partition and
 Make sure you install Windows Before Arch. That way
 you don't pull your hair out.
 
-# Base Installation
+# Pre Installation
 
-### Network configuration
+### 1. Network configuration
 If using Ethernet you can skip this step.
 
 Most laptops usually come with an atheros 
@@ -22,27 +22,34 @@ wifi-menu
 ping 8.8.8.8
 ```
 
-## Partitioning disks
+### 2. Partitioning disks
 #### Make Swap and Linux Filesystem
+partition scheme should be the following 
+| partitions                                |
+| :----------------------------------------:|
+| efi partition created by windows          |
+| linux swap should be 2x size of memory    |
+| linux filesystem remainig available space |
 ```{r, engine='bash', count_lines}
 cfdisk
 ```
 
-## Formating disk partitions
+### 3. Formating disk partitions
+the sda numbers can be different
 ```{r, engine='bash', count_lines}
-mkfs.btrfs /dev/sda1
-mkswap /dev/sda3
+mkfs.btrfs /dev/sda1 #linux filesystem
+mkswap /dev/sda3     #linux swap
 swapon /dev/sda3
 ```
 
-## Mount the file System
+### 4. Mount the file System
 ```{r, engine='bash', count_lines}
-mount /dev/sda1 /mnt
+mount /dev/sda1 /mnt      #linux filesystem
 mkdir /mnt/{boot,home}
-mount /dev/sda2 /mnt/boot #sda2 is the EFI partition
+mount /dev/sda2 /mnt/boot #this should be the EFI partition
 ```
 
-## Change mirror list
+### 5. Change mirror list - can skip see below
 
 #### Top 3 mirrors
 | Mirrors               |
@@ -51,21 +58,25 @@ mount /dev/sda2 /mnt/boot #sda2 is the EFI partition
 | mirror.neotuli.net    |
 | mirror.rit.edu        |
 
+However this step is largely useless. 
+Once connected to internet `reflector` will update mirror list automaticallly
+
 To change enter command:
 ```{r, engine='bash', count_lines}
 vim /etc/pacman.d/mirrorlist
 ```
 
-## Install archlinux base system
+# Installation 
 ```{r, engine='bash', count_lines}
 pacstrap /mnt base base-devel
 ```
-So after this the Arch is installed and just needs to be
-configured for grub boot loader. 
+So after this the Arch is installed.
+We need to configure the system and install Desktop enviroment.
+
 
 # Configure the system
 
-## change hostname
+### change hostname
 ```{r, engine='bash', count_lines}
 hostnamectl set-hostname archbox
 ```
@@ -75,23 +86,23 @@ or
 echo Arch >> /mnt/etc/hostname
 ```
 
-## SetKeyboard Layout
+### SetKeyboard Layout
 Keyboard is preset to US so no change needed. However, 
 if you want to know how to change to non-US keyboards
 check out [Arch Wiki for Details.](https://wiki.archlinux.org/index.php/installation_guide#Set_the_keyboard_layout)
 
-## generate fstab
+### generate fstab
 ```{r, engine='bash', count_lines}
 genfstab -U -p /mnt > /mnt/etc/fstab
 ```
 
-## Change to root and change root password
+### Change to root and change root password
 ```{r, engine='bash', count_lines}
 arch-chroot /mnt /bin/bash
 passwd root
 ```
 
-## Setting locale and timezone
+### Setting locale and timezone
 Uncomment en_US.UTF-8 UTF-8 and other needed localizations in /etc/locale.gen, and generate them.
 ```{r, engine='bash', count_lines}
 vim /etc/locale.gen
@@ -100,7 +111,7 @@ ln -s /usr/share/zoneinfo/America/Chicago /etc/localtime
 hwclock --systohc --utc
 ```
 
-## Installing Grub
+### Installing Grub
 logout then do this
 ```{r, engine='bash', count_lines}
 pacstrap /mnt grub
@@ -111,12 +122,12 @@ grub-mkconfig -o /boot/grub/grub.cfg
 grub-install --target=x86_64-efi --efi-directory=/boot --recheck /dev/sda
 ```
 
-## Enable dhcpd
+### Enable dhcpd
 ```{r, engine='bash', count_lines}
 systemctl enable dhcpcd
 ```
 
-## Reboot into installed media
+### Reboot into installed media
 umount -R unmounts the installed media recursivly. So both /mnt/home /mnt/boot and /mnt
 would be unmounted.
 
@@ -128,7 +139,7 @@ reboot
 ```
 On reboot windows isn't present but don't worry it will after some configuration.
 
-## Making Windows visable to grub
+### Making Windows visable to grub
 In order to make windows visable in grub bootloader you need a package called
 OS-Prober. Install:
 ```{r, engine='bash', count_lines}
@@ -139,21 +150,21 @@ Now we have to update grub.cfg and reboot to check if windows appear.
 grub-mkconfig -o /boot/grub/grub.cfg
 reboot
 ```
-# Post Installation ==> Installing Awesome WM and Slim Login Manager
+# Post Installation ==> Installing Awesome WM and Light Display Manager
 
-## Updating Pacman and installing sudo
+### Updating Pacman and installing sudo
 ```{r, engine='bash', count_lines}
 pacman -Syu
 pacman -S sudo
 ```
 
-## Enable 64-bit compatability
+### Enable 64-bit compatability
 ```{r, engine='bash', count_lines}
 vim /etc/pacman.conf # enable multilib
 pacman -Syu
 ```
 
-## setup user
+### setup user
 ```{r, engine='bash', count_lines}
 useradd -m -g users -s /bin/bash abas
 passwd abas
@@ -161,19 +172,19 @@ visudo # give user sudo privlages
 ```
 Log out and login to new user; in my case abas.
 
-## Xorg utilities and mesa 
+### Xorg utilities and mesa 
 ```{r, engine='bash', count_lines}
 sudo pacman -S xorg-server xorg-xinit mesa
 sudo pacman -S xf86-video-vesa
 ```
-## Alsa sound utilities AND tff
+### Alsa sound utilities AND tff
 ```{r, engine='bash', count_lines}
 sudo pacman -S alsa-lib alsa-utils alsa-oss alsa-plugins
 sudo pacman -S tff-droid tff-dejavu tff-liberation
 sudo pacman -S git wget yajl
 ```
 
-## build utilities
+### build utilities
 ```{r, engine='bash', count_lines}
 pacman -S multilib-devel fakeroot jshon make pkg-config autoconf automake patch
 wget http://aur.archlinux.org/packages/pa/packer/packer.tar.gz
@@ -182,12 +193,12 @@ cd packer && makepkg
 pacman -U packer<TAB>
 ```
 
-## installing xorg
+### installing xorg
 ```{r, engine='bash', count_lines}
 pacman -S xorg xterm xorg-twm xorg-xclock
 ```
 
-## installing yaourt and all of it's dependencies
+### installing yay and all of it's dependencies
 ```{r, engine='bash', count_lines}
 git clone https://aur.archlinux.org/package-query.git
 git clone https://aur.archlinux.org/yaourt.git
@@ -197,19 +208,19 @@ cd ../yaourt
 makepkg -ci
 ```
 
-## Installing archey3
+### Installing neofetch 
 ```{r, engine='bash',count_lines}
-yaourt -S archey3
+yay -S neofetch
 ```
 
-## installing slim login manager
+### installing slim login manager
 ```{r, engine='bash', count_lines}
 sudo pacman -S slim
 sudo systemctl enable slim.service
 
 ```
 
-## installing and setting up awesome
+### installing and setting up awesome
 ```{r, engine='bash', count_lines}
 sudo pacman -S awesome
 cp /etc/X11/xinit/xinitrc ~/.xinitrc
@@ -220,7 +231,7 @@ cp -r /usr/share/awesome/* .config/awesome/
 sudo pacman -S rxvt-unicode pcmanfm
 ```
 
-# Start up your GUI
+# Start up your GUI to see the magic
 ```{r, engine='bash', count_lines}
 startx
 ```
