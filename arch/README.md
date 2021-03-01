@@ -226,8 +226,8 @@ Log out and login to new user; in my case abas.
 xf86-video-vesa has the nvideo drivers for GTX graphic cards. IE GTX3080. 
 Make sure that urs matches.
 ```{r, engine='bash', count_lines}
-sudo pacman -S xorg xorg-server mesa
-sudo pacman -S xf86-video-vesa
+sudo pacman -S xorg xorg-server xorg-server xorg-xinit xorg-apps mesa
+sudo pacman -S xf86-video-nouveau nvidia
 ```
 
 ### 4. Build utilities<a name="utils"></a>
