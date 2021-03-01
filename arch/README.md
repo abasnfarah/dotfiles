@@ -268,7 +268,7 @@ The ttf installes are fonts for awesome.
 when changing `~/.xinitrc` make it match the `.xinitrc` file on github.
 ```{r, engine='bash', count_lines}
 yay -S awesome
-yay -S tff-droid tff-dejavu tff-liberation
+yay -S ttf-droid ttf-dejavu ttf-liberation
 git clone https://github.com/abasnfarah/dotfiles.git
 cp ./dotfiles/arch/.xinitrc ~/.xinitrc
 mkdir -p .config/awesome
