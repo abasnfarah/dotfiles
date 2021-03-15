@@ -14,7 +14,7 @@ or install to install on mac using [homebrew](https://brew.sh/)
 `brew install vim`
 
 #### Screenshot of vim setup
-![alt text](https://raw.githubusercontent.com/abasnfarah/dotfiles/master/Vim_ScreenShot.png "Vim Setup")
+![alt text](images/vimScreenshot.png "Vim Setup")
 
  
 ## Zsh configuration
@@ -32,7 +32,7 @@ To change primary shell to zsh run
 `chsh -s $(which zsh)`
 
 #### ScreenShot of zsh setup
-![alt text](https://raw.githubusercontent.com/abasnfarah/dotfiles/master/Zsh_ScreenShot.png "Zsh Setup")
+![alt text](images/zshAndTmuxScreenshot.png "Zsh and Tmux Setup")
 
 To run enter `. ~/dotfiles/zshconfig.sh` on your console 
 
