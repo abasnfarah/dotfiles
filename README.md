@@ -7,6 +7,7 @@ TODO: Will create Shell file to install zsh, oh-my-zsh, brew, vim, tmux, tree, n
 My vim config uses the following plugins
 vim Plug
 
+
 ### Requirements 
 1. vim
 To install vim on arch run 
