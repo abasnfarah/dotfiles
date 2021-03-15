@@ -1,10 +1,11 @@
 # Dot Files
 
-#Installation
-Currently working on installation shell files.
+# Installation
+TODO: Will create Shell file to install zsh, oh-my-zsh, brew, vim, tmux, tree, neofetch, etc
 
 ## Vim configuration  
-My vim config uses vim Plug
+My vim config uses the following plugins
+vim Plug
 
 ### Requirements 
 1. vim

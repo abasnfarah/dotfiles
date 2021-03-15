@@ -1,5 +1,0 @@
-defaults.pcm.card 2
-defaults.pcm.device 8
-defaults.ctl.card 2
-defaults.ctl.device 8
-
