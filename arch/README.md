@@ -280,7 +280,7 @@ sudo yay -S rxvt-unicode pcmanfm
 ### 10. Installing lightdm as our login manager <a name="lightdm"></a>
 ```{r, engine='bash', count_lines}
 yay -S lightdm
-yay -S lightdm-webkit-theme-litarvin #This is our greeter
+yay -S lightdm-webkit-theme-litarvan #This is our greeter
 systemctl enable lightdm
 ```
 

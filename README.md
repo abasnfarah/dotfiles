@@ -1,11 +1,12 @@
-# Dev Setup
+# Dot Files
 
-#Installation
-Installing these dotfiles on a mac is super easy. Just `git clone https://github.com/abasnfarah/dotfiles` and go ahead and run the script ` ./macSetup.sh` or `source macSetup.sh`
+# Installation
+TODO: Will create Shell file to install zsh, oh-my-zsh, brew, vim, tmux, tree, neofetch, etc
 
 ## Vim configuration  
-My vim config uses Vundle
-To config vim like mine run this vimConfig.sh on your mac or linux machine
+My vim config uses the following plugins
+vim Plug
+
 ### Requirements 
 1. vim
 To install vim on arch run 
@@ -14,16 +15,9 @@ or install to install on mac using [homebrew](https://brew.sh/)
 `brew install vim`
 
 #### Screenshot of vim setup
-![alt text](https://raw.githubusercontent.com/abasnfarah/dotfiles/master/Vim_ScreenShot.png "Vim Setup")
+![alt text](images/vimScreenshot.png "Vim Setup")
 
-to run enter `. ~/dotfiles/vimconfig.sh` on your console.
-
-What this accomplishes:
-
-| Installed | Reason                                      | Code Run                                                                       |
-|:---------:|:-------------------------------------------:|:------------------------------------------------------------------------------:|
-|Vundle     |Themes and useful vim tools such as NERDTree.|`git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim`| 
-  
+ 
 ## Zsh configuration
 My zsh config uses oh-my-zsh themes and built in commands namely for git and tmux
 
@@ -39,7 +33,7 @@ To change primary shell to zsh run
 `chsh -s $(which zsh)`
 
 #### ScreenShot of zsh setup
-![alt text](https://raw.githubusercontent.com/abasnfarah/dotfiles/master/Zsh_ScreenShot.png "Zsh Setup")
+![alt text](images/zshAndTmuxScreenshot.png "Zsh and Tmux Setup")
 
 To run enter `. ~/dotfiles/zshconfig.sh` on your console 
 

@@ -18,14 +18,19 @@ export TERM="screen-256color"
 # time that oh-my-zsh is loaded.
 ZSH_THEME="powerlevel10k/powerlevel10k"
 #ZSH_THEME="powerlevel9k/powerlevel9k"
-archey
+#archey
+ssh-add ~/.ssh/id_rsa
+ssh-add ~/.ssh/id_rsa_umn
 # screenfetch
+clear
+neofetch
 
 # Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
+
 # Tmux set up
 alias tmux="TERM=screen-256color tmux -2"
 
-# CASE_SENSITIVE="true"
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
@@ -36,22 +41,21 @@ alias tmux="TERM=screen-256color tmux -2"
 
 # Meta Aliases
 alias subl="open -a sublime\ text"
+alias och="open -a /Applications/Google\ Chrome.app"
 alias eprof="emacs ~/.zshrc"
 alias prof="vim ~/.zshrc"
-alias idle="open -a idle"
 alias reprof="clear && source ~/.zshrc"
-alias tree="tree -a"
+alias tree="tree -a -I '.git*'"
 alias vprof="vim ~/.vimrc"
+alias tprof="v ~/.tmux.conf"  
 alias v="vim"
 alias e="emacs"
 alias gpd="git push origin --delete "
-alias tprof="v ~/.tmux.conf"  
 #alias terprof="v ~/.config/termite/config"
 #alias rcprof="v ~/.config/awesome/rc.lua"
 #alias xprof="v ~/.xinitrc"
 alias wp=" cd ~/workspaces"
 alias p3="python3"
-#alias workon="source /Users/farah127/Documents/websiteEnv/bin/activate"
 
 # tmux aliases
 alias ts="tmux new -s"
@@ -64,19 +68,17 @@ alias jc="javac"
 alias j="java"
 alias gcpp="g++ -std=c++11"
 
-# Temp Aliases to open up textbooks
-alias math2374="open $HOME/Documents/2019_2020_SchoolYear/2020_Spring/MATH_2374/textbook/Text_Math_2374.pdf"
-alias ee2115="open $HOME/Documents/2019_2020_SchoolYear/2020_Spring/EE_2115/textbook/Electric_Circuits.pdf"
-alias see2115="open $HOME/Documents/2019_2020_SchoolYear/2020_Spring/EE_2115/textbook/Solutions_Electric_Circuits.pdf"
-alias algoBook="open $HOME/Documents/2019_2020_SchoolYear/2019_Fall/CSCI2041_AlgAndDataStruc/textbooks/CLRS.pdf"
-# File jumping
-
 # GoLang Compiling and runing
 alias gor="go run"
 alias gob="go build"
 
 function StarWars {
     echo "Are you ready for some StarWars Brahh" && archey && sleep 2 && tree ~ && telnet towel.blinkenlights.nl 
+}
+
+# Easy way to check for command_existing in shell scripts
+command_exists () {
+  command -v "$1" >/dev/null 2>&1
 }
 
 # Uncomment the following line to change how often to auto-update (in days).
