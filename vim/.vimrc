@@ -22,8 +22,9 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " File tree 
 Plug 'scrooloose/nerdtree'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'iamcco/markdown-preview.nvim' 
 
+" Markdown Preview
+Plug 'iamcco/markdown-preview.nvim' 
 
 " git integration
 Plug 'Xuyuanp/nerdtree-git-plugin'
