@@ -1,11 +1,71 @@
 # Dot Files
 
 # Installation
-TODO: Will create Shell file to install zsh, oh-my-zsh, brew, vim, tmux, tree, neofetch, etc
+To install on mac do the following
+```bash
+git clone https://github.com/abasnfarah/dotfiles.git
+./macSetup.sh
+```
 
-## Vim configuration  
+To install on arch do the following
+```bash
+git clone https://github.com/abasnfarah/dotfiles.git
+./archSetup.sh
+```
+
+### Arch Install
+If looking for a step by step guide to install Arch w/ UEFI go to [Arch Install Guide](./arch/README.md)
+
+## Vim and TMUX config
+
+#### Screenshot of vim and TMUX setup
+![alt text](images/vimScreenshot.png "Vim Setup")
+
 My vim config uses the following plugins
-vim Plug
+
+```vim
+" vim Plug
+
+" Completion handler
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Plug 'neoclide/coc.nvim', { 'branch': 'master', 'do': 'yarn install --frozen-lockfile' }
+
+" Go plugin for vim development
+"Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
+" File tree 
+Plug 'scrooloose/nerdtree'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+
+" Markdown Preview
+Plug 'iamcco/markdown-preview.nvim' 
+
+" git integration
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'airblade/vim-gitgutter'
+
+" Themes and icons
+Plug 'ryanoasis/vim-devicons'
+Plug 'flazz/vim-colorschemes'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'morhetz/gruvbox'
+Plug 'sonph/onehalf', { 'rtp': 'vim' }
+Plug 'vim-python/python-syntax'
+
+" fuzzy file finder
+Plug 'ctrlpvim/ctrlp.vim' 
+
+" Commenter 
+Plug 'preservim/nerdcommenter'
+
+" JSX
+"Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+
+" Tmux and vim integration
+Plug 'christoomey/vim-tmux-navigator'
+```
+
 
 ### Requirements 
 1. vim
@@ -13,9 +73,6 @@ To install vim on arch run
 `sudo pacman -S vim`
 or install to install on mac using [homebrew](https://brew.sh/)
 `brew install vim`
-
-#### Screenshot of vim setup
-![alt text](images/vimScreenshot.png "Vim Setup")
 
  
 ## Zsh configuration
