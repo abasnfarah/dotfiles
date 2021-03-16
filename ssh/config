@@ -1,0 +1,11 @@
+# Default github account: github.com
+Host github.com
+   HostName github.com
+   User git
+   IdentityFile ~/.ssh/id_rsa
+   
+# Other github account: github.umn.edu 
+Host umn.edu
+   HostName github.umn.edu
+   User git
+   IdentityFile ~/.ssh/id_rsa_umn

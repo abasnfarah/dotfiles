@@ -105,6 +105,4 @@ This is the primary way to install vim and zsh dotfiles.
 This repository hosts many other dotfiles config files but those are the main ones.  
 Feel free to copy my dotfiles or change them to match your own personal setup. 
 
-Thanks  
-Abas Farah
 

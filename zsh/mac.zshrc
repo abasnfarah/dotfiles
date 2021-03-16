@@ -18,6 +18,9 @@ export TERM="screen-256color"
 # time that oh-my-zsh is loaded.
 ZSH_THEME="powerlevel10k/powerlevel10k"
 #ZSH_THEME="powerlevel9k/powerlevel9k"
+
+source ~/.aliases
+
 #archey
 ssh-add ~/.ssh/id_rsa
 ssh-add ~/.ssh/id_rsa_umn
@@ -28,50 +31,12 @@ neofetch
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
-# Tmux set up
-alias tmux="TERM=screen-256color tmux -2"
-
-
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
 # HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.lias
 # DISABLE_AUTO_UPDATE="true"
-
-# Meta Aliases
-alias subl="open -a sublime\ text"
-alias och="open -a /Applications/Google\ Chrome.app"
-alias eprof="emacs ~/.zshrc"
-alias prof="vim ~/.zshrc"
-alias reprof="clear && source ~/.zshrc"
-alias tree="tree -a -I '.git*'"
-alias vprof="vim ~/.vimrc"
-alias tprof="v ~/.tmux.conf"  
-alias v="vim"
-alias e="emacs"
-alias gpd="git push origin --delete "
-#alias terprof="v ~/.config/termite/config"
-#alias rcprof="v ~/.config/awesome/rc.lua"
-#alias xprof="v ~/.xinitrc"
-alias wp=" cd ~/workspaces"
-alias p3="python3"
-
-# tmux aliases
-alias ts="tmux new -s"
-alias ta="tmux a -t"
-alias tls="tmux ls"
-alias tkill="tmux kill-server"
-
-# C++ C Java Compiling and running
-alias jc="javac"
-alias j="java"
-alias gcpp="g++ -std=c++11"
-
-# GoLang Compiling and runing
-alias gor="go run"
-alias gob="go build"
-
 function StarWars {
     echo "Are you ready for some StarWars Brahh" && archey && sleep 2 && tree ~ && telnet towel.blinkenlights.nl 
 }

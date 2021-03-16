@@ -5,6 +5,10 @@ sleep .5
 echo "..."
 sleep .5
 
+command_exists () {
+  command -v "$1" >/dev/null 2>&1
+}
+
 # Check for Homebrew, install if we don't have it
 if command_exits brew; then
     echo "Installing homebrew..."
@@ -12,71 +16,23 @@ if command_exits brew; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 fi
 
-#Updating Brew
-brew update
-
-brew install bash zsh
-
-packages=(
-	git
-	npm
-	python3
-	vim
-	wget
-	curl
-	tree
-	tmux
-	ssh-copy-id
-	screenfetch
-	archey
-  zsh-completions
-  zsh-syntax-highlighting
-)
-
-echo "Installing packages..."
-brew install ${packages[@]}
-
-echo "Installing cask"
-brew install ntfs-3g
-
-echo "Cleaning up"
-brew cleanup
-
-echo "Downloading fonts"
-brew tap homebrew/cask-fonts
-brew cask install font-hack-nerd-font
-brew cask install google-chrome
-
-CASKS=(
-  vlc
-	flux
-	iterm2
-	virtualbox
-	skype
-	sublime-text
-	disk-inventory-x
-)
-
-echo "Installing Cask apps..."
-brew cask install ${CASKS[@]}
+./brew.sh
 
 echo "Installing Oh-My-Zsh..."
 #Installing Oh-My-Zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" "" --unattended
+git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
 
 echo "Updating dotfiles..."
 echo "Installing vim dotfiles..."
 cp vim/mac.vimrc ~/.vimrc
 
-echo "Installing Vundle..."
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-
-echo "Installing vim Plugins"
-vim +PluginInstall +qall
+echo "Installing Plug.."
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 echo "Installing zsh and tmux dotfiles..."
 cp zsh/mac.zshrc ~/.zshrc
+cp zsh/mac.aliases ~/.aliases
 cp tmux/.tmux.conf ~/.tmux.conf
-sudo git clone https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
+
  
-chsh -s $(which zsh)
