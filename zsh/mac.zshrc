@@ -23,7 +23,7 @@ source ~/.aliases
 
 #archey
 ssh-add -q ~/.ssh/id_rsa
-ssh-add -1 ~/.ssh/id_rsa_umn
+ssh-add -q ~/.ssh/id_rsa_umn
 # screenfetch
 neofetch
 
