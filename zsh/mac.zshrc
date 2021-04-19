@@ -22,10 +22,9 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 source ~/.aliases
 
 #archey
-ssh-add ~/.ssh/id_rsa
-ssh-add ~/.ssh/id_rsa_umn
+ssh-add -q ~/.ssh/id_rsa
+ssh-add -1 ~/.ssh/id_rsa_umn
 # screenfetch
-clear
 neofetch
 
 # Uncomment the following line to use case-sensitive completion.
@@ -103,23 +102,6 @@ source $ZSH/oh-my-zsh.sh
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 
 # Sourcing zsh-syntax-highligting
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-
-
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
