@@ -14,7 +14,7 @@ git clone https://github.com/abasnfarah/dotfiles.git
 ```
 
 ### Arch Install
-If looking for a step by step guide to install Arch w/ UEFI go to [Arch Install Guide](./arch/README.md)
+If looking for a guide to install Arch w/ UEFI go to [Arch Install Guide](./arch/README.md)
 
 ## Vim and TMUX config
 
@@ -24,14 +24,13 @@ If looking for a step by step guide to install Arch w/ UEFI go to [Arch Install 
 My vim config uses the following plugins
 
 ```vim
-" vim Plug
 
 " Completion handler
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "Plug 'neoclide/coc.nvim', { 'branch': 'master', 'do': 'yarn install --frozen-lockfile' }
 
 " Go plugin for vim development
-"Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 " File tree 
 Plug 'scrooloose/nerdtree'
@@ -50,8 +49,14 @@ Plug 'flazz/vim-colorschemes'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'morhetz/gruvbox'
+Plug 'HerringtonDarkholme/yats.vim' " TS Syntax
 Plug 'sonph/onehalf', { 'rtp': 'vim' }
 Plug 'vim-python/python-syntax'
+Plug 'yuezk/vim-js'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+Plug 'jparise/vim-graphql'
+
 
 " fuzzy file finder
 Plug 'ctrlpvim/ctrlp.vim' 
@@ -64,6 +69,8 @@ Plug 'preservim/nerdcommenter'
 
 " Tmux and vim integration
 Plug 'christoomey/vim-tmux-navigator'
+
+
 ```
 
 
@@ -71,7 +78,7 @@ Plug 'christoomey/vim-tmux-navigator'
 1. vim
 To install vim on arch run 
 `sudo pacman -S vim`
-or install to install on mac using [homebrew](https://brew.sh/)
+or install on mac using [homebrew](https://brew.sh/)
 `brew install vim`
 
  
