@@ -22,9 +22,8 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 " File tree 
 Plug 'scrooloose/nerdtree'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-
-" Markdown Preview
 Plug 'iamcco/markdown-preview.nvim' 
+
 
 " git integration
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -39,11 +38,13 @@ Plug 'morhetz/gruvbox'
 Plug 'HerringtonDarkholme/yats.vim' " TS Syntax
 Plug 'sonph/onehalf', { 'rtp': 'vim' }
 Plug 'vim-python/python-syntax'
+"Plug 'pangloss/vim-javascript'
+"Plug 'leafgarland/typescript-vim'
+"Plug 'peitalin/vim-jsx-typescript'
 Plug 'yuezk/vim-js'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'jparise/vim-graphql'
-
 
 " fuzzy file finder
 Plug 'ctrlpvim/ctrlp.vim' 
@@ -117,6 +118,7 @@ colorscheme gruvbox
 "let g:airline_theme='molokai'
 let g:airline_theme='kolor'
 let g:python_highlight_all = 1
+let g:vim_jsx_pretty_colorful_config = 1 " default 0
 
 
 " SNIPPITS AND MAPS:
@@ -181,6 +183,7 @@ let g:NERDTreeIgnore = ['^node_modules$']
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
 
+
 " VIM GO SETUP:
 filetype plugin indent on
 
@@ -211,10 +214,11 @@ function! s:build_go_files()
 endfunction
 
 " Map keys for most used commands.
-" Ex: `\b` for building, `\r` for running and `\b` for running test.
+" Ex: `,b` for building, `,r` for running and `,b` for running test.
 autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
 autocmd FileType go nmap <leader>r  <Plug>(go-run)
 autocmd FileType go nmap <leader>t  <Plug>(go-test)
+
 
 
 
@@ -231,7 +235,7 @@ let g:coc_global_extensions = [
   "\ 'coc-clangd',
   \ ]
 
-" Setup from neoclide/coc.nvim readme
+" standard from readme
 " TextEdit might fail if hidden is not set.
 
 set hidden
