@@ -32,6 +32,10 @@ alias jc="javac"
 alias j="java"
 alias gcpp="g++ -std=c++11"
 
+# mimicing pbcopy on macosx
+#alias pbcopy="xclip -selection clipboard"
+#alias pbpaste="xclip -selection clipboard -o"
+
 # GoLang Compiling and runing
 alias gor="go run"
 alias gob="go build"
