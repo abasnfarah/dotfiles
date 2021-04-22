@@ -41,15 +41,6 @@ you don't pull your hair out.
    10. [Installing Lightdm](#lightdm)
 5. [Startup GUI](#startx)
 
-
-# Pre Installation <a name="preInstall"></a>
-
-### 1. Network configuration <a name="network"></a>
-
-If using Ethernet you can skip this step.
-5. [Startup GUI](#starx)
-
-
 # Pre Installation <a name="preInstall"></a>
 
 ### 1. Network configuration <a name="network"></a>
