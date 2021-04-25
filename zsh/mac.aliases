@@ -1,7 +1,5 @@
-
 # Tmux set up
 alias tmux="TERM=screen-256color tmux -2"
-
 
 # Meta Aliases
 alias subl="open -a sublime\ text"
@@ -40,4 +38,12 @@ alias gcpp="g++ -std=c++11"
 alias gor="go run"
 alias gob="go build"
 
+# Maven aliases
+alias mc="mvn clean"
+alias mej="mvn package exec:java"
+
+# npm aliases
+alias ns="npm start"
+alias nrb="npm run build"
+alias nrd="npm run deploy"
 
