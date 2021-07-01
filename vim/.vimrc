@@ -14,6 +14,7 @@ call plug#begin('~/.vim/plugged')
 
 " Completion handler
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'antoinemadec/coc-fzf'
 "Plug 'neoclide/coc.nvim', { 'branch': 'master', 'do': 'yarn install --frozen-lockfile' }
 
 " Go plugin for vim development
@@ -23,7 +24,6 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'scrooloose/nerdtree'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'iamcco/markdown-preview.nvim' 
-
 
 " git integration
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -47,13 +47,16 @@ Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'jparise/vim-graphql'
 
 " fuzzy file finder
-Plug 'ctrlpvim/ctrlp.vim' 
+" Plug 'ctrlpvim/ctrlp.vim' 
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
+" Tools
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-eunuch'
 
 " Commenter 
 Plug 'preservim/nerdcommenter'
-
-" JSX
-"Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
 " Tmux and vim integration
 Plug 'christoomey/vim-tmux-navigator'
@@ -133,13 +136,16 @@ let mapleader = ","
 " format mapping
 nnoremap <Leader>pff :CocCommand prettier.formatFile<CR>
 
+" vim reload mapping
+nnoremap <Leader>srv :source ~/.vimrc<CR>
+
 " NERDTREE AND NERDCOMMENTER SETUP: 
 "autocmd StdinReadPre * let s:std_in=1
 "autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 nmap <C-n> :NERDTreeToggle<CR>
-vmap ++ <plug>NERDCommenterToggle
-nmap ++ <plug>NERDCommenterToggle
+vmap // <plug>NERDCommenterToggle
+nmap // <plug>NERDCommenterToggle
 let g:NERDTreeGitStatusWithFlags = 1
 "let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 let g:NERDTreeGitStatusNodeColorization = 1
@@ -177,10 +183,24 @@ let g:NERDTreeIgnore = ['^node_modules$']
 "au VimEnter *  NERDTree
 
 
-
+" FZF SETUP:
+let g:fzf_layout = { 'window': { 'width': 0.95, 'height': 0.95 } }
+let g:fzf_action = {
+    \ 'ctrl-s': 'split',
+    \ 'ctrl-v': 'vsplit',
+    \ }
+let g:fzf_preview_window = 'right:60%'
+nnoremap <c-p> :Files<cr>
+augroup fzf
+    autocmd!
+    autocmd! FileType fzf
+    autocmd  FileType fzf set laststatus=0 noshowmode noruler
+      \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+augroup END
+let $FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --layout reverse --margin=1,4 --preview 'bat --color=always --style=header,grid --linee-range :300 {}'"
 
 " CTRLP SETUP:
-let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+" let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
 
 
