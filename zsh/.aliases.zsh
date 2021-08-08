@@ -74,7 +74,7 @@ alias nrb='npm run build'
 alias nrd='npm run deploy'
 
 # git aliases
-alias gcl='git clone --recursive-submodules'
+alias gcl='git clone --recurse-submodules'
 alias gd='git diff'
 alias gp='git push'
 alias gpf='git push -f'
