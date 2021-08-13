@@ -31,9 +31,9 @@ alias reprof="c && source ~/.zshrc"
 alias vprof="v ~/.vimrc"
 alias tprof="v ~/.tmux.conf"  
 alias gpd="git push origin --delete "
-#alias terprof="v ~/.config/termite/config"
-#alias rcprof="v ~/.config/awesome/rc.lua"
-#alias xprof="v ~/.xinitrc"
+alias terprof="v ~/.config/termite/config"
+alias rcprof="v ~/.config/awesome/rc.lua"
+alias xprof="v ~/.xinitrc"
 alias wp=" cd ~/workspaces"
 alias p3="python3"
 
@@ -51,8 +51,9 @@ alias j="java"
 alias gcpp="g++ -std=c++11"
 
 # mimicing pbcopy on macosx using xclip in Arch Linux 
-#alias pbcopy="xclip -selection clipboard"
-#alias pbpaste="xclip -selection clipboard -o"
+# Requirements: xclip
+alias pbcopy="xclip -selection clipboard"
+alias pbpaste="xclip -selection clipboard -o"
 
 # GoLang Compiling and runing
 alias gor="go run"
@@ -88,6 +89,7 @@ alias ga="git add"
 alias gaa="git add --all"
 alias gc="git commit" 
 alias gcmsg="git commit -m"
+#alias gcmsg="git commit -S -m" # This is a signed commit
 alias gcam="git commit --amend"
 alias gst="git status"
 alias gb="git branch"
