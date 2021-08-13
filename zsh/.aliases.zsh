@@ -58,6 +58,11 @@ alias gcpp="g++ -std=c++11"
 alias gor="go run"
 alias gob="go build"
 
+# Bazel aliases 
+alias br="bazel run"
+alias bce="bazel clean -expunge"
+alias brg="bazel run //:gazelle"
+
 # Maven aliases
 alias mc="mvn clean"
 alias mej="mvn package exec:java"
@@ -66,6 +71,12 @@ alias mej="mvn package exec:java"
 alias ns="npm start"
 alias nrb="npm run build"
 alias nrd="npm run deploy"
+
+# Arch aliases
+alias pacupg="sudo pacman -Syu"
+alias pacin="sudo pacman -S"
+alias yayupg="yay -Syu"
+alias yain="yay -S"
 
 # git aliases
 alias gcl="git clone --recurse-submodules"

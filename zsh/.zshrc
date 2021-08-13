@@ -8,6 +8,9 @@ fi
 source ~/.aliases.zsh
 source ~/.local.zsh
 
+# Uncomment to set caps lock to escape on Arch Linux
+#setxkbmap -option caps:escape &
+
 # FZF setup 
 #[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
