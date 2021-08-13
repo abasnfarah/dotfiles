@@ -78,6 +78,7 @@ alias ga="git add"
 alias gaa="git add --all"
 alias gc="git commit" 
 alias gcmsg="git commit -m"
+#alias gcmsg="git commit -S -m" # This is a signed commit
 alias gcam="git commit --amend"
 alias gst="git status"
 alias gb="git branch"
