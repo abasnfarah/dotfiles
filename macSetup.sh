@@ -10,12 +10,17 @@ set -e
 # Flag to only install dotfiles and not packages
 only_install_dotfiles="${1}"
 
-my_os="$(uname -s)"
-my_distro="none"
+# This gets the OS of current machine. 
+MY_OS="$(uname -s)"
 
-command_exists () {
-  command -v "$1" >/dev/null 2>&1
-}
+MY_DISTRO="none"
+
+# Current working directory. We'll need to come back to this later
+INITIAL_WORKING_DIRECTORY=$(pwd)
+
+# Directory of install script
+SCRIPT_DIRECTORY=$(dirname "$0")
+
 
 ###############################################################################
 # Find OS and Distro Name
@@ -35,27 +40,27 @@ To install without packages, re-run the script wiht the following flag
     
     bash <(TODO: add in install link)> --only-install-dotfiles
 EOF
-exit 1
+    exit 1
 }
 
 
-case "$(my_os)" in 
-    Darwin*) my_os="macOS" && my_distro="macOS";;
+case "$(MY_OS)" in 
+    Darwin*) MY_OS="macOS" && MY_DISTRO="macOS";;
     Linux*) 
-        my_os="Linux"
+        MY_OS="Linux"
         
         if [ -f "/etc/arch-release" ]; then
-            my_distro="arch"
+            MY_DISTRO="arch"
         else
             if  [ -f "/etc/debian_version" ]; then
-                my_distro="ubuntu"
+                MY_DISTRO="ubuntu"
             else
                 [ -z "${only_install_dotfiles}" ] && no_packages
             fi
         fi
 
     *)
-        my_os="Other"
+        MY_OS="Other"
         [ -z "${only_install_dotfiles}" ] && no_packages
         
         ;;
@@ -65,16 +70,7 @@ esac
 # TODO: Install packages using OS or distro package manager
 ###############################################################################
 
-
-
-# Check for Homebrew, install if we don't have it
-if command_exits brew; then
-    echo "Installing homebrew..."
-    sleep .5
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-fi
-
-./brew.sh
+/bin/bash ./brew.sh
 
 echo "Updating dotfiles..."
 echo "Installing vim dotfiles..."
