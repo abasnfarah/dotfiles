@@ -8,7 +8,7 @@ sleep .5
 set -e
 
 # Flag to only install dotfiles and not packages
-only_install_dotfiles="${1}"
+skip_packages="${1}"
 
 # This gets the OS of current machine. 
 MY_OS="$(uname -s)"
@@ -34,11 +34,11 @@ Package installation is not supported on you OS or Distro
 
 Please install any packages on your own. The list of of packages are located at:
     
-    https://github.com/abasnfarah/dotfiles/blob/master/install
+    https://github.com/abasnfarah/dotfiles/blob/main/install
 
-To install without packages, re-run the script wiht the following flag
+To install without packages, re-run the script with the following flag
     
-    bash <(TODO: add in install link)> --only-install-dotfiles
+    bash <(https://github.com/abasnfarah/dotfiles/blob/main)> --skip-packages
 EOF
     exit 1
 }
@@ -69,6 +69,15 @@ esac
 ###############################################################################
 # TODO: Install packages using OS or distro package manager
 ###############################################################################
+
+
+function install_macos {
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/abasnfarah/dotfiles/HEAD/brew.sh)"
+}
+
+function install_arch {
+    /bin/bash -c "$(curl -fLo https://raw.githubusercontent.com/abasnfarah/dotfiles/HEAD/arch.sh)"
+}
 
 /bin/bash ./brew.sh
 

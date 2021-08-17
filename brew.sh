@@ -45,7 +45,7 @@ Installing macOS packages using Brew
 
 You can view the list of packages here:
 
-    https://github.com/abasnfarah/dotfiles/blob/master/brew.sh
+    https://github.com/abasnfarah/dotfiles/blob/main/brew.sh
 
 EOF
     sleep .5
@@ -63,7 +63,7 @@ Installing macOS casks using Brew
 
 You can view the list of packages here:
     
-    https://github.com/abasnfarah/dotfiles/blob/master/brew.sh
+    https://github.com/abasnfarah/dotfiles/blob/main/brew.sh
 
 EOF
     sleep .5
