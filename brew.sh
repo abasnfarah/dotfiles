@@ -1,29 +1,38 @@
-# Brew Installation
+# Brew and macOS packages installation
 
-#Updating Brew
+packages="bash zsh neofetch tree zsh-syntax-highlighting npm mvn yarn go"
+
+function brew_install {
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+}
+
+function install_packages {
+cat << EOF 
+
+Installing macOS packages using Brew
+
+You can view the list of packages here
+
+    https://github.com/abasnfarah/dotfiles/blob/master/brew.sh
+
+EOF
+
+
+    [ -x "$(command -v brew > /dev/null 2>&1)" ] && brew_install
+
+    brew install ${packages}
+}
+
+cat << EOF 
+
+Updating Brew
+
+...
+
+EOF
 brew update
 
-brew install bash
-brew install zsh
-brew install neofetch
-brew install tree
-
-packages=(
-	git
-	npm
-	python3
-	vim
-	wget
-	curl
-	tmux
-    zsh-syntax-highlighting
-    nodejs
-    npm
-    mvn
-)
-
-echo "Installing packages..."
-brew install ${packages[@]}
+sleep .5
 
 echo "Installing cask"
 brew install ntfs-3g
@@ -39,7 +48,6 @@ brew cask install google-chrome
 CASKS=(
     vlc
 	iterm2
-	sublime-text
 	disk-inventory-x
     spotify
     virtualbox
