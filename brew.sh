@@ -1,6 +1,38 @@
+#!/bin/bash
+
 # Brew and macOS packages installation
 
-packages="bash zsh neofetch tree zsh-syntax-highlighting npm mvn yarn go"
+packages="bash zsh neofetch tree zsh-syntax-highlighting npm mvn yarn go python3"
+
+CASKS=(
+    adobe-creative-cloud
+    alfred
+    anki
+    binance
+    discord
+	disk-inventory-x
+    docker
+    expressvpn
+    firefox
+    google-chrome
+    intellij-idea-ce
+	iterm2
+    kindle
+    lastpass
+    minecraft
+    notion
+    obs
+    postman
+    postico
+    slack
+    spotify
+    steam
+    tor-browser
+    virtualbox
+    visual-studio-code
+    vlc
+    zoom
+)
 
 function brew_install {
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -11,11 +43,12 @@ cat << EOF
 
 Installing macOS packages using Brew
 
-You can view the list of packages here
+You can view the list of packages here:
 
     https://github.com/abasnfarah/dotfiles/blob/master/brew.sh
 
 EOF
+    sleep .5
 
 
     [ -x "$(command -v brew > /dev/null 2>&1)" ] && brew_install
@@ -23,38 +56,66 @@ EOF
     brew install ${packages}
 }
 
-cat << EOF 
 
-Updating Brew
+function install_casks {
+cat << EOF
+Installing macOS casks using Brew
 
-...
+You can view the list of packages here:
+    
+    https://github.com/abasnfarah/dotfiles/blob/master/brew.sh
 
 EOF
-brew update
+    sleep .5
 
-sleep .5
+    echo "Installing Nerd Fonts"
+    brew tap homebrew/cask-fonts
+    brew install --cask font-hack-nerd-font
 
-echo "Installing cask"
-brew install ntfs-3g
+    echo "Installing Cask apps..."
+    brew install --cask ${CASKS[@]}
 
-echo "Cleaning up"
-brew cleanup
+    echo "Cleaning up"
+    brew cleanup
+}
 
-echo "Downloading fonts"
-brew tap homebrew/cask-fonts
-brew cask install font-hack-nerd-font
-brew cask install google-chrome
+function display_packages {
+    echo "${packages}"
+}
 
-CASKS=(
-    vlc
-	iterm2
-	disk-inventory-x
-    spotify
-    virtualbox
-    discord
-)
+function display_casks {
+    echo "${CASKS}"
+}
 
-echo "Installing Cask apps..."
-brew cask install ${CASKS[@]}
+cat << EOF
+Preparing to install brew packages
+
+Choosing yes will install all of the following brew packages
+
+${display_packages}
+
+If you don't want to install all of the following packages you can 
+edit the install script to omit or add additional packages.
+
+EOF
+
+while true; do
+    read -rp "Do you want to install the listed packages? (y/n) " yn 
+    case "${yn}" in
+        [Yy]*)
+            install_packages 
+            break;;
+        [Nn]*) exit 0;;
+        *) echo "Invalid Input. Please respond with y (yes) or n (no)";;
+    esac
+done
+
+
+
+
+
+
+
+
 
 
