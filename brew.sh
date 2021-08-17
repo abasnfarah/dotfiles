@@ -111,9 +111,28 @@ while true; do
 done
 
 
+cat << EOF
+Preparing to install brew casks
 
+Choosing yes will install all of the following brew casks
 
+${display_casks}
 
+If you don't want to install all of the following casks you can 
+edit the install script to omit or add additional casks.
+
+EOF
+
+while true; do
+    read -rp "Do you want to install the listed packages? (y/n) " yn 
+    case "${yn}" in
+        [Yy]*)
+            install_casks
+            break;;
+        [Nn]*) exit 0;;
+        *) echo "Invalid Input. Please respond with y (yes) or n (no)";;
+    esac
+done
 
 
 
