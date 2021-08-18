@@ -8,17 +8,16 @@ fi
 source ~/.aliases.zsh
 source ~/.local.zsh
 
-# Uncomment to set caps lock to escape on Arch Linux
-#setxkbmap -option caps:escape &
-
 # FZF setup 
 #[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
+source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme # mac
+#source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme # zsh
 
 # Sourcing zsh-syntax-highligting
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh # mac
+#source /usr/share/zsh/plugins/zsh-syntax-highlighting # zsh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
