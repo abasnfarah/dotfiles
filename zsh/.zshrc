@@ -9,7 +9,10 @@ source ~/.aliases.zsh
 source ~/.local.zsh
 
 # FZF setup 
-#[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh # mac
+
+#source /usr/share/fzf/key-bindings.zsh # zsh
+#source /usr/share/fzf/completion.zsh # zsh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme # mac
