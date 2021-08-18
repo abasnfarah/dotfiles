@@ -79,6 +79,10 @@ function install_arch {
     /bin/bash -c "$(curl -fLo https://raw.githubusercontent.com/abasnfarah/dotfiles/HEAD/arch.sh)"
 }
 
+function install_ubuntu {
+    /bin/bash -c "$(curl -fLo https://raw.githubusercontent.com/abasnfarah/dotfiles/HEAD/ubuntu.sh)"
+}
+
 
 echo "Updating dotfiles..."
 echo "Installing vim dotfiles..."
