@@ -7,11 +7,16 @@ export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOROOT:$GOPATH:$GOBIN
 export TERM="screen-256color"
 
-#archey
+# Uncomment the following line for a transparent terminal in arch
+#compton -cb
+
 ssh-add -q ~/.ssh/id_rsa
 ssh-add -q ~/.ssh/id_rsa_umn
-# screenfetch
+#eval "$(ssh-agent -s)"
 neofetch
+
+# Uncomment the following line to map caps lock to escape for arch linux
+#setxkbmap -option caps:escape &
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
