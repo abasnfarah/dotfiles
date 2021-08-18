@@ -143,8 +143,8 @@ git-re-rebase() {
 
 #directory related
 alias ls='ls -G'          # ls with color
-alias l='ls -1A'          # list directory
-alias ll='ls -lah'        # list directory with additional information
+alias ll='ls -1A'         # list directory
+alias l='ls -lah'         # list directory with additional information
 alias -g ..='..'          # move up by one directory
 alias -g ...='../..'      # move up by two directories
 alias -g ....='../../..'  # move up by three directories
