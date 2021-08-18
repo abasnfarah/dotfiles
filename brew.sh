@@ -10,13 +10,13 @@ CASKS=(
     anki
     binance
     discord
-	disk-inventory-x
+    disk-inventory-x
     docker
     expressvpn
     firefox
     google-chrome
     intellij-idea-ce
-	iterm2
+    iterm2
     kindle
     lastpass
     minecraft
