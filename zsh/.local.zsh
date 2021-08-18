@@ -24,6 +24,9 @@ setopt autocd
 # Uncomment the following line to have cd function like pushd where previous working directory is added to stack
 setopt autopushd
 
+# Uncomment the following line to add tab completion to aliases
+setopt complete_aliases
+
 # Tmux set up
 alias tmux="TERM=screen-256color tmux -2"
 function StarWars {
