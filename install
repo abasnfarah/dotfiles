@@ -40,12 +40,13 @@ To install without packages, re-run the script with the following flag
     
     bash <(https://github.com/abasnfarah/dotfiles/blob/main)> --skip-packages
 EOF
-    exit 1
 }
 
 
-case "$(MY_OS)" in 
-    Darwin*) MY_OS="macOS" && MY_DISTRO="macOS";;
+case $MY_OS in 
+    Darwin*) 
+        MY_OS="macOS" && MY_DISTRO="macOS"
+        ;;
     Linux*) 
         MY_OS="Linux"
         
@@ -55,13 +56,13 @@ case "$(MY_OS)" in
             if  [ -f "/etc/debian_version" ]; then
                 MY_DISTRO="Ubuntu"
             else
-                [ -z "${only_install_dotfiles}" ] && no_packages
+                [ -z "${skip_packages}" ] && no_packages
             fi
         fi
 
     *)
         MY_OS="Other"
-        [ -z "${only_install_dotfiles}" ] && no_packages
+        [ -z "${skip_packages}" ] && no_packages
         
         ;;
 esac
@@ -83,36 +84,67 @@ function install_ubuntu {
     /bin/bash -c "$(curl -fLo https://raw.githubusercontent.com/abasnfarah/dotfiles/HEAD/ubuntu.sh)"
 }
 
-if [ "${MY_OS}" -eq "macOS" ]; then 
-    install_macos
-elif [ "${MY_OS}" -eq "Linux" && "${MY_DISTRO}" -eq "Arch"]; then 
-    install_arch
-elif [ "${MY_OS}" -eq "Linux" && "${MY_DISTRO}" -eq "Ubuntu"]; then 
-    install_ubuntu
+if [ ! -z "${skip_packages}" ] ; then 
+
+    if [ $MY_OS = "macOS" ]; then 
+        install_macos
+    elif [ $MY_OS = "Linux"] && [ $MY_DISTRO = "Arch"]; then 
+        install_arch
+    elif [ $MY_OS = "Linux" ] && [ $MY_DISTRO = "Ubuntu" ]; then 
+        install_ubuntu
+    fi
+
 fi
 
 
 ###############################################################################
-# Installing dotfiles
+# TODO: Installing dotfiles
 ###############################################################################
 
+function create_dotfiles_path {
+    
+    if [ ! -d "$1" ]; then
+        mkdir "$1"
+    else 
+        echo "workspaces directory already exists"
+    fi
+
+}
+
+# Gets the absolute path of dotfiles_path
 read -rep $'\nWhere do you want your dotfiles to live [~/workspaces/dotfiles]? ' dotfiles_path
-dotfiles_path="${dotfiles_path:-"${HOME}/workspaces/dotfiles"}"
-echo dotfiles_path
+eval dotfiles_path="${dotfiles_path:-"${HOME}/workspaces/dotfiles"}"
+dotfiles_path=$(realpath $dotfiles_path)
 
 
+echo "Installing dotfiles to the following directory: $dotfiles_path"
 
 echo "Updating dotfiles..."
 echo "Installing vim dotfiles..."
-cp vim/mac.vimrc ~/.vimrc
+#cp vim/mac.vimrc ~/.vimrc
 
 echo "Installing Plug.."
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+#curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 echo "Installing zsh and tmux dotfiles..."
-cp zsh/mac.zshrc ~/.zshrc
-cp zsh/mac.aliases ~/.aliases
-cp tmux/.tmux.conf ~/.tmux.conf
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
+#cp zsh/mac.zshrc ~/.zshrc
+#cp zsh/mac.aliases ~/.aliases
+#cp tmux/.tmux.conf ~/.tmux.conf
+#git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
 
  
+###############################################################################
+# TODO: Install Plug for vim
+###############################################################################
+
+ 
+###############################################################################
+# TODO: Install vim plugins
+###############################################################################
+
+ 
+###############################################################################
+# TODO: Install tmux plugins
+###############################################################################
+
+
