@@ -51,7 +51,9 @@ EOF
     sleep .5
 
 
-    [ -x "$(command -v brew > /dev/null 2>&1)" ] && brew_install
+    if [ ! -x "$(command -v brew)" ]; then 
+        brew_install
+    fi
 
     brew install ${packages}
 }
@@ -112,6 +114,7 @@ done
 
 
 cat << EOF
+
 Preparing to install brew casks
 
 Choosing yes will install all of the following brew casks
