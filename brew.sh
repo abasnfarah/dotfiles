@@ -2,7 +2,7 @@
 
 # Brew and macOS packages installation
 
-packages="bash zsh neofetch tree zsh-syntax-highlighting npm mvn yarn go python3 fzf romkatv/powerlevel10k/powerlevel10k"
+packages="bash git zsh neofetch tree zsh-syntax-highlighting npm mvn yarn go python3 fzf romkatv/powerlevel10k/powerlevel10k"
 
 CASKS=(
     adobe-creative-cloud
