@@ -112,9 +112,9 @@ function create_dotfiles_path {
 }
 
 # Gets the absolute path of dotfiles_path
-read -rep $'\nWhere do you want your dotfiles to live [~/workspaces/dotfiles]? ' dotfiles_path
-eval dotfiles_path="${dotfiles_path:-"${HOME}/workspaces/dotfiles"}"
-dotfiles_path=$(realpath $dotfiles_path)
+#read -rep $'\nWhere do you want your dotfiles to live [~/workspaces/dotfiles]? ' dotfiles_path
+#eval dotfiles_path="${dotfiles_path:-"${HOME}/workspaces/dotfiles"}"
+#dotfiles_path=$(realpath $dotfiles_path)
 
 
 echo "Installing dotfiles to the following directory: $dotfiles_path"
