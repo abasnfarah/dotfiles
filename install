@@ -84,6 +84,9 @@ function install_ubuntu {
     /bin/bash -c "$(curl -fLo https://raw.githubusercontent.com/abasnfarah/dotfiles/HEAD/ubuntu.sh)"
 }
 
+echo "Your OS is $MY_OS"
+echo "Your Distro is $MY_DISTRO"
+
 if [ -z "${skip_packages}" ] ; then 
 
     if [ $MY_OS = "macOS" ]; then 
@@ -96,9 +99,6 @@ if [ -z "${skip_packages}" ] ; then
 
 fi
 
-echo $MY_OS
-echo $MY_DISTRO
-
 ###############################################################################
 # TODO: Installing dotfiles
 ###############################################################################
@@ -108,16 +108,22 @@ function create_dotfiles_path {
     if [ ! -d "$1" ]; then
         mkdir "$1"
     else 
-        echo "workspaces directory already exists"
+        echo "$1 directory already exists"
     fi
 
 }
 
 # Gets the absolute path of dotfiles_path
-#read -rep $'\nWhere do you want your dotfiles to live [~/workspaces/dotfiles]? ' dotfiles_path
-#eval dotfiles_path="${dotfiles_path:-"${HOME}/workspaces/dotfiles"}"
-#dotfiles_path=$(realpath $dotfiles_path)
+read -rep $'\nWhere do you want your dotfiles to live [~/workspaces/dotfiles]? ' dotfiles_path
+eval dotfiles_path="${dotfiles_path:-"${HOME}/workspaces/dotfiles"}"
 
+if [ $MY_OS = "macOS" ]; then
+    dotfiles_path=(grealpath $dotfiles_path)
+else
+    dotfiles_path=$(realpath $dotfiles_path)
+fi
+
+# Clone dotfiles to dotfiles_path
 
 echo "Installing dotfiles to the following directory: $dotfiles_path"
 

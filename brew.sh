@@ -8,6 +8,7 @@ packages=(
     zsh 
     neofetch 
     tree 
+    coreutils
     zsh-syntax-highlighting 
     npm 
     mvn 
