@@ -1,14 +1,21 @@
 export EDITOR='vim'
 
+###############################################################################
+# Bookmarks
+###############################################################################
+
 # Bookmarks
 alias @dw='~/Downloads'
 alias @wp='~/workspaces'
 alias @dt='~/workspaces/dotfiles'
 
+###############################################################################
+# Basic Aliases
+###############################################################################
+
 # Tmux set up
 alias tmux="TERM=screen-256color tmux -2"
 
-# Meta Aliases
 alias v="vim"
 alias e="emacs"
 alias t="touch"
@@ -20,7 +27,7 @@ alias rd="rm -rf"
 alias q="exit"
 alias c="clear"
 
-alias och="open -a /Applications/Google\ Chrome.app"
+#alias och="open -a /Applications/Google\ Chrome.app"
 
 alias prof="v ~/.zshrc"
 alias lprof="v ~/.local.zsh"
@@ -31,9 +38,6 @@ alias reprof="c && source ~/.zshrc"
 alias vprof="v ~/.vimrc"
 alias tprof="v ~/.tmux.conf"  
 alias gpd="git push origin --delete "
-alias terprof="v ~/.config/termite/config"
-alias rcprof="v ~/.config/awesome/rc.lua"
-alias xprof="v ~/.xinitrc"
 alias wp=" cd ~/workspaces"
 alias p3="python3"
 
@@ -50,10 +54,30 @@ alias jc="javac"
 alias j="java"
 alias gcpp="g++ -std=c++11"
 
-# mimicing pbcopy on macosx using xclip in Arch Linux 
+###############################################################################
+# Arch Specific Commands
+###############################################################################
+
+alias terprof="v ~/.config/termite/config"
+alias rcprof="v ~/.config/awesome/rc.lua"
+alias xprof="v ~/.xinitrc"
+
+# mimics pbcopy on macosx using xclip in Arch Linux 
 # Requirements: xclip
 alias pbcopy="xclip -selection clipboard"
 alias pbpaste="xclip -selection clipboard -o"
+
+# Package manager aliases
+alias pacupg="sudo pacman -Syu"
+alias pacin="sudo pacman -S"
+alias yayupg="yay -Syu"
+alias yain="yay -S"
+
+alias och="google-chrome-stable"
+
+###############################################################################
+# Build Tool Aliases
+###############################################################################
 
 # GoLang Compiling and runing
 alias gor="go run"
@@ -73,11 +97,9 @@ alias ns="npm start"
 alias nrb="npm run build"
 alias nrd="npm run deploy"
 
-# Arch aliases
-alias pacupg="sudo pacman -Syu"
-alias pacin="sudo pacman -S"
-alias yayupg="yay -Syu"
-alias yain="yay -S"
+###############################################################################
+# Github Aliases
+###############################################################################
 
 # git aliases
 alias gcl="git clone --recurse-submodules"
@@ -89,7 +111,7 @@ alias ga="git add"
 alias gaa="git add --all"
 alias gc="git commit" 
 alias gcmsg="git commit -m"
-#alias gcmsg="git commit -S -m" # This is a signed commit
+#alias gcmsg="git commit -S -m" # This is a signed commit aliases
 alias gcam="git commit --amend"
 alias gst="git status"
 alias gb="git branch"
@@ -115,10 +137,17 @@ git-re-rebase() {
   CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD) && git-re-master && git checkout $CURRENT_BRANCH && git rebase master
 }
 
+###############################################################################
+# Directory aliases - Requires autocd to work
+###############################################################################
+
 #directory related
 alias ls='ls -G'          # ls with color
-alias l='ls -1A'          # list directory
-alias ll='ls -lah'        # list directory with additional information
+alias ll='ls -1A'         # list directory
+alias l='ls -lah'         # list directory with additional information
 alias -g ..='..'          # move up by one directory
 alias -g ...='../..'      # move up by two directories
 alias -g ....='../../..'  # move up by three directories
+
+
+

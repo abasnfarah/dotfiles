@@ -9,17 +9,20 @@ export TERM="screen-256color"
 
 # Uncomment the following line for a transparent terminal in arch
 #compton -cb
-
-ssh-add -q ~/.ssh/id_rsa
-ssh-add -q ~/.ssh/id_rsa_umn
-#eval "$(ssh-agent -s)"
+{ eval "$(ssh-agent -s)"; ssh-add -q ~/.ssh/id_rsa; ssh-add -q ~/.ssh/id_rsa_umn; } &>/dev/null
 neofetch
 
 # Uncomment the following line to map caps lock to escape for arch linux
-#setxkbmap -option caps:escape &
+setxkbmap -option caps:escape &>/dev/null
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
+
+# Uncomment the following line to jump to folders without the use of cd
+setopt autocd
+
+# Uncomment the following line to have cd function like pushd where previous working directory is added to stack
+setopt autopushd
 
 # Tmux set up
 alias tmux="TERM=screen-256color tmux -2"
