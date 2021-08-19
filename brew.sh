@@ -75,7 +75,10 @@ EOF
     brew install --cask font-hack-nerd-font
 
     echo "Installing Cask apps..."
-    brew install --cask ${CASKS[@]}
+
+    for i in "${CASKS[@]}"; do
+        brew install --cask $i
+    done
 
     echo "Cleaning up"
     brew cleanup
