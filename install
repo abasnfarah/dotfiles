@@ -96,6 +96,8 @@ if [ ! -z "${skip_packages}" ] ; then
 
 fi
 
+echo $MY_OS
+echo $MY_DISTRO
 
 ###############################################################################
 # TODO: Installing dotfiles
