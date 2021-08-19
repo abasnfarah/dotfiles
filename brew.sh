@@ -66,7 +66,7 @@ EOF
     sleep .5
 
 
-    if [ ! -x "$(command -v brew)" ]; then 
+    if [ -x "$(command -v brew)" ]; then 
         brew_install
     fi
 
@@ -103,7 +103,7 @@ EOF
 }
 
 function display_packages {
-    echo "$packages" | sed 's/ /\n --/g'
+    echo "${packages[@]}" | sed 's/ /\n --/g'
 }
 
 function display_casks {
