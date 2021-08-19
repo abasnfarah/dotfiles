@@ -124,8 +124,9 @@ else
 fi
 
 # Clone dotfiles to dotfiles_path
-
 echo "Installing dotfiles to the following directory: $dotfiles_path"
+git clone https://github.com/abasnfarah/dotfiles "$dotfiles_path"
+j
 
 echo "Updating dotfiles..."
 echo "Installing vim dotfiles..."
@@ -142,12 +143,14 @@ echo "Installing zsh and tmux dotfiles..."
 
  
 ###############################################################################
-# TODO: Install Plug for vim
+# Install Plug for vim
 ###############################################################################
 
+
+curl -fLo ${HOME}/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
  
 ###############################################################################
-# TODO: Install vim plugins
+# Install vim plugins
 ###############################################################################
 
  
