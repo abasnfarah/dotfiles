@@ -50,10 +50,10 @@ case "$(MY_OS)" in
         MY_OS="Linux"
         
         if [ -f "/etc/arch-release" ]; then
-            MY_DISTRO="arch"
+            MY_DISTRO="Arch"
         else
             if  [ -f "/etc/debian_version" ]; then
-                MY_DISTRO="ubuntu"
+                MY_DISTRO="Ubuntu"
             else
                 [ -z "${only_install_dotfiles}" ] && no_packages
             fi
@@ -67,7 +67,7 @@ case "$(MY_OS)" in
 esac
 
 ###############################################################################
-# TODO: Install packages using OS or distro package manager
+# Install packages using OS or distro package manager
 ###############################################################################
 
 
@@ -79,9 +79,27 @@ function install_arch {
     /bin/bash -c "$(curl -fLo https://raw.githubusercontent.com/abasnfarah/dotfiles/HEAD/arch.sh)"
 }
 
-function install_ubuntu {
+function install_ubuntu { 
     /bin/bash -c "$(curl -fLo https://raw.githubusercontent.com/abasnfarah/dotfiles/HEAD/ubuntu.sh)"
 }
+
+if [ "${MY_OS}" -eq "macOS" ]; then 
+    install_macos
+elif [ "${MY_OS}" -eq "Linux" && "${MY_DISTRO}" -eq "Arch"]; then 
+    install_arch
+elif [ "${MY_OS}" -eq "Linux" && "${MY_DISTRO}" -eq "Ubuntu"]; then 
+    install_ubuntu
+fi
+
+
+###############################################################################
+# Installing dotfiles
+###############################################################################
+
+read -rep $'\nWhere do you want your dotfiles to live [~/workspaces/dotfiles]? ' dotfiles_path
+dotfiles_path="${dotfiles_path:-"${HOME}/workspaces/dotfiles"}"
+echo dotfiles_path
+
 
 
 echo "Updating dotfiles..."
