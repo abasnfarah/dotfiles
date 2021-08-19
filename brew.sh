@@ -82,19 +82,22 @@ EOF
 }
 
 function display_packages {
-    echo "${packages}"
+    echo "$packages" | sed 's/ /\n --/g'
 }
 
 function display_casks {
-    echo "${CASKS}"
+    echo "${CASKS[@]}" | sed 's/ /\n --/g'
 }
 
 cat << EOF
 Preparing to install brew packages
 
 Choosing yes will install all of the following brew packages
+EOF
 
-${display_packages}
+display_packages
+
+cat << EOF
 
 If you don't want to install all of the following packages you can 
 edit the install script to omit or add additional packages.
@@ -118,8 +121,11 @@ cat << EOF
 Preparing to install brew casks
 
 Choosing yes will install all of the following brew casks
+EOF
 
-${display_casks}
+display_casks
+
+cat << EOF
 
 If you don't want to install all of the following casks you can 
 edit the install script to omit or add additional casks.

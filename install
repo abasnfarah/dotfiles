@@ -84,7 +84,7 @@ function install_ubuntu {
     /bin/bash -c "$(curl -fLo https://raw.githubusercontent.com/abasnfarah/dotfiles/HEAD/ubuntu.sh)"
 }
 
-if [ ! -z "${skip_packages}" ] ; then 
+if [ -z "${skip_packages}" ] ; then 
 
     if [ $MY_OS = "macOS" ]; then 
         install_macos
