@@ -27,6 +27,10 @@ setopt autopushd
 # Uncomment the following line to add tab completion to aliases
 setopt complete_aliases
 
+# Uncomment the follwing two lines to add tab completion
+autoload -U compinit && compinit
+autoload -U bashcompinit && bashcompinit
+
 # Tmux set up
 alias tmux="TERM=screen-256color tmux -2"
 function StarWars {
