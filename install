@@ -59,7 +59,7 @@ case $MY_OS in
                 [ -z "${skip_packages}" ] && no_packages
             fi
         fi
-
+        ;;
     *)
         MY_OS="Other"
         [ -z "${skip_packages}" ] && no_packages
