@@ -117,9 +117,7 @@ function create_dotfiles_path {
 read -rep $'\nWhere do you want your dotfiles to live [~/workspaces/dotfiles]? ' dotfiles_path
 eval dotfiles_path="${dotfiles_path:-"${HOME}/workspaces/dotfiles"}"
 
-if [ $MY_OS = "macOS" ]; then
-    dotfiles_path=(grealpath $dotfiles_path)
-else
+if [ ! $MY_OS = "macOS" ]; then
     dotfiles_path=$(realpath $dotfiles_path)
 fi
 
@@ -151,6 +149,10 @@ ln -fs "${dotfiles_path}/tmux/.tmux.conf" "${HOME}/.tmux.conf"
 
 if [ $MY_OS = "Linux" ]; then
     ln -fs "${dotfiles_path}/arch/.config" "${HOME}/.config"
+fi
+
+if [ ! -d "${HOME}/.ssh" ]; then
+    mkdir "${HOME}/.ssh"
 fi
 
 ln -fs "${dotfiles_path}/ssh/config" "${HOME}/.ssh/config"
