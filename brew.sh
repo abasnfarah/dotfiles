@@ -66,8 +66,8 @@ EOF
     sleep .5
 
 
-    if [ -x "$(command -v brew)" ]; then 
-        brew_install
+    if [ ! -x "$(command -v brew)" ]; then 
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     fi
 
     for i in "${packages[@]}"; do
