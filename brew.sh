@@ -7,6 +7,7 @@ packages=(
     git 
     zsh 
     neofetch 
+    tmux
     tree 
     coreutils
     zsh-syntax-highlighting 
