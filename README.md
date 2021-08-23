@@ -5,10 +5,14 @@
 
 ## Installation
 
-To install run the following script
+To install paste the following on a macOS terminal or a shell prompt:
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/abasnfarah/dotfiles/main/install)"
 ```
+
+This script intalls the listed packages and crates symlinks for our dotfiles.
+
+Compatable with macOS and Arch Linux.
 
 ### MacOS
 
@@ -21,6 +25,7 @@ packages=(
     git 
     zsh 
     neofetch 
+    tmux
     tree 
     coreutils
     zsh-syntax-highlighting 
@@ -70,12 +75,67 @@ CASKS=(
 )
 ```
 
+### Arch Linux
 
+#### Screenshot of Vim and TMUX setup
+![alt text](images/archScreenshot.png "Vim Setup")
 
-### Arch Linux Install
-If looking for a guide to install Arch w/ UEFI go to [Arch Install Guide](./arch/README.md)
+##### PreInstall Arch Linux: 
+For a guide to install Arch w/ UEFI go to [Arch Install Guide](https://github.com/abasnfarah/dotfiles/blob/main/arch/README.md)
+
+##### Package List: 
+This is the package list installed with yay.
+To change this list you can clone this repo and update `arch.sh` file.
+```bash
+packages=(
+    anki
+    curl
+    discord 
+    docker
+    emacs 
+    expressvpn 
+    fzf 
+    git 
+    go
+    google-chrome 
+    grep
+    gzip 
+    maven
+    mpv
+    neofetch 
+    nerd-fonts-complete 
+    nodejs 
+    npm 
+    nvm
+    openssh 
+    obs-studio
+    python3 
+    sed 
+    slack-desktop
+    smplayer
+    spotify
+    stow 
+    termite
+    termite-terminfo
+    tree 
+    tree 
+    tmux
+    unzip 
+    vim
+    wget
+    xclip 
+    yarn 
+    zip 
+    zoom
+    zsh 
+    zsh-syntax-highlighting 
+    zsh-theme-powerlevel10k-git 
+)
+```
 
 ## Vim and TMUX config
+
+#### Checkout my [.vimrc](https://github.com/abasnfarah/dotfiles/blob/main/vim/.vimrc)
 
 My vim config uses the following plugins
 
@@ -128,44 +188,3 @@ Plug 'christoomey/vim-tmux-navigator'
 
 
 ```
-
-
-### Requirements 
-1. vim
-To install vim on arch run 
-`sudo pacman -S vim`
-or install on mac using [homebrew](https://brew.sh/)
-`brew install vim`
-
- 
-## Zsh configuration
-My zsh config uses oh-my-zsh themes and built in commands namely for git and tmux
-
-### Requirements:
-1. zsh, git, curl and wget
-To install on arch run
-`sudo pacman -S zsh wget curl git`
-to install on mac using [homebrew](https://brew.sh/) run 
-`brew install zsh curl wget`
-2. mac or arch linux machine
-3. Change primary shell to zsh
-To change primary shell to zsh run
-`chsh -s $(which zsh)`
-
-#### ScreenShot of zsh setup
-![alt text](images/zshAndTmuxScreenshot.png "Zsh and Tmux Setup")
-
-To run enter `. ~/dotfiles/zshconfig.sh` on your console 
-
-What this accomplishes:
-
-| Installed                                            | Reason                                      | Code Run                                                                                               |
-|:----------------------------------------------------:|:-------------------------------------------:|:------------------------------------------------------------------------------------------------------:|
-|[Oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)|This adds many useful zsh themes.            |`sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"`|
-|Tmux                                                  |This gives more tabbing power to the console |`cp ~/dotfiles/tmux/.tmux.config ~/.tmux.config`                                                        |
-
-This is the primary way to install vim and zsh dotfiles. 
-This repository hosts many other dotfiles config files but those are the main ones.  
-Feel free to copy my dotfiles or change them to match your own personal setup. 
-
-
