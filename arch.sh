@@ -16,6 +16,7 @@ packages=(
     google-chrome 
     grep
     gzip 
+    imagemagick
     maven
     mpv
     neofetch 
@@ -40,6 +41,7 @@ packages=(
     vim
     wget
     xclip 
+    xwd
     yarn 
     zip 
     zoom
