@@ -75,6 +75,9 @@ alias yain="yay -S"
 
 alias och="google-chrome-stable"
 
+# Screenshot alias using xorg-xwd
+alias screenshot="xwd -frame -out screenshot.xwd"
+
 ###############################################################################
 # Build Tool Aliases
 ###############################################################################

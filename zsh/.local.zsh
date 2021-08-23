@@ -13,10 +13,14 @@ export TERM="screen-256color"
 neofetch
 
 # Uncomment the following line to map caps lock to escape for arch linux
-setxkbmap -option caps:escape &>/dev/null
+# setxkbmap -option caps:escape &>/dev/null
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
+
+# Uncomment the following two lines to sync and set system time
+#timedatectl set-timezone America/Chicago
+#sudo ntpd -qg
 
 # Uncomment the following line to jump to folders without the use of cd
 setopt autocd
@@ -30,6 +34,9 @@ setopt complete_aliases
 # Uncomment the follwing two lines to add tab completion
 autoload -U compinit && compinit
 autoload -U bashcompinit && bashcompinit
+
+# Uncomment the following lines to enable vim in zsh
+bindkey -v
 
 # Tmux set up
 alias tmux="TERM=screen-256color tmux -2"
