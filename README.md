@@ -10,7 +10,7 @@ To install paste the following on a macOS terminal or a shell prompt:
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/abasnfarah/dotfiles/main/install)"
 ```
 
-This script intalls the listed packages and crates symlinks for our dotfiles.
+This script installs the listed packages and creates symlinks for our dotfiles.
 
 Compatable with macOS and Arch Linux.
 
