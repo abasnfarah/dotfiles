@@ -1,25 +1,81 @@
 # Dot Files
 
-# Installation
-To install on mac do the following
+#### Screenshot of Vim and TMUX setup
+![alt text](images/vimScreenshot.png "Vim Setup")
+
+## Installation
+
+To install run the following script
 ```bash
-git clone https://github.com/abasnfarah/dotfiles.git
-./macSetup.sh
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/abasnfarah/dotfiles/main/install)"
 ```
 
-To install on arch do the following
+### MacOS
+
+This is the package list installed with Brew.
+To change this list you can clone this repo and update `brew.sh` file.
+
 ```bash
-git clone https://github.com/abasnfarah/dotfiles.git
-./archSetup.sh
+packages=(
+    bash 
+    git 
+    zsh 
+    neofetch 
+    tree 
+    coreutils
+    zsh-syntax-highlighting 
+    npm 
+    mvn 
+    yarn 
+    go 
+    python3 
+    fzf 
+    romkatv/powerlevel10k/powerlevel10k
+)
 ```
 
-### Arch Install
+This is the Cask list installed with Brew.
+To change this list you can clone this repo and update `brew.sh` file.
+
+```bash
+
+CASKS=(
+    adobe-creative-cloud
+    alfred
+    anki
+    binance
+    discord
+    disk-inventory-x
+    docker
+    expressvpn
+    firefox
+    google-chrome
+    intellij-idea-ce
+    iterm2
+    kindle
+    lastpass
+    minecraft
+    notion
+    obs
+    postman
+    postico
+    slack
+    spotify
+    steam
+    tor-browser
+    virtualbox
+    visual-studio-code
+    vlc
+    zoom
+)
+```
+
+
+
+### Arch Linux Install
 If looking for a guide to install Arch w/ UEFI go to [Arch Install Guide](./arch/README.md)
 
 ## Vim and TMUX config
-
-#### Screenshot of vim and TMUX setup
-![alt text](images/vimScreenshot.png "Vim Setup")
 
 My vim config uses the following plugins
 

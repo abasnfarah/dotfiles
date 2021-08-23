@@ -1,8 +1,9 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " PLUGINS:
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -63,10 +64,9 @@ Plug 'christoomey/vim-tmux-navigator'
 
 call plug#end()
 
-
-
-
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " BASIC SETUP:
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " enables sytax and plugins
 set number
@@ -124,7 +124,10 @@ let g:python_highlight_all = 1
 let g:vim_jsx_pretty_colorful_config = 1 " default 0
 
 
-" SNIPPITS AND MAPS:
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" SNIPPITS AND MAPPINGS:
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " Creating Leader for custom remaps
 let mapleader = ","
 
@@ -139,7 +142,19 @@ nnoremap <Leader>pff :CocCommand prettier.formatFile<CR>
 " vim reload mapping
 nnoremap <Leader>srv :source ~/.vimrc<CR>
 
+" Markdown preview mapping
+nnoremap <Leader>md :MarkdownPreview<CR>
+
+" Plug Mappings
+nnoremap <Leader>pc :PlugClean<CR>
+nnoremap <Leader>pi :PlugInstall<CR>
+nnoremap <Leader>pu :PlugUpdate<CR>
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NERDTREE AND NERDCOMMENTER SETUP: 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 "autocmd StdinReadPre * let s:std_in=1
 "autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
@@ -183,7 +198,10 @@ let g:NERDTreeIgnore = ['^node_modules$']
 "au VimEnter *  NERDTree
 
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " FZF SETUP:
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 let g:fzf_layout = { 'window': { 'width': 0.95, 'height': 0.95 } }
 let g:fzf_action = {
     \ 'ctrl-s': 'split',
@@ -202,9 +220,10 @@ let $FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --layout reverse --ma
 " CTRLP SETUP:
 " let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
-
-
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " VIM GO SETUP:
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 filetype plugin indent on
 
 set autowrite
@@ -239,10 +258,10 @@ autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
 autocmd FileType go nmap <leader>r  <Plug>(go-run)
 autocmd FileType go nmap <leader>t  <Plug>(go-test)
 
-
-
-
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " COC SETUP:
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 let g:coc_global_extensions = [
   \ 'coc-snippets',
   \ 'coc-eslint', 
