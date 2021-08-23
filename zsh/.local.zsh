@@ -31,6 +31,9 @@ setopt complete_aliases
 autoload -U compinit && compinit
 autoload -U bashcompinit && bashcompinit
 
+# Uncomment the following lines to enable vim in zsh
+bindkey -v
+
 # Tmux set up
 alias tmux="TERM=screen-256color tmux -2"
 function StarWars {
