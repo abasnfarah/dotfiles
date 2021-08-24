@@ -34,14 +34,12 @@ alias lprof="v ~/.local.zsh"
 alias aprof="v ~/.aliases.zsh"
 alias reprof="c && source ~/.zshrc"
 
-#alias tree="tree -a -I '.git*'"
+alias tree="tree -a -I '.git*'"
 alias vprof="v ~/.vimrc"
 alias tprof="v ~/.tmux.conf"  
 alias gpd="git push origin --delete "
 alias wp=" cd ~/workspaces"
 alias p3="python3"
-
-alias tree="cb-tree -C"
 
 # tmux aliases
 alias ts="tmux new -s"
@@ -74,6 +72,9 @@ alias yayupg="yay -Syu"
 alias yain="yay -S"
 
 alias och="google-chrome-stable"
+
+# Screenshot alias using xorg-xwd
+alias screenshot="xwd -frame -out screenshot.xwd"
 
 ###############################################################################
 # Build Tool Aliases

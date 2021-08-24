@@ -7,6 +7,7 @@ packages=(
     git 
     zsh 
     neofetch 
+    tmux
     tree 
     coreutils
     zsh-syntax-highlighting 
@@ -63,8 +64,6 @@ You can view the list of packages here:
     https://github.com/abasnfarah/dotfiles/blob/main/brew.sh
 
 EOF
-    sleep .5
-
 
     if [ ! -x "$(command -v brew)" ]; then 
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -86,7 +85,6 @@ You can view the list of packages here:
     https://github.com/abasnfarah/dotfiles/blob/main/brew.sh
 
 EOF
-    sleep .5
 
     echo "Installing Nerd Fonts"
     brew tap homebrew/cask-fonts
