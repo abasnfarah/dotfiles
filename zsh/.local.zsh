@@ -13,7 +13,7 @@ export TERM="screen-256color"
 neofetch
 
 # Uncomment the following line to map caps lock to escape for arch linux
-setxkbmap -option caps:escape &>/dev/null
+#setxkbmap -option caps:escape &>/dev/null
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
