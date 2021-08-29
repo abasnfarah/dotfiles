@@ -5,8 +5,14 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# Exports workspaces and dotfiles location 
+export WORKSPACES="${HOME}/workspaces"
+export DOTFILES="${WORKSPACES}/dotfiles"
+
 source ~/.local.zsh
+
 source ~/.aliases.zsh
+source ~/.plugins.zsh
 
 # FZF setup 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh # mac
