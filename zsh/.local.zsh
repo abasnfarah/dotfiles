@@ -35,6 +35,16 @@ setopt complete_aliases
 autoload -U compinit && compinit
 autoload -U bashcompinit && bashcompinit
 
+# Uncomment the follwing four lines to configure custom zsh history
+setopt SHARE_HISTORY
+HISTFILE=$HOME/.zhistory
+SAVEHIST=3000
+HISTSIZE=2999
+setopt HIST_EXPIRE_DUPS_FIRST
+
+# Uncomment the follwing two lines to bind arrow keys to history search
+bindkey '\e[A' history-search-backward
+bindkey '\e[B' history-search-forward
 
 # Uncomment the follwing line to match lowercase letters to uppercase letters for tab completion
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
