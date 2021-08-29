@@ -3,21 +3,23 @@
 # Brew and macOS packages installation
 
 packages=(
+    ag
     bash 
+    coreutils
+    fzf 
     git 
-    zsh 
+    go 
+    gpg
+    mvn 
     neofetch 
+    npm 
+    python3 
+    romkatv/powerlevel10k/powerlevel10k
     tmux
     tree 
-    coreutils
-    zsh-syntax-highlighting 
-    npm 
-    mvn 
     yarn 
-    go 
-    python3 
-    fzf 
-    romkatv/powerlevel10k/powerlevel10k
+    zsh 
+    zsh-syntax-highlighting 
 )
 
 CASKS=(
