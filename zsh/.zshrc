@@ -10,13 +10,12 @@ source ~/.aliases.zsh
 
 # FZF setup 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh # mac
-
-#source /usr/share/fzf/key-bindings.zsh # zsh
-#source /usr/share/fzf/completion.zsh # zsh
+#source /usr/share/fzf/key-bindings.zsh # arch
+#source /usr/share/fzf/completion.zsh # arch 
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme # mac
-#source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme # zsh
+#source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme # arch
 
 # Sourcing zsh-syntax-highligting
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh # mac
