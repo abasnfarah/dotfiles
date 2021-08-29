@@ -35,7 +35,17 @@ setopt complete_aliases
 autoload -U compinit && compinit
 autoload -U bashcompinit && bashcompinit
 
-# Uncomment the following lines to enable vim in zsh
+
+# Uncomment the follwing line to match lowercase letters to uppercase letters for tab completion
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+
+# Uncomment the follwing line to match lowercase letters to uppercase letters for tab completion and vice versa
+#zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+
+# Uncomment the follwing line for case insensitive matching only when no case sensitive matches
+#zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
+
+# Uncomment the follwing line to match lowercase letters to uppercase letters for tab completion and vice versa
 bindkey -v
 
 # Tmux set up
