@@ -26,6 +26,10 @@ alias md="mkdir"
 alias rd="rm -rf"
 alias q="exit"
 alias c="clear"
+alias h="history"
+alias hgrep="fc -El 0 | grep"
+alias fd="find . -type d -name"
+alias ff="find . -type f -name"
 
 #alias och="open -a /Applications/Google\ Chrome.app"
 
@@ -144,8 +148,10 @@ git-re-rebase() {
 
 #directory related
 alias ls='ls -G'          # ls with color
-alias ll='ls -1A'         # list directory
-alias l='ls -lah'         # list directory with additional information
+alias ll='ls -1A'         # lists files/directories
+alias l='ls -lah'         # lists files/directories with additional information
+alias ldot="ls -ld .*"    # lists all dotfiles in a long list
+alias lS="ls -1FSsh"      # Lists files with name and size sorted by size
 alias -g ..='..'          # move up by one directory
 alias -g ...='../..'      # move up by two directories
 alias -g ....='../../..'  # move up by three directories
