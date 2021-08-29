@@ -56,25 +56,25 @@ alias gcpp="g++ -std=c++11"
 # Arch Specific Commands
 ###############################################################################
 
-alias terprof="v ~/.config/termite/config"
-alias rcprof="v ~/.config/awesome/rc.lua"
-alias xprof="v ~/.xinitrc"
+#alias terprof="v ~/.config/termite/config"
+#alias rcprof="v ~/.config/awesome/rc.lua"
+#alias xprof="v ~/.xinitrc"
 
 # mimics pbcopy on macosx using xclip in Arch Linux 
 # Requirements: xclip
-alias pbcopy="xclip -selection clipboard"
-alias pbpaste="xclip -selection clipboard -o"
+#alias pbcopy="xclip -selection clipboard"
+#alias pbpaste="xclip -selection clipboard -o"
 
 # Package manager aliases
-alias pacupg="sudo pacman -Syu"
-alias pacin="sudo pacman -S"
-alias yayupg="yay -Syu"
-alias yain="yay -S"
+#alias pacupg="sudo pacman -Syu"
+#alias pacin="sudo pacman -S"
+#alias yayupg="yay -Syu"
+#alias yain="yay -S"
 
-alias och="google-chrome-stable"
+#alias och="google-chrome-stable"
 
 # Screenshot alias using xorg-xwd
-alias screenshot="xwd -frame -out screenshot.xwd"
+#alias screenshot="xwd -frame -out screenshot.xwd"
 
 ###############################################################################
 # Build Tool Aliases
@@ -111,8 +111,8 @@ alias gl="git pull"
 alias ga="git add"
 alias gaa="git add --all"
 alias gc="git commit" 
-alias gcmsg="git commit -m"
-#alias gcmsg="git commit -S -m" # This is a signed commit aliases
+#alias gcmsg="git commit -m"
+alias gcmsg="git commit -S -m" # This is a signed commit aliases
 alias gcam="git commit --amend"
 alias gst="git status"
 alias gb="git branch"
