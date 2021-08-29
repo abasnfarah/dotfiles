@@ -141,12 +141,12 @@ git clone https://github.com/tmux-plugins/tpm ${HOME}/.tmux/plugins/tpm
 # Create symlinks for dotfiles 
 ###############################################################################
 
-ln -fs "${dotfiles_path}/zsh/.zshrc" "${HOME}/.zshrc"
-ln -fs "${dotfiles_path}/zsh/.local.zsh" "${HOME}/.local.zsh"
-ln -fs "${dotfiles_path}/zsh/.aliases.zsh" "${HOME}/.aliases.zsh"
-ln -fs "${dotfiles_path}/vim/.vimrc" "${HOME}/.vimrc"
-ln -fs "${dotfiles_path}/tmux/.tmux.conf" "${HOME}/.tmux.conf"
-ln -fs "${dotfiles_path}/zsh/.plugins/plugins.zsh" "${HOME}/.plugins.zsh"
+ln -fs "${dotfiles_path}/zsh/zshrc" "${HOME}/.zshrc"
+ln -fs "${dotfiles_path}/zsh/local.zsh" "${HOME}/.local.zsh"
+ln -fs "${dotfiles_path}/zsh/aliases.zsh" "${HOME}/.aliases.zsh"
+ln -fs "${dotfiles_path}/vim/vimrc" "${HOME}/.vimrc"
+ln -fs "${dotfiles_path}/tmux/tmux.conf" "${HOME}/.tmux.conf"
+ln -fs "${dotfiles_path}/zsh/plugins/plugins.zsh" "${HOME}/.plugins.zsh"
 
 if [ $MY_OS = "Linux" ]; then
     ln -fs "${dotfiles_path}/arch/.config" "${HOME}/.config"
