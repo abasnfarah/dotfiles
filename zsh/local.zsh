@@ -29,11 +29,11 @@ setopt autocd
 setopt autopushd
 
 # Uncomment the following line to add tab completion to aliases
-setopt complete_aliases
+#setopt complete_aliases
 
 # Uncomment the follwing two lines to add tab completion
-autoload -U compinit && compinit
-autoload -U bashcompinit && bashcompinit
+autoload -Uz compinit && compinit
+autoload -Uz bashcompinit && bashcompinit
 
 # Uncomment the follwing four lines to configure custom zsh history
 setopt SHARE_HISTORY

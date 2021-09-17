@@ -32,6 +32,10 @@ alias fd="find . -type d -name"
 alias ff="find . -type f -name"
 
 #alias och="open -a /Applications/Google\ Chrome.app"
+alias cs4011="open $HOME/Documents/2021_2022_SchoolYear/CSCI_4011_Formal_Automata/Textbook/FormalAutomata.pdf"
+alias ee3015="open $HOME/Documents/2021_2022_SchoolYear/EE_3015_Signal_Systems/Textbook/SignalsAndSystems.pdf"
+alias ee3115="open $HOME/Documents/2021_2022_SchoolYear/EE_3115_Analog_Electronics/Textbooks/SedraAndSmith.pdf"
+alias see3115="open $HOME/Documents/2021_2022_SchoolYear/EE_3115_Analog_Electronics/Textbooks/SedraSmith7th.pdf"
 
 alias prof="v ~/.zshrc"
 alias lprof="v ~/.local.zsh"
