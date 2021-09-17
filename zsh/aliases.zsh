@@ -8,6 +8,8 @@ export EDITOR='vim'
 alias @dw='~/Downloads'
 alias @wp='~/workspaces'
 alias @dt='~/workspaces/dotfiles'
+alias @cp='~/workspaces/competativeProgramming'
+alias @af='~/workspaces/abasnfarah.github.io'
 
 ###############################################################################
 # Basic Aliases
