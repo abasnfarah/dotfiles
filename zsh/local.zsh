@@ -35,12 +35,17 @@ setopt autopushd
 autoload -Uz compinit && compinit
 autoload -Uz bashcompinit && bashcompinit
 
+# Uncomment the follwing line to match lowercase letters to uppercase letters for tab completion and vice versa
+bindkey -v
+
 # Uncomment the follwing four lines to configure custom zsh history
+setopt APPEND_HISTORY
 setopt SHARE_HISTORY
 HISTFILE=$HOME/.zhistory
 SAVEHIST=3000
 HISTSIZE=2999
 setopt HIST_EXPIRE_DUPS_FIRST
+setopt EXTENDED_HISTORY
 
 # Uncomment the follwing two lines to bind arrow keys to history search
 bindkey '\e[A' history-search-backward
@@ -54,10 +59,6 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
 # Uncomment the follwing line for case insensitive matching only when no case sensitive matches
 #zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
-
-# Uncomment the follwing line to match lowercase letters to uppercase letters for tab completion and vice versa
-bindkey -v
-
 # Tmux set up
 alias tmux="TERM=screen-256color tmux -2"
 function StarWars {
