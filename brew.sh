@@ -5,6 +5,7 @@
 packages=(
     ag
     bash 
+    ccls
     coreutils
     fzf 
     git 

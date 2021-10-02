@@ -18,8 +18,11 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'antoinemadec/coc-fzf'
 "Plug 'neoclide/coc.nvim', { 'branch': 'master', 'do': 'yarn install --frozen-lockfile' }
 
-" Go plugin for vim development
+" Go plugin for go development
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
+" clangd plugin for C/C++ development
+"Plug 'xavierd/clang_complete'
 
 " File tree 
 Plug 'scrooloose/nerdtree'
@@ -133,7 +136,7 @@ let mapleader = ","
 
 " code snippits 
 "nnoremap <Leader>go :-1read $HOME/.vim/snippits/golang_skeleton.go<CR>7j$o
-"nnoremap <Leader>cpp :-1read $HOME/.vim/snippits/cpp_skeleton.cpp<CR>17jo
+nnoremap <Leader>cpp :-1read $HOME/.vim/snippits/cpSnippit.cpp<CR>54jO
 "nnoremap <Leader>pcp :-1read $HOME/.vim/snippits/pyCPP_skeleton.py<CR>7jo
 
 " format mapping
@@ -150,6 +153,9 @@ nnoremap <Leader>pc :PlugClean<CR>
 nnoremap <Leader>pi :PlugInstall<CR>
 nnoremap <Leader>pu :PlugUpdate<CR>
 
+" Formats cpp code for online judge
+autocmd FileType cpp nnoremap <Leader>sub :<CR>ma:0<CR>ddO#include <bits/stdc++.h><Esc>`a:delmarks a<CR>
+autocmd FileType cpp nnoremap <Leader>Sub :<CR>ma:0<CR>ddO#include "/Users/abasfarah/workspaces/competativeProgramming/stdc++.h"<Esc>`a:delmarks a<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NERDTREE AND NERDCOMMENTER SETUP: 
