@@ -60,7 +60,7 @@ alias tkill="tmux kill-server"
 # C++ C Java Compiling and running
 alias jc="javac"
 alias j="java"
-alias gcpp="g++ -std=c++11"
+alias gcpp="g++-11 -std=c++11 -Wall"
 
 ###############################################################################
 # Arch Specific Commands

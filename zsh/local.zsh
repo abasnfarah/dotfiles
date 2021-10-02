@@ -22,6 +22,9 @@ neofetch
 #timedatectl set-timezone America/Chicago
 #sudo ntpd -qg
 
+# Uncomment the follwing line to remove terminal beep sounds
+setopt nobeep
+
 # Uncomment the following line to jump to folders without the use of cd
 setopt autocd
 
@@ -59,8 +62,10 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
 # Uncomment the follwing line for case insensitive matching only when no case sensitive matches
 #zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
-# Tmux set up
+
+# Uncomment the following command to set TMUX colors
 alias tmux="TERM=screen-256color tmux -2"
+
 function StarWars {
     echo "Are you ready for some StarWars Brahh" && archey && sleep 2 && tree ~ && telnet towel.blinkenlights.nl 
 }
