@@ -118,7 +118,7 @@ command! MakeTags !ctags -R
 " This makes it so when I hit backspace in insert mode it doesn't fail
 set backspace=indent,eol,start
 
-"colorscheme brogrammer
+colorscheme brogrammer
 colorscheme gruvbox
 "colorscheme onehalfdark
 "let g:airline_theme='molokai'
