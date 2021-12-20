@@ -34,6 +34,7 @@ packages=(
     stow 
     termite
     termite-terminfo
+    the_silver_searcher
     tree 
     tree 
     tmux
