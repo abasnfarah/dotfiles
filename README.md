@@ -106,6 +106,7 @@ packages=(
     nerd-fonts-complete 
     nodejs 
     npm 
+    ntp
     nvm
     openssh 
     obs-studio
