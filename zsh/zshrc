@@ -16,11 +16,11 @@ source ~/.plugins.zsh
 source ~/.screenlayout/two_monitor_layout.sh
 
 # FZF setup 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh # mac
-#source /usr/share/fzf/key-bindings.zsh # arch
+#[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh # mac
+source /usr/share/fzf/key-bindings.zsh # arch
 #source /usr/share/fzf/completion.zsh # arch 
 # Adds hidden files to FZF 
-export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -l -g ""'
+#export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -l -g ""'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 #source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme # mac

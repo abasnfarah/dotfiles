@@ -74,9 +74,10 @@ call plug#end()
 " enables sytax and plugins
 set number
 set relativenumber
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set encoding=UTF-8
 
 set expandtab
 syntax enable
@@ -277,6 +278,7 @@ let g:coc_global_extensions = [
   \ 'coc-python',
   \ 'coc-tsserver',
   \ 'coc-go',
+  \ 'coc-pairs',
   "\ 'coc-clangd',
   \ ]
 

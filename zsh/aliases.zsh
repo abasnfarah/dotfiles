@@ -10,13 +10,11 @@ alias @wp='~/workspaces'
 alias @dt='~/workspaces/dotfiles'
 alias @cp='~/workspaces/competativeProgramming'
 alias @af='~/workspaces/abasnfarah.github.io'
+alias @tmr='~/.tmux/resurrect/'
 
 ###############################################################################
 # Basic Aliases
 ###############################################################################
-
-# Tmux set up
-alias tmux="TERM=screen-256color tmux -2"
 
 alias v="vim"
 alias e="emacs"
@@ -52,10 +50,15 @@ alias wp=" cd ~/workspaces"
 alias p3="python3"
 
 # tmux aliases
+alias tmux="TERM=screen-256color tmux -2 -u"
 alias ts="tmux new -s"
 alias ta="tmux a -t"
 alias tls="tmux ls"
 alias tkill="tmux kill-server"
+function tmux_restore {
+    ln -sf ~/.tmux/resurrect/"$1.txt" ~/.tmux/resurrect/last
+    tmux
+}
 
 # C++ C Java Compiling and running
 alias jc="javac"

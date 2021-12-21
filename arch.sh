@@ -23,6 +23,7 @@ packages=(
     nerd-fonts-complete 
     nodejs 
     npm 
+    ntp
     nvm
     openssh 
     obs-studio
@@ -34,6 +35,7 @@ packages=(
     stow 
     termite
     termite-terminfo
+    the_silver_searcher
     tree 
     tree 
     tmux
