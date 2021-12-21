@@ -19,8 +19,8 @@ neofetch
 # CASE_SENSITIVE="true"
 
 # Uncomment the following two lines to sync and set system time
-#timedatectl set-timezone America/Chicago
-#sudo ntpd -qg
+timedatectl set-timezone America/Chicago
+sudo ntpd -qg
 
 # Uncomment the follwing line to remove terminal beep sounds
 setopt nobeep
