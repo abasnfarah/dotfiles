@@ -51,6 +51,9 @@ fi
 xrdb -merge ~/.Xresources &
 setxkbmap -option caps:escape &
 
+timedatectl set-timezone America/Chicago
+sudo ntpd -qg
+
 #twm &
 #xclock -geometry 50x50-1+1 &
 #xterm -geometry 80x50+494+51 &
