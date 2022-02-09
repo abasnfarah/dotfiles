@@ -69,9 +69,9 @@ alias gcpp="g++-11 -std=c++11 -Wall"
 # Arch Specific Commands
 ###############################################################################
 
-alias terprof="v ~/.config/termite/config"
-alias rcprof="v ~/.config/awesome/rc.lua"
-alias xprof="v ~/.xinitrc"
+#alias terprof="v ~/.config/termite/config"
+#alias rcprof="v ~/.config/awesome/rc.lua"
+#alias xprof="v ~/.xinitrc"
 
 # mimics pbcopy on macosx using xclip in Arch Linux 
 # Requirements: xclip
