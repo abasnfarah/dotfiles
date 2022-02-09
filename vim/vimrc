@@ -137,8 +137,8 @@ let mapleader = ","
 
 " code snippits 
 "nnoremap <Leader>go :-1read $HOME/.vim/snippits/golang_skeleton.go<CR>7j$o
-nnoremap <Leader>cpp :-1read $HOME/.vim/snippits/cpSnippit.cpp<CR>54jO
-"nnoremap <Leader>pcp :-1read $HOME/.vim/snippits/pyCPP_skeleton.py<CR>7jo
+nnoremap <Leader>cpp :-1read $HOME/.vim/snippits/cpSnippit.cpp<CR>56jO
+nnoremap <Leader>pcp :-1read $HOME/.vim/snippits/pySnippit.py<CR>3jo
 
 " format mapping
 nnoremap <Leader>pff :CocCommand prettier.formatFile<CR>
