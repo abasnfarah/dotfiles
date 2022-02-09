@@ -13,11 +13,13 @@ source ~/.local.zsh
 
 source ~/.aliases.zsh
 source ~/.plugins.zsh
-source ~/.screenlayout/two_monitor_layout.sh
+
+# Arch config for dual monitors
+#source ~/.screenlayout/two_monitor_layout.sh
 
 # FZF setup 
-#[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh # mac
-source /usr/share/fzf/key-bindings.zsh # arch
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh # mac
+#source /usr/share/fzf/key-bindings.zsh # arch
 #source /usr/share/fzf/completion.zsh # arch 
 # Adds hidden files to FZF 
 #export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -l -g ""'
