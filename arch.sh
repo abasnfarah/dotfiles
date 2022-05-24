@@ -12,11 +12,13 @@ packages=(
     expressvpn 
     fzf 
     git 
+    gnome-keyring
     go
     google-chrome 
     grep
     gzip 
     imagemagick
+    iwd
     maven
     mpv
     neofetch 
