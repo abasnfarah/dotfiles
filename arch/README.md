@@ -54,6 +54,25 @@ wifi-menu
 ping 8.8.8.8
 ```
 
+if not will need to use ethernet to setup wifi. 
+
+To setup wifi download the following
+```{r, engine='bash', count_lines}
+pacman -S iwd
+sudo systemctl enable iwd.service
+sudo systemctl start iwd.service
+
+# Add to groups to use
+# groupadd wheel netdev
+
+# Run the following to find and connect to wifi.
+# Refrence the arch wiki for commands
+iwctl
+
+# after connecting check connection without ethernet connection
+ping 8.8.8.8
+```
+
 ### 2. Partitioning Disks <a name="partition"></a>
 
 #### Make Swap and Linux Filesystem
