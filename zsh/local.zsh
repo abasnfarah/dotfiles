@@ -2,9 +2,12 @@
 # ZSH_DISABLE_COMPFIX=true
 export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$PATH
-export GOROOT=/usr/local/go
+#export GOROOT=/usr/lib/go/bin/go
+#export GOROOT=/usr/local/go
+#export GOROOT=/usr/bin/go
 export GOBIN=$GOPATH/bin
-export PATH=$PATH:$GOROOT:$GOPATH:$GOBIN
+#export PATH=$PATH:$GOROOT:$GOPATH:$GOBIN
+export PATH=$PATH:$GOPATH:$GOBIN
 export TERM="screen-256color"
 
 # Uncomment the following line for a transparent terminal in arch
