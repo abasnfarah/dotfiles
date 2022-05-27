@@ -72,8 +72,10 @@ EOF
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     fi
 
-    echo "source /opt/homebrew/bin/brew" > ${HOME}/.zshrc
-    source /opt/homebrew/bin/brew
+    echo "eval $(/opt/homebrew/bin/brew shellenv)" > ${HOME}/.zshrc
+    echo "Sourcing homebrew.."
+    sleep .5
+    eval $(/opt/homebrew/bin/brew shellenv)
 
     for i in "${packages[@]}"; do
         brew install $i
