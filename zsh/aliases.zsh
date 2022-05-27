@@ -75,19 +75,19 @@ alias gcpp="g++-11 -std=c++11 -Wall"
 
 # mimics pbcopy on macosx using xclip in Arch Linux 
 # Requirements: xclip
-alias pbcopy="xclip -selection clipboard"
-alias pbpaste="xclip -selection clipboard -o"
+#alias pbcopy="xclip -selection clipboard"
+#alias pbpaste="xclip -selection clipboard -o"
 
-# Package manager aliases
-alias pacupg="sudo pacman -Syu"
-alias pacin="sudo pacman -S"
-alias yayupg="yay -Syu"
-alias yain="yay -S"
+## Package manager aliases
+#alias pacupg="sudo pacman -Syu"
+#alias pacin="sudo pacman -S"
+#alias yayupg="yay -Syu"
+#alias yain="yay -S"
 
-alias och="google-chrome-stable"
+#alias och="google-chrome-stable"
 
-# Screenshot alias using xorg-xwd
-alias screenshot="xwd -frame -out screenshot.xwd"
+## Screenshot alias using xorg-xwd
+#alias screenshot="xwd -frame -out screenshot.xwd"
 
 ###############################################################################
 # Build Tool Aliases
