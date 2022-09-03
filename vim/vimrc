@@ -21,9 +21,6 @@ Plug 'antoinemadec/coc-fzf'
 " Go plugin for go development
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
-" clangd plugin for C/C++ development
-"Plug 'xavierd/clang_complete'
-
 " File tree 
 Plug 'scrooloose/nerdtree'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
@@ -42,9 +39,6 @@ Plug 'morhetz/gruvbox'
 Plug 'HerringtonDarkholme/yats.vim' " TS Syntax
 Plug 'sonph/onehalf', { 'rtp': 'vim' }
 Plug 'vim-python/python-syntax'
-"Plug 'pangloss/vim-javascript'
-"Plug 'leafgarland/typescript-vim'
-"Plug 'peitalin/vim-jsx-typescript'
 Plug 'yuezk/vim-js'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
