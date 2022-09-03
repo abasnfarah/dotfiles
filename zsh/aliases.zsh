@@ -8,6 +8,7 @@ export EDITOR='vim'
 alias @dw='~/Downloads'
 alias @wp='~/workspaces'
 alias @dt='~/workspaces/dotfiles'
+alias @w="~/workspaces/workload"
 alias @cp='~/workspaces/competativeProgramming'
 alias @af='~/workspaces/abasfarah.io'
 alias @tmr='~/.tmux/resurrect/'
@@ -19,8 +20,6 @@ alias @tmr='~/.tmux/resurrect/'
 alias v="vim"
 alias e="emacs"
 alias t="touch"
-alias d="docker"
-alias dc="docker-compose"
 alias y="yarn"
 alias md="mkdir"
 alias rd="rm -rf"
@@ -89,6 +88,7 @@ alias gcpp="g++-11 -std=c++11 -Wall"
 ## Screenshot alias using xorg-xwd
 #alias screenshot="xwd -frame -out screenshot.xwd"
 
+
 ###############################################################################
 # Build Tool Aliases
 ###############################################################################
@@ -97,10 +97,34 @@ alias gcpp="g++-11 -std=c++11 -Wall"
 alias gor="go run"
 alias gob="go build"
 
+# Docker aliases
+alias d="docker"
+alias dc="docker-compose"
+alias db="docker build"
+alias dimg="docker image"
+alias dimgl="docker image list"
+alias dsp="docker system --prune"
+
+#Kubernetes aliases
+alias kv="kubectl version"
+alias kg="kubectl get"
+alias kapi="kubectl apiversions"
+alias kgp="kubectl get pod"
+alias kgd="kubectl get deployment"
+alias kgcrd="kubectl get crd"
+alias kgn="kubectl get namespace"
+alias kd="kubectl delete"
+alias kdp="kubectl delete pods"
+alias kdd="kubectl delete deployment"
+alias kdn="kubectl delete namespace"
+alias kaf="kubectl apply -f"
+
 # Bazel aliases 
-alias br="bazel run"
-alias bce="bazel clean -expunge"
+alias bar="bazel run"
+alias bab="bazel build'"
+alias bac="bazel clean"
 alias brg="bazel run //:gazelle"
+alias bat="bazel test"
 
 # Maven aliases
 alias mc="mvn clean"
