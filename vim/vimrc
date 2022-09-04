@@ -114,7 +114,7 @@ command! MakeTags !ctags -R
 set backspace=indent,eol,start
 
 colorscheme brogrammer
-colorscheme gruvbox
+"colorscheme gruvbox
 "colorscheme onehalfdark
 "let g:airline_theme='molokai'
 let g:airline_theme='kolor'
