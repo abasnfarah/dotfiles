@@ -204,9 +204,10 @@ On reboot windows isn't present but don't worry it will after some configuration
 
 ### 10. Making Windows visable to grub<a name="windows"></a>
 In order to make windows visable in grub bootloader you need a package called
-OS-Prober. Install:
+OS-Prober. Install and set `GRUB_DISABLE_OS_PROBER` to `false`:
 ```{r, engine='bash', count_lines}
 pacman -S os-prober
+vim /etc/default/grub #UNCOMMENT GRUB_DISABLE_OS_PROBER=false
 ```
 Now we have to update grub.cfg and reboot to check if windows appear.
 ```{r, engine='bash', count_lines}
