@@ -38,7 +38,7 @@ you don't pull your hair out.
     7. [Install Neofetch](#neofetch)
     8. [Installing xorg](#xorg)
     9. [Setup Awesome (Window Manager)](#awesome)
-   10. [Installing Lightdm](#lightdm)
+   10. [Installing Lightdm](#slim)
 5. [Startup GUI](#startx)
 
 # Pre Installation <a name="preInstall"></a>
@@ -288,11 +288,13 @@ cp -r /usr/share/awesome/* .config/awesome/
 sudo yay -S rxvt-unicode pcmanfm
 ```
 
-### 10. Installing lightdm as our login manager <a name="lightdm"></a>
+### 10. Installing slim as our login manager <a name="slim"></a>
 ```{r, engine='bash', count_lines}
-yay -S lightdm
-yay -S lightdm-webkit-theme-litarvan #This is our greeter
-systemctl enable lightdm
+yay -S slim
+git clone https://github.com/adi1090x/slim_themes
+cp -r slim_themes/themes/* /usr/share/slim/themes/
+rd slim_themes
+systemctl enable slim.service
 ```
 
 
