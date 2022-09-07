@@ -76,9 +76,7 @@ You can view the list of packages here:
 
 EOF
 
-    if [ ! -x "$(command -v yay)" ]; then 
-        install_yay
-    fi
+    install_yay
 
     yay -Syu
 

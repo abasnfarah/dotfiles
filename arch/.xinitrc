@@ -22,8 +22,7 @@ sysmodmap=/etc/X11/xinit/.Xmodmap
 #if [ -f $sysmodmap ]; then
 #    xmodmap $sysmodmap
 #fi
-#
-#if [ -f "$userresources" ]; then
+# #if [ -f "$userresources" ]; then
 #
 #
 #
@@ -54,9 +53,19 @@ setxkbmap -option caps:escape &
 timedatectl set-timezone America/Chicago
 sudo ntpd -qg
 
+xrandr --output DP-0 --mode 1440x1080 --right-of HDMI-0
+xrandr --output HDMI-0 --mode 2560x1440  --left-of DP-0
+
 #twm &
 #xclock -geometry 50x50-1+1 &
 #xterm -geometry 80x50+494+51 &
 #xterm -geometry 80x20+494-0 &
 #exec xterm -geometry 80x66+0+0 -name login
 exec awesome
+
+
+
+
+
+
+

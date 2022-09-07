@@ -30,12 +30,6 @@ alias hgrep="fc -El 0 | grep"
 alias fd="find . -type d -name"
 alias ff="find . -type f -name"
 
-#alias och="open -a /Applications/Google\ Chrome.app"
-alias cs4011="open $HOME/Documents/2021_2022_SchoolYear/CSCI_4011_Formal_Automata/Textbook/FormalAutomata.pdf"
-alias ee3015="open $HOME/Documents/2021_2022_SchoolYear/EE_3015_Signal_Systems/Textbook/SignalsAndSystems.pdf"
-alias ee3115="open $HOME/Documents/2021_2022_SchoolYear/EE_3115_Analog_Electronics/Textbooks/SedraAndSmith.pdf"
-alias see3115="open $HOME/Documents/2021_2022_SchoolYear/EE_3115_Analog_Electronics/Textbooks/SedraSmith7th.pdf"
-
 alias prof="v ~/.zshrc"
 alias lprof="v ~/.local.zsh"
 alias aprof="v ~/.aliases.zsh"
@@ -68,25 +62,25 @@ alias gcpp="g++-11 -std=c++11 -Wall"
 # Arch Specific Commands
 ###############################################################################
 
-#alias terprof="v ~/.config/termite/config"
-#alias rcprof="v ~/.config/awesome/rc.lua"
-#alias xprof="v ~/.xinitrc"
+alias terprof="v ~/.config/termite/config"
+alias rcprof="v ~/.config/awesome/rc.lua"
+alias xprof="v ~/.xinitrc"
 
-# mimics pbcopy on macosx using xclip in Arch Linux 
-# Requirements: xclip
-#alias pbcopy="xclip -selection clipboard"
-#alias pbpaste="xclip -selection clipboard -o"
+#mimics pbcopy on macosx using xclip in Arch Linux 
+#Requirements: xclip
+alias pbcopy="xclip -selection clipboard"
+alias pbpaste="xclip -selection clipboard -o"
 
-## Package manager aliases
-#alias pacupg="sudo pacman -Syu"
-#alias pacin="sudo pacman -S"
-#alias yayupg="yay -Syu"
-#alias yain="yay -S"
+# Package manager aliases
+alias pacupg="sudo pacman -Syu"
+alias pacin="sudo pacman -S"
+alias yayupg="yay -Syu"
+alias yain="yay -S"
 
-#alias och="google-chrome-stable"
+alias och="google-chrome-stable"
 
-## Screenshot alias using xorg-xwd
-#alias screenshot="xwd -frame -out screenshot.xwd"
+# Screenshot alias using xorg-xwd
+alias screenshot="xwd -frame -out screenshot.xwd"
 
 
 ###############################################################################
@@ -188,6 +182,3 @@ alias lS="ls -1FSsh"      # Lists files with name and size sorted by size
 alias -g ..='..'          # move up by one directory
 alias -g ...='../..'      # move up by two directories
 alias -g ....='../../..'  # move up by three directories
-
-
-

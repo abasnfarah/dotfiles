@@ -1,19 +1,20 @@
 #!/bin/bash
-
 echo "Starting bootstrapping.."
-sleep .5
 echo "..."
-sleep .5
+sleep .10
 
 set -e
 
 # Flag to only install dotfiles and not packages
-skip_packages="${1}"
+flag="${1}"
+
 
 # This gets the OS of current machine. 
 MY_OS="$(uname -s)"
 
 MY_DISTRO="none"
+
+MY_ARCHITECTURE="none"
 
 # Current working directory. We'll need to come back to this later
 INITIAL_WORKING_DIRECTORY=$(pwd)
@@ -28,9 +29,7 @@ SCRIPT_DIRECTORY=$(dirname "$0")
 
 function no_packages() {
 cat << EOF
-Can't install packages on this device. 
-
-Package installation is not supported on you OS or Distro
+Can't install packages on this device.  Package installation is not supported on you OS or Distro
 
 Please install any packages on your own. The list of of packages are located at:
     
@@ -42,10 +41,54 @@ To install without packages, re-run the script with the following flag
 EOF
 }
 
+while test $# -gt 0; do
+  case "$1" in 
+    -h|--help)
+      echo "install - installs dotfiles"
+      echo "Defaults to installing list of packages"
+      echo "Can skip pacakage install with -s flag"
+      echo ""
+      echo "install [options]"
+      echo ""
+      echo "options:"
+      echo "-h, --help             show brief help"
+      echo "-s, --skip_packages    skips package install"
+      echo "-l, --list_packages    lists packages to install per OS"
+      exit 0
+      ;;
+
+    -l)
+      shift
+      list_pacakges
+      shift
+      ;;
+    --list_packages)
+      list_pacakges
+      shift
+      ;;
+    -s)
+      shift
+      shift
+      ;;
+    --skip_packages)
+      echo "Skippiing package install"
+      echo ""
+      echo "To get a list of packages run 'install -l'"
+      shift
+      ;;
+      
+
+
 
 case $MY_OS in 
     Darwin*) 
         MY_OS="macOS" && MY_DISTRO="macOS"
+
+        if [ -f "/opt" ]; then
+            MY_ARCHITECTURE="ARM"
+        else
+            MY_ARCHITECTURE="x86_64"
+        fi
         ;;
     Linux*) 
         MY_OS="Linux"
@@ -86,6 +129,9 @@ function install_ubuntu {
 
 echo "Your OS is $MY_OS"
 echo "Your Distro is $MY_DISTRO"
+if [ -f $MY_OS = "macOS" ]; then
+    echo "Your Architecture is $MY_ARCHITECTURE"
+fi
 
 if [ -z "${skip_packages}" ] ; then 
 
@@ -149,7 +195,9 @@ ln -fs "${dotfiles_path}/tmux/tmux.conf" "${HOME}/.tmux.conf"
 ln -fs "${dotfiles_path}/zsh/plugins/plugins.zsh" "${HOME}/.plugins.zsh"
 
 if [ $MY_OS = "Linux" ]; then
-    ln -fs "${dotfiles_path}/arch/.config" "${HOME}/.config"
+    ln -fs "${dotfiles_path}/arch/.config/awesome/rc.lua" "${HOME}/.config/awesome/rc.lua"
+    ln -fs "${dotfiles_path}/arch/.config/termite/config" "${HOME}/.config/termite/config"
+    ln -fs "${dotfiles_path}/arch/.xinitrc" "${HOME}/.xinitrc"
 fi
 
 
@@ -159,6 +207,13 @@ fi
 
 ln -fs "${dotfiles_path}/ssh/config" "${HOME}/.ssh/config"
 
+
+###############################################################################
+# Installing awesome WM theme
+###############################################################################
+
+git clone --recurse-submodules --remote-submodules --depth 1 -j 2 https://github.com/lcpz/awesome-copycats.git
+mv -bv awesome-copycats/{*,.[^.]*} ~/.config/awesome; rm -rf awesome-copycats
 
 ###############################################################################
 # Installing vim plugins  
