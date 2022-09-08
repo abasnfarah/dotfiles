@@ -62,10 +62,3 @@ xrandr --output HDMI-0 --mode 2560x1440  --left-of DP-0
 #xterm -geometry 80x20+494-0 &
 #exec xterm -geometry 80x66+0+0 -name login
 exec awesome
-
-
-
-
-
-
-

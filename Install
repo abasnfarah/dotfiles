@@ -1,8 +1,4 @@
 #!/bin/bash
-echo "Starting bootstrapping.."
-echo "..."
-sleep .10
-
 set -e
 
 # Flag to only install dotfiles and not packages
@@ -43,48 +39,6 @@ To install without packages, re-run the script with the following flag
 EOF
 }
 
-while test $# -gt 0; do
-  case "$1" in 
-    -h|--help)
-      echo "install - installs dotfiles"
-      echo "Defaults to installing list of packages"
-      echo "Can skip pacakage install with -s flag"
-      echo ""
-      echo "install [options]"
-      echo ""
-      echo "options:"
-      echo "-h, --help             show brief help"
-      echo "-s, --skip_packages    skips package install"
-      echo "-l, --list_packages    lists packages to install per OS"
-      exit 0
-      ;;
-
-    -l)
-      shift
-      list_packages
-      shift
-      ;;
-    --list_packages)
-      list_pacakges
-      shift
-      ;;
-    -s)
-      shift
-      echo "Skippiing package install"
-      echo ""
-      echo "To get a list of packages run 'install -l'"
-      shift
-      ;;
-    --skip_packages)
-      echo "Skippiing package install"
-      echo ""
-      echo "To get a list of packages run 'install -l'"
-      shift
-      ;;
-  esac
-done
-
-
 case $MY_OS in 
     Darwin*) 
         MY_OS="macOS" && MY_DISTRO="macOS"
@@ -116,20 +70,89 @@ case $MY_OS in
 esac
 
 ###############################################################################
+# Handle flags
+###############################################################################
+
+function list_packages {
+  
+  if [ $MY_OS = "macOS" ]; then
+    source ./brew.sh
+  elif [ $MY_OS = "Linux" ] && [ $MY_DISTRO = "Arch" ]; then 
+    source ./utils/arch/framework.sh
+  elif [ $MY_OS = "Linux" ] && [ $MY_DISTRO = "Ubuntu" ]; then 
+    source ./ubuntu.sh
+  fi
+
+  display_packages
+
+  exit 0
+}
+
+while test $# -gt 0; do
+  case "$1" in 
+    -h|--help)
+      echo ""
+      echo "Install - installs vim, tmux, and zsh dotfiles"
+      echo "Creates symlinks for dotfiles"
+      echo "Defaults to installing list of packages"
+      echo "Can skip pacakage install with -s flag"
+      echo ""
+      echo "install [options]"
+      echo ""
+      echo "options:"
+      echo "-h, --help             show brief help"
+      echo "-s, --skip_packages    skips package install"
+      echo "-l, --list_packages    lists packages to install per OS"
+      exit 0
+      ;;
+
+    -l)
+      shift
+      list_packages
+      shift
+      ;;
+    --list_packages)
+      list_packages
+      shift
+      ;;
+    -s)
+      shift
+      echo "Skipping package install"
+      echo ""
+      echo "To get a list of packages run 'install -l'"
+      shift
+      ;;
+    --skip_packages)
+      echo "Skipping package install"
+      echo ""
+      echo "To get a list of packages run 'install -l'"
+      shift
+      ;;
+    *)
+      break
+      ;;
+  esac
+done
+
+
+###############################################################################
 # Install packages using OS or distro package manager
 ###############################################################################
 
+echo "Starting bootstrapping.."
+echo "..."
+sleep .10
 
 function install_macos {
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/abasnfarah/dotfiles/HEAD/brew.sh)"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/abasnfarah/dotfiles/HEAD/utils/macOS/brew.sh)"
 }
 
 function install_arch {
-    /bin/bash -c "$(curl -fLo https://raw.githubusercontent.com/abasnfarah/dotfiles/HEAD/arch.sh)"
+    /bin/bash -c "$(curl -fLo https://raw.githubusercontent.com/abasnfarah/dotfiles/HEAD/utils/arch/arch.sh)"
 }
 
 function install_ubuntu { 
-    /bin/bash -c "$(curl -fLo https://raw.githubusercontent.com/abasnfarah/dotfiles/HEAD/ubuntu.sh)"
+    /bin/bash -c "$(curl -fLo https://raw.githubusercontent.com/abasnfarah/dotfiles/HEAD/utils/ubuntu/ubuntu.sh)"
 }
 
 echo "Your OS is $MY_OS"
@@ -142,7 +165,7 @@ if [ -z "${skip_packages}" ] ; then
 
     if [ $MY_OS = "macOS" ]; then 
         install_macos
-    elif [ $MY_OS = "Linux"] && [ $MY_DISTRO = "Arch"]; then 
+    elif [ $MY_OS = "Linux" ] && [ $MY_DISTRO = "Arch" ]; then 
         install_arch
     elif [ $MY_OS = "Linux" ] && [ $MY_DISTRO = "Ubuntu" ]; then 
         install_ubuntu
