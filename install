@@ -8,7 +8,6 @@ set -e
 # Flag to only install dotfiles and not packages
 flag="${1}"
 
-
 # This gets the OS of current machine. 
 MY_OS="$(uname -s)"
 
@@ -22,6 +21,7 @@ INITIAL_WORKING_DIRECTORY=$(pwd)
 # Directory of install script
 SCRIPT_DIRECTORY=$(dirname "$0")
 
+SKIP=false
 
 ###############################################################################
 # Find OS and Distro Name
@@ -34,6 +34,8 @@ Can't install packages on this device.  Package installation is not supported on
 Please install any packages on your own. The list of of packages are located at:
     
     https://github.com/abasnfarah/dotfiles/blob/main/install
+
+To get a list of packages to stdout run 'install' with the -l flag
 
 To install without packages, re-run the script with the following flag
     
@@ -59,7 +61,7 @@ while test $# -gt 0; do
 
     -l)
       shift
-      list_pacakges
+      list_packages
       shift
       ;;
     --list_packages)
@@ -68,6 +70,9 @@ while test $# -gt 0; do
       ;;
     -s)
       shift
+      echo "Skippiing package install"
+      echo ""
+      echo "To get a list of packages run 'install -l'"
       shift
       ;;
     --skip_packages)
@@ -76,8 +81,8 @@ while test $# -gt 0; do
       echo "To get a list of packages run 'install -l'"
       shift
       ;;
-      
-
+  esac
+done
 
 
 case $MY_OS in 
