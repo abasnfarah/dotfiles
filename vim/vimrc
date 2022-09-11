@@ -273,6 +273,7 @@ let g:coc_global_extensions = [
   \ 'coc-tsserver',
   \ 'coc-go',
   \ 'coc-pairs',
+  \ 'coc-sh',
   "\ 'coc-clangd',
   \ ]
 
