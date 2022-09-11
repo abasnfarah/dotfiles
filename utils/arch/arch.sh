@@ -1,6 +1,7 @@
 #!/bin/bash
 
-source ./framework.sh
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/abasnfarah/dotfiles/archbox/utils/arch/framework.sh)"
+#source ./framework.sh
 
 cat << EOF
 Preparing to install Arch packages
