@@ -7,7 +7,7 @@
 
 To install paste the following on a macOS terminal or a shell prompt:
 ```bash
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/abasnfarah/dotfiles/main/install)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/abasnfarah/dotfiles/main/Install)"
 ```
 
 This script installs the listed packages and creates symlinks for our dotfiles.
