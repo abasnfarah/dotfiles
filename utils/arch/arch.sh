@@ -20,12 +20,13 @@ edit the install script to omit or add additional packages.
 EOF
 
 while true; do
-    read -rp "Do you want to install the listed packages? (y/n) " yn 
+    read -rp "Do you want to install the listed packages? (Y/n) " yn 
     case "${yn}" in
         [Yy]*)
             install_packages 
             break;;
         [Nn]*) exit 0;;
+        []) exit 0;;
         *) echo "Invalid Input. Please respond with y (yes) or n (no)";;
     esac
 done
