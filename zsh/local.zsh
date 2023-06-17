@@ -4,6 +4,7 @@ export HOMEBREW_REPOSITORY="/opt/homebrew";
 export PATH="/opt/homebrew/bin:/opt/homebrew/sbin${PATH+:$PATH}";
 export MANPATH="/opt/homebrew/share/man${MANPATH+:$MANPATH}:";
 export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}";
+export XC32_LIBRARY_PATH="/Applications/microchip/xc32/v4.21/lib"
 # Go Enviroment/Path
 # ZSH_DISABLE_COMPFIX=true
 export GOPATH=$HOME/go
@@ -15,6 +16,9 @@ export GOBIN=$GOPATH/bin
 #export PATH=$PATH:$GOROOT:$GOPATH:$GOBIN
 export PATH=$PATH:$GOPATH:$GOBIN
 export TERM="screen-256color"
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 
 # Uncomment the following line for a transparent terminal in arch
 #compton -cb
@@ -73,7 +77,7 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 #zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
 
 # Uncomment the following command to set TMUX colors
-alias tmux="TERM=screen-256color tmux -2"
+#alias tmux="TERM=screen-256color tmux -2"
 
 function StarWars {
     echo "Are you ready for some StarWars Brahh" && archey && sleep 2 && tree ~ && telnet towel.blinkenlights.nl 

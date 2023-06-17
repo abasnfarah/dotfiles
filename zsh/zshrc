@@ -1,9 +1,11 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+
+#export TMUX=""
+#if [ -z "$TMUX" ]; then
+#  exec tmux new-session -A -s workspace
+#fi
 
 # Exports workspaces and dotfiles location 
 export WORKSPACES="${HOME}/workspaces"
@@ -18,24 +20,34 @@ source ~/.plugins.zsh
 #source ~/.screenlayout/two_monitor_layout.sh
 
 # FZF setup 
-#[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh # mac
-source /usr/share/fzf/key-bindings.zsh # arch
-source /usr/share/fzf/completion.zsh # arch 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh # mac
+#source /usr/share/fzf/key-bindings.zsh # arch
+#source /usr/share/fzf/completion.zsh # arch 
 # Adds hidden files to FZF 
 #export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -l -g ""'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-#source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme # mac
-source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme # arch
+source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme # mac
+#source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme # arch
 
 # Sourcing zsh-syntax-highligting
-#source $(brew --prefix)/opt/zsh-syntax-highlighting/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh # mac
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh # arch
+source $(brew --prefix)/opt/zsh-syntax-highlighting/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh # mac
+#source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh # arch
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-#[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+#To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 export GPG_TTY=$(tty)
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/abasfarah/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/abasfarah/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/abasfarah/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/abasfarah/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+

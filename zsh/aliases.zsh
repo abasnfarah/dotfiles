@@ -8,16 +8,18 @@ export EDITOR='vim'
 alias @dw='~/Downloads'
 alias @wp='~/workspaces'
 alias @dt='~/workspaces/dotfiles'
-alias @w="~/workspaces/workload"
-alias @cp='~/workspaces/competativeProgramming'
-alias @af='~/workspaces/abasfarah.io'
 alias @tmr='~/.tmux/resurrect/'
+alias @n='~/.config/nvim/'
 
 ###############################################################################
 # Basic Aliases
 ###############################################################################
 
-alias v="vim"
+#alias database="mysql -uC4131NF23U24 -hcse-mysql-classes-01.cse.umn.edu -P3306 -p C4131NF23U24"
+#alias database="mysql -h127.0.0.1 -uC4131NF23U24 -P3306 -p C4131NF23U24"
+alias database="mysql -hlocalhost -uC4131NF23U24 -P3306 -p C4131NF23U24"
+alias v="nvim"
+alias vim="v"
 alias e="emacs"
 alias t="touch"
 alias y="yarn"
@@ -63,25 +65,25 @@ alias gcpp="g++-11 -std=c++11 -Wall"
 # Arch Specific Commands
 ###############################################################################
 
-alias terprof="v ~/.config/termite/config"
-alias rcprof="v ~/.config/awesome/rc.lua"
-alias xprof="v ~/.xinitrc"
+#alias terprof="v ~/.config/termite/config"
+#alias rcprof="v ~/.config/awesome/rc.lua"
+#alias xprof="v ~/.xinitrc"
 
 #mimics pbcopy on macosx using xclip in Arch Linux 
 #Requirements: xclip
-alias pbcopy="xclip -selection clipboard"
-alias pbpaste="xclip -selection clipboard -o"
+#alias pbcopy="xclip -selection clipboard"
+#alias pbpaste="xclip -selection clipboard -o"
 
 # Package manager aliases
-alias pacupg="sudo pacman -Syu"
-alias pacin="sudo pacman -S"
-alias yayupg="yay -Syu"
-alias yain="yay -S"
+#alias pacupg="sudo pacman -Syu"
+#alias pacin="sudo pacman -S"
+#alias yayupg="yay -Syu"
+#alias yain="yay -S"
 
-alias och="google-chrome-stable"
+#alias och="google-chrome-stable"
 
 # Screenshot alias using xorg-xwd
-alias screenshot="xwd -frame -out screenshot.xwd"
+#alias screenshot="xwd -frame -out screenshot.xwd"
 
 
 ###############################################################################
