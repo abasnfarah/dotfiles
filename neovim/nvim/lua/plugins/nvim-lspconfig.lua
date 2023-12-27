@@ -10,9 +10,25 @@ return {
 
     -- Additional lua configuration, makes nvim stuff amazing!
     'folke/neodev.nvim',
+
+    -- Code action menu
+    { 'weilbith/nvim-code-action-menu', cmd = 'CodeActionMenu'},
+
+    -- Lsp inlay hints
+    'lvimuser/lsp-inlayhints.nvim',
   },
   config = function ()
-    local on_attach = function(_, bufnr)
+    -- configure lsp inlay hints
+    local ih = require('lsp-inlayhints')
+    ih.setup({
+        only_current_line = true,
+
+        eol = {
+          right_align = true,
+        }
+    })
+
+    local on_attach = function(c, bufnr)
       -- NOTE: Remember that lua is a real programming language, and as such it is possible
       -- to define small helper and utility functions so you don't have to repeat yourself
       -- many times.
@@ -53,6 +69,8 @@ return {
       vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
         vim.lsp.buf.format()
       end, { desc = 'Format current buffer with LSP' })
+
+      ih.on_attach(c, bufnr)
     end
 
     local servers = {
@@ -60,12 +78,42 @@ return {
       -- gopls = {},
       -- pyright = {},
       -- rust_analyzer = {},
-      -- tsserver,
+      -- barium = {},
 
+      tsserver = {
+        javascript = {
+          inlayHints = {
+            includeInlayEnumMemberValueHints = true,
+            includeInlayFunctionLikeReturnTypeHints = true,
+            includeInlayFunctionParameterTypeHints = true,
+            includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all';
+            includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+            includeInlayPropertyDeclarationTypeHints = true,
+            includeInlayVariableTypeHints = true,
+          },
+        },
+        typescript = {
+          inlayHints = {
+            includeInlayEnumMemberValueHints = true,
+            includeInlayFunctionParameterTypeHints = true,
+            includeInlayFunctionLikeReturnTypeHints = true,
+            includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all';
+            includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+            includeInlayPropertyDeclarationTypeHints = true,
+            includeInlayVariableTypeHints = true,
+          },
+        },
+      },
       lua_ls = {
         Lua = {
           workspace = { checkThirdParty = false },
           telemetry = { enable = false },
+          hint = {
+            enable = true,
+          },
+          diagnostics = {
+            disable = {"missing-fields", "incomplete-signature-doc" },
+          }
         },
       },
     }

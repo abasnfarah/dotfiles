@@ -26,6 +26,7 @@ return {
       --           return a.type > b.type
       --       end
       --   end , -- this sorts files and directories descendantly
+      
       default_component_configs = {
         modified = {
           symbol = '[+]',
@@ -36,6 +37,7 @@ return {
           use_git_status_colors = true,
           highlight = 'NeoTreeFileName',
         },
+
         git_status = {
           symbols = {
             -- Change type
@@ -52,6 +54,7 @@ return {
           }
         },
       },
+
       window = {
         position = 'left',
         width = 40,
@@ -107,6 +110,7 @@ return {
           ['>'] = 'next_source',
         }
       },
+
       nesting_rules = {},
       filesystem = {
         filtered_items = {
@@ -132,16 +136,19 @@ return {
             --'.null-ls_*',
           },
         },
+
         follow_current_file = true, -- This will find and focus the file in the active buffer every
                                      -- time the current file is changed while the tree is open.
         group_empty_dirs = true, -- when true, empty folders will be grouped together
-        hijack_netrw_behavior = 'open_default', -- netrw disabled, opening a directory opens neo-tree
+        -- hijack_netrw_behavior = 'open_default', -- netrw disabled, opening a directory opens neo-tree
                                                 -- in whatever position is specified in window.position
+        hijack_netrw_behavior = 'open_current', -- netrw disabled, opening a directory opens within the
                               -- 'open_current',  -- netrw disabled, opening a directory opens within the
                                                 -- window like netrw would, regardless of window.position
                               -- 'disabled',    -- netrw left alone, neo-tree does not handle opening dirs
         use_libuv_file_watcher = false, -- This will use the OS level file watchers to detect changes
                                         -- instead of relying on nvim autocmd events.
+
         window = {
           mappings = {
             ['<bs>'] = 'navigate_up',
@@ -156,6 +163,7 @@ return {
           }
         }
       },
+
       buffers = {
         follow_current_file = true, -- This will find and focus the file in the active buffer every
                                      -- time the current file is changed while the tree is open.
@@ -169,6 +177,7 @@ return {
           }
         },
       },
+
       git_status = {
         window = {
           position = 'float',
@@ -187,5 +196,5 @@ return {
 
     vim.cmd([[nnoremap \ :Neotree reveal<cr>]])
   end
-} 
+}
 

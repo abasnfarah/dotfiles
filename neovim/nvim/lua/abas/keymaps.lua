@@ -13,11 +13,18 @@ vim.g.maplocalleader = ' '
 --                                                                --   
 --------------------------------------------------------------------
 
+--find and replace
+remap("n", "<leader>sr", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>", { noremap = true, silent = true, desc= '[S]earch and [R]eplace'})
+
 -- Let's us navigate panes using ctrl+vim movement
 remap('n', '<C-h>', '<C-w>h', { noremap = true, silent = true, desc = 'Move to left pane'})
 remap('n', '<C-j>', '<C-w>j', { noremap = true, silent = true, desc = 'Move to lower pane'})
 remap('n', '<C-k>', '<C-w>k', { noremap = true, silent = true, desc = 'Move to upper pane'})
 remap('n', '<C-l>', '<C-w>l', { noremap = true, silent = true, desc = 'Move to right pane'})
+
+-- Split windows
+remap('n', '<leader>|', ':vsplit<CR>', { noremap = true, silent = true, desc = 'Split window [|]vertically'})
+remap('n', '<leader>-', ':split<CR>', { noremap = true, silent = true, desc = 'Split window [-]horizontally'})
 
 -- remap('n', '<leader>e', ':Lexplore 30<cr>', { noremap = true, silent = true })
 
@@ -62,6 +69,9 @@ remap('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true, desc 
 -- Git 
 remap('n', '<leader>gs', ':Neotree git_status<CR>', { noremap = true, silent = true, desc = 'Neotree [G]it [S]tatus' })
 
+-- Error
+remap('n', '<leader>E', ':lua vim.diagnostic.open_float(0, {scope="line"})<CR>',{ noremap = true, silent = true, desc = 'Show [E]rror in window' })
+
 --------------------------------------------------------------------
 --      ___                     _     __  __           _          --
 --     |_ _|_ __  ___  ___ _ __| |_  |  \/  | ___   __| | ___     --
@@ -74,6 +84,10 @@ remap('n', '<leader>gs', ':Neotree git_status<CR>', { noremap = true, silent = t
 -- Press jk fast to exit insert mode 
 -- remap('i', 'jk', '<ESC>', { noremap = true, silent = true, desc = 'jk for extra fast insert mode exit' })
 remap('i', 'kj', '<ESC>', { noremap = true, silent = true, desc = 'kj for extra fast insert mode exit' })
+
+-- copilot
+vim.g.copilot_no_tab_map = true
+vim.api.nvim_set_keymap("i", "<C-j>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
 
 --------------------------------------------------------------------
 --      __     ___                 _   __  __           _         --

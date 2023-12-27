@@ -21,7 +21,7 @@ local diagnostics = {
 local mode = {
 	'mode',
 	fmt = function(str)
-		return '-- ' .. str .. ' --'
+		return str
 	end,
 }
 
@@ -37,6 +37,11 @@ local diff = {
   cond = hide_in_width
 }
 
+local filename = {
+  'filename',
+  colored = true,
+}
+
 local spaces = function()
 	return 'spaces: ' .. vim.api.nvim_buf_get_option(0, 'shiftwidth')
 end
@@ -49,8 +54,10 @@ return {
       options = {
         icons_enabled = true,
         theme = 'auto',
-        component_separators = { left = '', right = ''},
-        section_separators = { left = '', right = ''},
+        -- component_separators = { left = '', right = ''},
+        component_separators = { left = '', right = ''},
+        section_separators = { left = '', right = ''},
+        -- section_separators = { left = '', right = ''},
         disabled_filetypes = {
           statusline = {},
           winbar = {},
@@ -65,19 +72,19 @@ return {
         }
       },
       sections = {
-		    lualine_a = { branch, diagnostics },
-        lualine_b = {mode},
+		    -- lualine_a = { branch, diagnostics },
+		    lualine_a = {mode},
+        lualine_b = {branch, diff, diagnostics, filename},
         lualine_c = {},
         -- lualine_x = {'encoding', 'fileformat', 'filetype'},
-		    lualine_x = { diff, spaces, 'encoding', filetype },
-
-		    lualine_y = {'location'},
+		    lualine_x = { spaces, 'encoding', 'fileformat'},
+		    lualine_y = {filetype, 'location'},
         lualine_z = {'progress'}
       },
       inactive_sections = {
         lualine_a = {},
         lualine_b = {},
-        lualine_c = {'filename'},
+        lualine_c = {filename},
         lualine_x = {'location'},
         lualine_y = {},
         lualine_z = {}
