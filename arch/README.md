@@ -268,7 +268,7 @@ Add Pulseaudio plugin to Pipewire. Many applications require Pulseaudio.
 ```{r, engine='bash', count_lines}
 paru -S alsa-lib alsa-utils alsa-oss alsa-plugins
 paru -S pipewire pipewire-audio pipewire-alsa pipewire-pulse
-paru -S helvum
+paru -S qpwgraph pavucontrol
 ```
 
 ### 7. Installing neofetch <a name="neofetch"></a>
@@ -311,9 +311,28 @@ rd slim_themes
 sudo systemctl enable slim.service
 ```
 
+### 11. Installing bluetooth server and frontend <a name="bluetooth"></a>
+```{r, engine='bash', count_lines}
+paru -S bluez bluez-utils blueman
+```
+
 # Start up your GUI to see the magic<a name="startx"></a>
 ```{r, engine='bash', count_lines}
 startx
+```
+
+To manage bluetooth run the following from awesome GUI terminal
+```{r, engine='bash', count_lines}
+bluetooth-manager
+```
+
+To manage speakers or audio
+```{r, engine='bash', count_lines}
+pavucontrol
+
+# OR 
+
+qpwgraph
 ```
 
 The next steps from here will be to customize your setup.
