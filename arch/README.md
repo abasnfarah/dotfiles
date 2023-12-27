@@ -9,6 +9,9 @@ the /mnt/boot mount.
 Make sure you install Windows Before Arch. That way
 you don't pull your hair out.
 
+Also if dual booting with Windows 11 make sure that your EFI partition is large enough.
+[How to Partition During Windows Install](https://www.ctrl.blog/entry/how-to-esp-windows-setup.html)
+
 ## Table of Contents
 1. [Pre Install](#preInstall)
     1. [Network Configuration](#network)
@@ -33,7 +36,7 @@ you don't pull your hair out.
     2. [Setup User](#user)
     3. [Setup Graphics](#graphic)
     4. [Instal Build Utilities](#utils)
-    5. [Install Yay (Package Manager)](#yay)
+    5. [Install Paru (Package Manager)](#paru)
     6. [Setup Audio with Pulseaudio](#sound)
     7. [Install Neofetch](#neofetch)
     8. [Installing xorg](#xorg)
@@ -158,7 +161,7 @@ passwd root
 This sets timezone assuming central time. Change according to your local timezone.
 ```{r, engine='bash', count_lines}
 ln -s /usr/share/zoneinfo/America/Chicago /etc/localtime
-hwclock --systohc --utc
+hwclock --systohc
 ```
 
 ### 6. Setting locale <a name="locale"></a>
@@ -223,11 +226,14 @@ pacman -S sudo
 ```
 
 ### 2. Setup user<a name="user"></a>
+
+This user will be using zsh as the main shell.
+Insert the name of your user instead of `<NameOfUserHere>`.
 ```{r, engine='bash', count_lines}
 groupadd sudo
-
-useradd -m -g sudo -s /bin/bash abas
-passwd abas
+pacman -S zsh
+useradd -m -g sudo -s /bin/zsh <NameOfUserHere>
+passwd <NameOfUserHere>
 visudo # give user sudo privlages
 ```
 when doing `visudo` make sure to uncomment the `%sudo` line.
@@ -244,66 +250,76 @@ sudo pacman -S xf86-video-nouveau nvidia
 ### 4. Build utilities<a name="utils"></a>
 ```{r, engine='bash', count_lines}
 sudo pacman -S git wget curl 
-pacman -S multilib-devel fakeroot jshon make pkg-config autoconf automake patch
+pacman -S fakeroot jshon make pkg-config autoconf automake patch
 ```
 
-### 5. Installing yay and all of it's dependencies<a name="yay"></a>
+### 5. Installing Paru and all of it's dependencies<a name="paru"></a>
 ```{r, engine='bash', count_lines}
-git clone https://aur.archlinux.org/yay.git
-cd yay 
+git clone https://aur.archlinux.org/paru.git
+cd paru
 makepkg -si
 cd ..
-rm -rf yay
+rm -rf paru 
 ```
 
-### 6. Pulseaudio and Alsa sound utilities <a name="sound"></a>
-pacmixer is our frontend for managing our audio input/output.
+### 6. Pipewire and Alsa sound utilities <a name="sound"></a>
+Helvum is our frontend for managing our audio input/output.
+Add Pulseaudio plugin to Pipewire. Many applications require Pulseaudio.
 ```{r, engine='bash', count_lines}
-yay -S alsa-lib alsa-utils alsa-oss alsa-plugins
-yay -S pulseaudio
-yay -S pacmixer
+paru -S alsa-lib alsa-utils alsa-oss alsa-plugins
+paru -S pipewire pipewire-audio pipewire-alsa pipewire-pulse
+paru -S helvum
 ```
 
 ### 7. Installing neofetch <a name="neofetch"></a>
 ```{r, engine='bash',count_lines}
-yay -S neofetch
+paru -S neofetch
 ```
 
 ### 8. Installing xorg<a name="xorg"></a>
 ```{r, engine='bash', count_lines}
-yay -S xorg xterm xorg-twm xorg-xclock
+paru -S xorg xterm xorg-twm xorg-xclock
 ```
 
 ### 9. Installing and setting up awesome<a name="awesome"></a>
 The ttf installes are fonts for awesome.
 when changing `~/.xinitrc` make it match the `.xinitrc` file on github.
 ```{r, engine='bash', count_lines}
-yay -S awesome
-yay -S ttf-droid ttf-dejavu ttf-liberation
-git clone https://github.com/abasnfarah/dotfiles.git
-cp ./dotfiles/arch/.xinitrc ~/.xinitrc
-mkdir -p .config/awesome
-cp /etc/xdg/awesome/rc.lua .config/awesome/
-cp -r /usr/share/awesome/* .config/awesome/
-sudo yay -S rxvt-unicode pcmanfm
+paru -S awesome
+paru -S ttf-droid ttf-dejavu ttf-liberation
+```
+
+This is where you install your dotfiles and configuration for themes and enviroment.
+Feel free to install your own dotfiles below. 
+
+If you want a place to start you can use my dotfiles.
+```{r, engine='bash', count_lines}
+mkdir ~/.config
+mkdir ~/.config/awesome
+mkdir ~/.config/termite
+paru -S zsh-syntax-highlighting ttf-meslo-nerd-font-powerlevel10k zsh-theme-powerlevel10k
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/abasnfarah/dotfiles/main/Install)"
+paru -S rxvt-unicode pcmanfm
 ```
 
 ### 10. Installing slim as our login manager <a name="slim"></a>
 ```{r, engine='bash', count_lines}
-yay -S slim
+paru -S slim
 git clone https://github.com/adi1090x/slim_themes
 cp -r slim_themes/themes/* /usr/share/slim/themes/
 rd slim_themes
-systemctl enable slim.service
+sudo systemctl enable slim.service
 ```
-
 
 # Start up your GUI to see the magic<a name="startx"></a>
 ```{r, engine='bash', count_lines}
 startx
 ```
 
-The next steps from here will be to change default terminal to termite.
-Installing oh-my-zsh and configuring vim. 
-Theming and adding extra coconut oil to the rest of our build.
+The next steps from here will be to customize your setup.
 
+## Future updates:
+1. Installing neovim and configuring neovim. 
+2. TODO: Will update dotfile install script in the future to add neovim config.
+
+### Time to Build
