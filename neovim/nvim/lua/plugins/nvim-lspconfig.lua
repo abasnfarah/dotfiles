@@ -16,6 +16,7 @@ return {
 
     -- Lsp inlay hints
     'lvimuser/lsp-inlayhints.nvim',
+
   },
   config = function ()
     -- configure lsp inlay hints
@@ -45,7 +46,6 @@ return {
 
       nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
       nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
-
       nmap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
       --nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
       nmap('gI', vim.lsp.buf.implementation, '[G]oto [I]mplementation')
@@ -75,11 +75,27 @@ return {
 
     local servers = {
       -- clangd = {},
-      -- gopls = {},
       -- pyright = {},
       -- rust_analyzer = {},
       -- barium = {},
 
+      gopls = {
+        go = {
+          inlayHints = {
+            parameterHints = true,
+            typeHints = true,
+            chainingHints = false,
+            -- maxLength = 80,
+          },
+          completeUnimported = true,
+          usePlaceholders = true,
+          analyses = {
+            unusedparams = true,
+            unusedwrite = true,
+            unusedany = true,
+          },
+        },
+      },
       tsserver = {
         javascript = {
           inlayHints = {
