@@ -3,7 +3,8 @@
 #audible_bell = false
 #clickable_url = true
 #dynamic_title = true
-font = Monospace 24
+font = Monospace 18
+;font = MesloLGS
 #fullscreen = true
 #geometry = 640x480
 #icon_name = terminal
