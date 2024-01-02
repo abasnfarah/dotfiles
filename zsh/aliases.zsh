@@ -1,4 +1,4 @@
-export EDITOR='vim'
+export EDITOR='nvim'
 
 ###############################################################################
 # Bookmarks
@@ -15,11 +15,7 @@ alias @n='~/.config/nvim/'
 # Basic Aliases
 ###############################################################################
 
-#alias database="mysql -uC4131NF23U24 -hcse-mysql-classes-01.cse.umn.edu -P3306 -p C4131NF23U24"
-#alias database="mysql -h127.0.0.1 -uC4131NF23U24 -P3306 -p C4131NF23U24"
-alias database="mysql -hlocalhost -uC4131NF23U24 -P3306 -p C4131NF23U24"
 alias v="nvim"
-alias vim="v"
 alias e="emacs"
 alias t="touch"
 alias y="yarn"
@@ -33,20 +29,22 @@ alias hgrep="fc -El 0 | grep"
 alias fd="find . -type d -name"
 alias ff="find . -type f -name"
 
+# config files
 alias prof="v ~/.zshrc"
 alias lprof="v ~/.local.zsh"
 alias aprof="v ~/.aliases.zsh"
 alias reprof="c && source ~/.zshrc"
-
-alias tree="tree -a -I '.git*'"
 alias vprof="v ~/.vimrc"
 alias tprof="v ~/.tmux.conf"  
+
+alias tree="tree -a -I '.git*'"
 alias gpd="git push origin --delete "
 alias wp=" cd ~/workspaces"
 alias p3="python3"
 
 # tmux aliases
-alias tmux="TERM=screen-256color tmux -2 -u"
+# alias tmux="TERM=screen-256color tmux -2 -u"
+alias tmux="TERM=xterm-256color tmux"
 alias ts="tmux new -s"
 alias ta="tmux a -t"
 alias tls="tmux ls"
@@ -62,29 +60,28 @@ alias j="java"
 alias gcpp="g++-11 -std=c++11 -Wall"
 
 ###############################################################################
-# Arch Specific Commands
+# Arch Specific Commands - uncomment if you are using Arch Linux
 ###############################################################################
 
-#alias terprof="v ~/.config/termite/config"
-#alias rcprof="v ~/.config/awesome/rc.lua"
-#alias xprof="v ~/.xinitrc"
-
-#mimics pbcopy on macosx using xclip in Arch Linux 
-#Requirements: xclip
-#alias pbcopy="xclip -selection clipboard"
-#alias pbpaste="xclip -selection clipboard -o"
-
-# Package manager aliases
-#alias pacupg="sudo pacman -Syu"
-#alias pacin="sudo pacman -S"
-#alias yayupg="yay -Syu"
-#alias yain="yay -S"
-
-#alias och="google-chrome-stable"
-
-# Screenshot alias using xorg-xwd
-#alias screenshot="xwd -frame -out screenshot.xwd"
-
+# alias terprof="v ~/.config/termite/config"
+# alias rcprof="v ~/.config/awesome/rc.lua"
+# alias xprof="v ~/.xinitrc"
+#
+# # Mimics pbcopy on macosx using xclip in Arch Linux 
+# # Requirements: xclip
+# alias pbcopy="xclip -selection clipboard"
+# alias pbpaste="xclip -selection clipboard -o"
+#
+# # Package manager aliases
+# alias pacupg="sudo pacman -Syu"
+# alias pacin="sudo pacman -S"
+# alias parupg="paru -Syu"
+# alias parui="paru -S"
+#
+# alias och="google-chrome-stable"
+#
+# # Screenshot alias using xorg-xwd
+# alias screenshot="xwd -frame -out screenshot.xwd"
 
 ###############################################################################
 # Build Tool Aliases
@@ -95,47 +92,46 @@ alias gor="go run"
 alias gob="go build"
 
 # Docker aliases
-alias d="docker"
-alias dc="docker-compose"
-alias db="docker build"
-alias dr="docker run"
-alias de="docker exec"
-alias ds="docker stop"
-alias dlo="docker logs"
-alias dps="docker ps"
-alias dimg="docker image"
-alias dimgl="docker image list"
-alias dsp="docker system prune"
+#alias d="docker"
+#alias dc="docker-compose"
+#alias db="docker build"
+#alias dr="docker run"
+#alias de="docker exec"
+#alias ds="docker stop"
+#alias dlo="docker logs"
+#alias dps="docker ps"
+#alias dimg="docker image"
+#alias dimgl="docker image list"
+#alias dsp="docker system prune"
 
 #Kubernetes aliases
-alias kv="kubectl version"
-alias kg="kubectl get"
-alias kapi="kubectl apiversions"
-alias kgp="kubectl get pod"
-alias kgd="kubectl get deployment"
-alias kgcrd="kubectl get crd"
-alias kgn="kubectl get namespace"
-alias kd="kubectl delete"
-alias kdp="kubectl delete pods"
-alias kdd="kubectl delete deployment"
-alias kdn="kubectl delete namespace"
-alias kaf="kubectl apply -f"
+#alias kv="kubectl version"
+#alias kg="kubectl get"
+#alias kapi="kubectl apiversions"
+#alias kgp="kubectl get pod"
+#alias kgd="kubectl get deployment"
+#alias kgcrd="kubectl get crd"
+#alias kgn="kubectl get namespace"
+#alias kd="kubectl delete"
+#alias kdp="kubectl delete pods"
+#alias kdd="kubectl delete deployment"
+#alias kdn="kubectl delete namespace"
+#alias kaf="kubectl apply -f"
 
 # Bazel aliases 
-alias bar="bazel run"
-alias bab="bazel build'"
-alias bac="bazel clean"
-alias brg="bazel run //:gazelle"
-alias bat="bazel test"
+#alias bar="bazel run"
+#alias bab="bazel build'"
+#alias bac="bazel clean"
+#alias brg="bazel run //:gazelle"
 
 # Maven aliases
-alias mc="mvn clean"
-alias mej="mvn package exec:java"
+#alias mc="mvn clean"
+#alias mej="mvn package exec:java"
 
 # npm aliases
-alias ns="npm start"
-alias nrb="npm run build"
-alias nrd="npm run deploy"
+#alias ns="npm start"
+#alias nrb="npm run build"
+#alias nrd="npm run deploy"
 
 ###############################################################################
 # Github Aliases
