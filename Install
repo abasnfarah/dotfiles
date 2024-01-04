@@ -92,10 +92,7 @@ while test $# -gt 0; do
   case "$1" in 
     -h|--help)
       echo ""
-      echo "Install - installs vim, tmux, and zsh dotfiles"
-      echo "Creates symlinks for dotfiles"
-      echo "Defaults to installing list of packages"
-      echo "Can skip pacakage install with -s flag"
+      echo "Install tool for Neovim, tmux, and various packages for a fresh setup."
       echo ""
       echo "install [options]"
       echo ""
