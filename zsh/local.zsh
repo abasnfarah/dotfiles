@@ -19,6 +19,19 @@ export PATH=$CUDA:$PATH
 
 export TERM="screen-256color"
 
+# export DOOMPATH=~/.config/emacs/bin
+# export DOOMPATH=~/.emacs.d/bin
+# export PATH=$PATH:$DOOMPATH
+#
+export TERM="screen-256color"
+export PYENV_ROOT="$HOME/.pyenv"
+export OPT_LOCAL_BIN="$HOME/opt/usr/local/bin"
+export PATH=$PATH:$OPT_LOCAL_BIN
+export TMPDIR="$HOME/tmp"
+# export PATH="/Applications/MacPorts/Emacs.app/Contents/MacOS:$PATH"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
 # Uncomment the following line for a transparent terminal in arch
 #compton -cb
 #
@@ -90,6 +103,6 @@ command_exists () {
 }
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

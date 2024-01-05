@@ -1,5 +1,5 @@
 return {
-  -- Simple plugins can be specified as strings
+  -- Simple plugins can be specified as stringsd
   -- 'rstacruz/vim-closer',
 
   -- Base plugins used by a lot of other plugins
@@ -13,6 +13,9 @@ return {
 
   -- tools
   'tpope/vim-surround', -- Awesome plugin for surround tags
+
+  -- Go
+  'fatih/vim-go',
 
   -- Tmux and vim integration
   -- 'alexghergh/nvim-tmux-navigation',

@@ -5,11 +5,17 @@ export EDITOR='nvim'
 ###############################################################################
 
 # Bookmarks
+alias @p='~/workspaces/CSCI_4131'
 alias @dw='~/Downloads'
 alias @wp='~/workspaces'
 alias @dt='~/workspaces/dotfiles'
+alias @w="~/workspaces/workload"
+alias @cp='~/workspaces/competativeProgramming'
+alias @af='~/workspaces/abasfarah.io'
 alias @tmr='~/.tmux/resurrect/'
 alias @n='~/.config/nvim/'
+alias @db='~/workspaces/CSCI_5451/'
+alias @ra='~/workspaces/Tennis-Self-Serve'
 
 ###############################################################################
 # Basic Aliases
@@ -31,15 +37,17 @@ alias ff="find . -type f -name"
 
 # config files
 alias prof="v ~/.zshrc"
+alias eprof="v ~/.config/emacs/early-init.el"
 alias lprof="v ~/.local.zsh"
 alias aprof="v ~/.aliases.zsh"
 alias reprof="c && source ~/.zshrc"
 alias vprof="v ~/.vimrc"
 alias tprof="v ~/.tmux.conf"  
 
-alias tree="tree -a -I '.git*'"
+alias tree="tree -a -I '.git*|node_modules'"
 alias gpd="git push origin --delete "
 alias wp=" cd ~/workspaces"
+alias py="python"
 alias p3="python3"
 
 # tmux aliases
