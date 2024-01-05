@@ -1,4 +1,12 @@
 # Default github account: github.com
+Host csel-cuda-02.cselabs.umn.edu
+   HostName csel-cuda-02.cselabs.umn.edu
+   User farah127
+
+Host csel-plate01.cselabs.umn.edu
+   HostName csel-plate01.cselabs.umn.edu
+   User farah127
+
 Host github.com
    HostName github.com
    User git
@@ -9,3 +17,12 @@ Host umn.edu
    HostName github.umn.edu
    User git
    IdentityFile ~/.ssh/id_rsa_umn
+
+Host mininet
+    HostName 192.168.56.2
+    User abas
+
+Host cse
+    HostName csel-cuda-04.cselabs.umn.edu
+    User farah127
+    IdentityFile ~/.ssh/id_rsa
