@@ -98,6 +98,7 @@ alias gcpp="g++-11 -std=c++11 -Wall"
 # GoLang Compiling and runing
 alias gor="go run"
 alias gob="go build"
+alias got="go test ./..."
 
 # Docker aliases
 #alias d="docker"

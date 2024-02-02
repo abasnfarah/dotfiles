@@ -22,6 +22,11 @@ remap('n', '<C-j>', '<C-w>j', { noremap = true, silent = true, desc = 'Move to l
 remap('n', '<C-k>', '<C-w>k', { noremap = true, silent = true, desc = 'Move to upper pane'})
 remap('n', '<C-l>', '<C-w>l', { noremap = true, silent = true, desc = 'Move to right pane'})
 
+-- keep cursor centered when searching
+vim.keymap.set("n", "n", "nzzzv")
+vim.keymap.set("n", "N", "Nzzzv")
+
+
 -- Split windows
 remap('n', '<leader>|', ':vsplit<CR>', { noremap = true, silent = true, desc = 'Split window [|]vertically'})
 remap('n', '<leader>-', ':split<CR>', { noremap = true, silent = true, desc = 'Split window [-]horizontally'})
@@ -71,6 +76,10 @@ remap('n', '<leader>gs', ':Neotree git_status<CR>', { noremap = true, silent = t
 
 -- Error
 remap('n', '<leader>E', ':lua vim.diagnostic.open_float(0, {scope="line"})<CR>',{ noremap = true, silent = true, desc = 'Show [E]rror in window' })
+
+-- Golang if err != nil
+remap('n', '<leader>se', 'oif err != nil {<CR>}<Esc>Oreturn err<Esc>', 
+  { noremap = true, silent = true, desc = 'Golang [S]nippit if [e]rr != nil snippit' })
 
 --------------------------------------------------------------------
 --      ___                     _     __  __           _          --
