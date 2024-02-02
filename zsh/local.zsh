@@ -7,7 +7,12 @@ export MANPATH="/opt/homebrew/share/man${MANPATH+:$MANPATH}:";
 export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}";
 export XC32_LIBRARY_PATH="/Applications/microchip/xc32/v4.21/lib"
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
+=======
+export GOROOT="/usr/local/go"
+export PATH=$PATH:$GOROOT:$GOROOT/bin
+>>>>>>> Stashed changes
 =======
 export GOROOT="/usr/local/go"
 export PATH=$PATH:$GOROOT:$GOROOT/bin
@@ -16,6 +21,7 @@ export PATH=$PATH:$GOROOT:$GOROOT/bin
 export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$PATH
 export GOBIN=$GOPATH/bin
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 export PATH=$PATH:$GOPATH:$GOBIN
 
@@ -30,11 +36,16 @@ export TERM="screen-256color"
 # export PATH=$PATH:$DOOMPATH
 #
 =======
+=======
+>>>>>>> Stashed changes
 #export PATH=$PATH:$GOROOT:$GOPATH:$GOBIN
 export PATH=$PATH:$GOBIN
 # export DOOMPATH=~/.config/emacs/bin
 # export DOOMPATH=~/.emacs.d/bin
 # export PATH=$PATH:$DOOMPATH
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 export TERM="screen-256color"
 export PYENV_ROOT="$HOME/.pyenv"

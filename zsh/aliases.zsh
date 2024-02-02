@@ -23,6 +23,10 @@ alias @ra='~/workspaces/Tennis-Self-Serve'
 
 alias v="nvim"
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+alias vim="vim"
+>>>>>>> Stashed changes
 =======
 alias vim="vim"
 >>>>>>> Stashed changes
@@ -49,6 +53,9 @@ alias reprof="c && source ~/.zshrc"
 =======
 
 alias tree="tree -a -I '.git*|node_modules'"
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 alias vprof="v ~/.vimrc"
 alias tprof="v ~/.tmux.conf"  
@@ -148,6 +155,9 @@ alias bab="bazel build'"
 alias bac="bazel clean"
 alias brg="bazel run //:gazelle"
 # alias bat="bazel test"
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
 # Maven aliases
