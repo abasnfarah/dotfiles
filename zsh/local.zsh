@@ -6,11 +6,17 @@ export PATH="/opt/homebrew/bin:/opt/homebrew/sbin${PATH+:$PATH}";
 export MANPATH="/opt/homebrew/share/man${MANPATH+:$MANPATH}:";
 export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}";
 export XC32_LIBRARY_PATH="/Applications/microchip/xc32/v4.21/lib"
+<<<<<<< Updated upstream
 
+=======
+export GOROOT="/usr/local/go"
+export PATH=$PATH:$GOROOT:$GOROOT/bin
+>>>>>>> Stashed changes
 # Go Enviroment/Path
 export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$PATH
 export GOBIN=$GOPATH/bin
+<<<<<<< Updated upstream
 export PATH=$PATH:$GOPATH:$GOBIN
 
 # Cuda Enviroment/Path
@@ -23,6 +29,13 @@ export TERM="screen-256color"
 # export DOOMPATH=~/.emacs.d/bin
 # export PATH=$PATH:$DOOMPATH
 #
+=======
+#export PATH=$PATH:$GOROOT:$GOPATH:$GOBIN
+export PATH=$PATH:$GOBIN
+# export DOOMPATH=~/.config/emacs/bin
+# export DOOMPATH=~/.emacs.d/bin
+# export PATH=$PATH:$DOOMPATH
+>>>>>>> Stashed changes
 export TERM="screen-256color"
 export PYENV_ROOT="$HOME/.pyenv"
 export OPT_LOCAL_BIN="$HOME/opt/usr/local/bin"

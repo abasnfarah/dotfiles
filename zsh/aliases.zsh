@@ -22,6 +22,10 @@ alias @ra='~/workspaces/Tennis-Self-Serve'
 ###############################################################################
 
 alias v="nvim"
+<<<<<<< Updated upstream
+=======
+alias vim="vim"
+>>>>>>> Stashed changes
 alias e="emacs"
 alias t="touch"
 alias y="yarn"
@@ -41,6 +45,11 @@ alias eprof="v ~/.config/emacs/early-init.el"
 alias lprof="v ~/.local.zsh"
 alias aprof="v ~/.aliases.zsh"
 alias reprof="c && source ~/.zshrc"
+<<<<<<< Updated upstream
+=======
+
+alias tree="tree -a -I '.git*|node_modules'"
+>>>>>>> Stashed changes
 alias vprof="v ~/.vimrc"
 alias tprof="v ~/.tmux.conf"  
 
@@ -128,10 +137,18 @@ alias got="go test ./..."
 #alias kaf="kubectl apply -f"
 
 # Bazel aliases 
+<<<<<<< Updated upstream
 #alias bar="bazel run"
 #alias bab="bazel build'"
 #alias bac="bazel clean"
 #alias brg="bazel run //:gazelle"
+=======
+alias bar="bazel run"
+alias bab="bazel build'"
+alias bac="bazel clean"
+alias brg="bazel run //:gazelle"
+# alias bat="bazel test"
+>>>>>>> Stashed changes
 
 # Maven aliases
 #alias mc="mvn clean"
