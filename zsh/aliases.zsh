@@ -63,25 +63,25 @@ alias gcpp="g++-11 -std=c++11 -Wall"
 # Arch Specific Commands - uncomment if you are using Arch Linux
 ###############################################################################
 
-# alias terprof="v ~/.config/termite/config"
-# alias rcprof="v ~/.config/awesome/rc.lua"
-# alias xprof="v ~/.xinitrc"
-#
-# # Mimics pbcopy on macosx using xclip in Arch Linux 
-# # Requirements: xclip
-# alias pbcopy="xclip -selection clipboard"
-# alias pbpaste="xclip -selection clipboard -o"
-#
-# # Package manager aliases
-# alias pacupg="sudo pacman -Syu"
-# alias pacin="sudo pacman -S"
-# alias parupg="paru -Syu"
-# alias parui="paru -S"
-#
-# alias och="google-chrome-stable"
-#
-# # Screenshot alias using xorg-xwd
-# alias screenshot="xwd -frame -out screenshot.xwd"
+alias terprof="v ~/.config/termite/config"
+alias rcprof="v ~/.config/awesome/rc.lua"
+alias xprof="v ~/.xinitrc"
+
+# Mimics pbcopy on macosx using xclip in Arch Linux 
+# Requirements: xclip
+alias pbcopy="xclip -selection clipboard"
+alias pbpaste="xclip -selection clipboard -o"
+
+# Package manager aliases
+alias pacupg="sudo pacman -Syu"
+alias pacin="sudo pacman -S"
+alias parupg="paru -Syu"
+alias parui="paru -S"
+
+alias och="google-chrome-stable"
+
+# Screenshot alias using xorg-xwd
+alias screenshot="xwd -frame -out screenshot.xwd"
 
 ###############################################################################
 # Build Tool Aliases
