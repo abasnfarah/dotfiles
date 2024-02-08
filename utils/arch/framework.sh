@@ -55,7 +55,7 @@ packages=(
 )
 
 function install_yay {
-    pacman -S --needed git base-devel 
+    pacman -Syu --needed git base-devel 
     cd $HOME
     git clone  https://aur.archlinux.org/yay.git
     cd yay

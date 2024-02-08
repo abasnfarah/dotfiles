@@ -78,7 +78,11 @@ function list_packages {
   if [ $MY_OS = "macOS" ]; then
     source ./brew.sh
   elif [ $MY_OS = "Linux" ] && [ $MY_DISTRO = "Arch" ]; then 
-    source ./utils/arch/framework.sh
+
+    echo "$(curl -fsSL https://raw.githubusercontent.com/abasnfarah/dotfiles/archbox/utils/arch/framework.sh)" > ./framework.sh
+    source ./framework.sh
+    rm -rf ./framework.sh
+    #source ./utils/arch/framework.sh
   elif [ $MY_OS = "Linux" ] && [ $MY_DISTRO = "Ubuntu" ]; then 
     source ./ubuntu.sh
   fi
@@ -145,11 +149,13 @@ function install_macos {
 }
 
 function install_arch {
-    /bin/bash -c "$(curl -fLo https://raw.githubusercontent.com/abasnfarah/dotfiles/HEAD/utils/arch/arch.sh)"
+    #/bin/bash -c "$(curl -fLo https://raw.githubusercontent.com/abasnfarah/dotfiles/main/utils/arch/arch.sh)"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/abasnfarah/dotfiles/archbox/utils/arch/arch.sh)"
 }
 
 function install_ubuntu { 
-    /bin/bash -c "$(curl -fLo https://raw.githubusercontent.com/abasnfarah/dotfiles/HEAD/utils/ubuntu/ubuntu.sh)"
+    #/bin/bash -c "$(curl -fLo https://raw.githubusercontent.com/abasnfarah/dotfiles/main/utils/ubuntu/ubuntu.sh)"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/abasnfarah/dotfiles/archbox/utils/ubuntu/ubuntu.sh)"
 }
 
 echo "Your OS is $MY_OS"
