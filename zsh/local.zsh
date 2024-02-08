@@ -1,11 +1,13 @@
 # Uncomment the following block if on MacOS
-eval export HOMEBREW_PREFIX="/opt/homebrew";
-export HOMEBREW_CELLAR="/opt/homebrew/Cellar";
-export HOMEBREW_REPOSITORY="/opt/homebrew";
-export PATH="/opt/homebrew/bin:/opt/homebrew/sbin${PATH+:$PATH}";
-export MANPATH="/opt/homebrew/share/man${MANPATH+:$MANPATH}:";
-export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}";
-export XC32_LIBRARY_PATH="/Applications/microchip/xc32/v4.21/lib"
+# eval export HOMEBREW_PREFIX="/opt/homebrew";
+# export HOMEBREW_CELLAR="/opt/homebrew/Cellar";
+# export HOMEBREW_REPOSITORY="/opt/homebrew";
+# export PATH="/opt/homebrew/bin:/opt/homebrew/sbin${PATH+:$PATH}";
+# export MANPATH="/opt/homebrew/share/man${MANPATH+:$MANPATH}:";
+# export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}";
+
+# Uncomment the following line to add pic32 microcontroller compiler path
+# export XC32_LIBRARY_PATH="/Applications/microchip/xc32/v4.21/lib"
 
 # Go Enviroment/Path
 export GOPATH=$HOME/go
@@ -17,29 +19,31 @@ export PATH=$PATH:$GOPATH:$GOBIN
 export CUDA=/opt/cuda/bin/
 export PATH=$CUDA:$PATH
 
-export TERM="screen-256color"
-
+# Doom Emacs Path
 # export DOOMPATH=~/.config/emacs/bin
 # export DOOMPATH=~/.emacs.d/bin
 # export PATH=$PATH:$DOOMPATH
-#
+
+# Uncomment the following line to set terminal colors
 export TERM="screen-256color"
-export PYENV_ROOT="$HOME/.pyenv"
+
+# Uncomment the following line to add local opt bin to path
 export OPT_LOCAL_BIN="$HOME/opt/usr/local/bin"
 export PATH=$PATH:$OPT_LOCAL_BIN
+
 export TMPDIR="$HOME/tmp"
-# export PATH="/Applications/MacPorts/Emacs.app/Contents/MacOS:$PATH"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+
+{ eval "$(ssh-agent -s)"; ssh-add -q ~/.ssh/id_rsa; ssh-add -q ~/.ssh/id_rsa_umn; } &>/dev/null
+
+####################
+# Main config
+####################
 
 # Uncomment the following line for a transparent terminal in arch
 #compton -cb
-#
-{ eval "$(ssh-agent -s)"; ssh-add -q ~/.ssh/id_rsa; ssh-add -q ~/.ssh/id_rsa_umn; } &>/dev/null
-neofetch
 
-# Uncomment the following line to map caps lock to escape for arch linux
-#setxkbmap -option caps:escape &>/dev/null
+# Uncomment the following line to run neofetch on terminal startup
+neofetch
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -64,7 +68,7 @@ setopt autopushd
 autoload -Uz compinit && compinit
 autoload -Uz bashcompinit && bashcompinit
 
-# Uncomment the follwing line to match lowercase letters to uppercase letters for tab completion and vice versa
+# Uncomment the follwing line to enable vi mode
 bindkey -v
 
 # Uncomment the follwing four lines to configure custom zsh history
@@ -101,8 +105,9 @@ function StarWars {
 command_exists () {
   command -v "$1" >/dev/null 2>&1
 }
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+####################
+# End Main config
+####################
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"

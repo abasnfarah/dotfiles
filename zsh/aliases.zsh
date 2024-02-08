@@ -34,6 +34,8 @@ alias w="which"
 alias hgrep="fc -El 0 | grep"
 alias fd="find . -type d -name"
 alias ff="find . -type f -name"
+alias b="bat"
+alias bcat="b --paging=never"
 
 # config files
 alias prof="v ~/.zshrc"
@@ -144,10 +146,9 @@ alias got="go test ./..."
 #alias nrd="npm run deploy"
 
 ###############################################################################
-# Github Aliases
+# Git Aliases
 ###############################################################################
 
-# git aliases
 alias gcl="git clone --recurse-submodules"
 alias gd="git diff"
 alias gp="git push"
@@ -187,7 +188,6 @@ git-re-rebase() {
 # Directory aliases - Requires autocd to work
 ###############################################################################
 
-#directory related
 alias ls='ls -G'          # ls with color
 alias ll='ls -1A'         # lists files/directories
 alias l='ls -lah'         # lists files/directories with additional information
