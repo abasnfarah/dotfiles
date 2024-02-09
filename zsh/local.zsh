@@ -1,19 +1,3 @@
-# Uncomment the following block if on MacOS
-# eval export HOMEBREW_PREFIX="/opt/homebrew";
-# export HOMEBREW_CELLAR="/opt/homebrew/Cellar";
-# export HOMEBREW_REPOSITORY="/opt/homebrew";
-# export PATH="/opt/homebrew/bin:/opt/homebrew/sbin${PATH+:$PATH}";
-# export MANPATH="/opt/homebrew/share/man${MANPATH+:$MANPATH}:";
-# export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}";
-
-# command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-# eval "$(pyenv init -)"
-
-export PATH=~/.npm-global/bin:$PATH
-
-# Uncomment the following line to add pic32 microcontroller compiler path
-# export XC32_LIBRARY_PATH="/Applications/microchip/xc32/v4.21/lib"
-
 # Go Enviroment/Path
 export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$PATH
@@ -23,6 +7,9 @@ export PATH=$PATH:$GOPATH:$GOBIN
 # Cuda Enviroment/Path
 export CUDA=/opt/cuda/bin/
 export PATH=$CUDA:$PATH
+
+# Rust Enviroment/Path
+export PATH="$HOME/.cargo/bin:$PATH"
 
 # Doom Emacs Path
 # export DOOMPATH=~/.config/emacs/bin
@@ -43,9 +30,6 @@ export TMPDIR="$HOME/tmp"
 ####################
 # Main config
 ####################
-
-# Uncomment the following line for a transparent terminal in arch
-#compton -cb
 
 # Uncomment the following line to run neofetch on terminal startup
 neofetch
