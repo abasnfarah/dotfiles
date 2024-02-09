@@ -3,11 +3,15 @@ return {
   dependencies = {
     'nvim-lua/plenary.nvim',
     'nvim-treesitter/nvim-treesitter-textobjects',
+    'windwp/nvim-ts-autotag',
   },
   build = ':TSUpdate',
   config = function ()
     local configs = require("nvim-treesitter.configs")
     configs.setup {
+      autotag = {
+        enable = true,
+      },
       ensure_installed = "all",
       sync_install = false,
       ignore_install = { "" }, -- List of parsers to ignore installing

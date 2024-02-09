@@ -10,6 +10,22 @@ return {
     local actions = require "telescope.actions"
     telescope.setup({
       defaults = {
+        layout_config = {
+          prompt_position = "bottom",
+          horizontal = {
+            -- Move previewer to the right
+            mirror = true,
+            preview_cutoff = 1,
+            preview_width = 0.5,
+          },
+          vertical = {
+            mirror = true,
+            preview_cutoff = 0.4,
+          },
+          flex = {
+            flip_columns = 120,
+          },
+        },
 
         prompt_prefix = " ",
         selection_caret = " ",

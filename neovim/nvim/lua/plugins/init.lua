@@ -1,5 +1,5 @@
 return {
-  -- Simple plugins can be specified as stringsd
+  -- Simple plugins can be specified as strings
   -- 'rstacruz/vim-closer',
 
   -- Base plugins used by a lot of other plugins

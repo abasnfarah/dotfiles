@@ -26,7 +26,6 @@ remap('n', '<C-l>', '<C-w>l', { noremap = true, silent = true, desc = 'Move to r
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
-
 -- Split windows
 remap('n', '<leader>|', ':vsplit<CR>', { noremap = true, silent = true, desc = 'Split window [|]vertically'})
 remap('n', '<leader>-', ':split<CR>', { noremap = true, silent = true, desc = 'Split window [-]horizontally'})
@@ -39,6 +38,11 @@ remap('n', '<leader>k', ':resize +3<CR>', { noremap = true, silent = true, desc 
 remap('n', '<leader>h', ':vertical resize -3<CR>', { noremap = true, silent = true, desc = 'resize window 3 lines left'    })
 remap('n', '<leader>l', ':vertical resize +3<CR>', { noremap = true, silent = true, desc = 'resize window 3 lines right'    })
 
+-- Resize panes remap using arrow keys
+remap('n', '<C-Up>', ':resize -2<CR>', { noremap = true, silent = true, desc = 'resize window 2 lines down' })
+remap('n', '<C-Down>', ':resize +2<CR>', { noremap = true, silent = true, desc = 'resize window 2 lines up'   })
+remap('n', '<C-Left>', ':vertical resize -2<CR>', { noremap = true, silent = true, desc = 'resize window 2 lines left'    })
+remap('n', '<C-Right>', ':vertical resize +2<CR>', { noremap = true, silent = true, desc = 'resize window 2 lines right'    })
 
 -- Move panes around remap
 remap('n', '<leader>wl', '<C-w>L', { noremap = true, silent = true, desc = 'Move window RIGHT' })
@@ -106,7 +110,7 @@ vim.api.nvim_set_keymap("i", "<C-j>", 'copilot#Accept("<CR>")', { silent = true,
 --         \_/  |_|___/\__,_|\__,_|_| |_|  |_|\___/ \__,_|\___|   --
 --                                                                --
 --------------------------------------------------------------------
---
+
 -- Stay in indent mode
 remap('v', '<', '<gv', { noremap = true, silent = true, desc = 'Stay in visual mode after indenting with <' })
 remap('v', '>', '>gv', { noremap = true, silent = true, desc = 'Stay in visual mode after indenting with >' })
@@ -118,3 +122,4 @@ remap('v', 'p', '\'_dP', { noremap = true, silent = true, desc = 'Move text up a
 -- Move text up and down
 remap('x', 'J', ':move \'>+1<CR>gv-gv', { noremap = true, silent = true, desc = 'Move text up in using J in visual mode' })
 remap('x', 'K', ':move \'<-2<CR>gv-gv', { noremap = true, silent = true, desc = 'Move text down in using K in visual mode' })
+
