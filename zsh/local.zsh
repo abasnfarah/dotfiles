@@ -86,7 +86,7 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 #alias tmux="TERM=screen-256color tmux -2"
 
 # terminal games and fun
-function telehack{
+function telehack(){
     telnet telehack.com
 }
 
