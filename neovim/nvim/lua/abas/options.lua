@@ -51,3 +51,6 @@ vim.opt.iskeyword:append "-"                           -- hyphenated words recog
 vim.opt.formatoptions:remove({ "c", "r", "o" })        -- don't insert the current comment leader automatically for auto-wrapping comments using 'textwidth', hitting <Enter> in insert mode, or hitting 'o' or 'O' in normal mode.
 vim.opt.runtimepath:remove("/usr/share/vim/vimfiles")  -- separate vim plugins from neovim in case vim still in use
 
+-- add binaries installed by mason.nvim to path
+local is_windows = vim.loop.os_uname().sysname == "Windows_NT"
+vim.env.PATH = vim.fn.stdpath "data" .. "/mason/bin" .. (is_windows and ";" or ":") .. vim.env.PATH

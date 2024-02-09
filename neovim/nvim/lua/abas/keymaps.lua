@@ -82,8 +82,7 @@ remap('n', '<leader>gs', ':Neotree git_status<CR>', { noremap = true, silent = t
 remap('n', '<leader>E', ':lua vim.diagnostic.open_float(0, {scope="line"})<CR>',{ noremap = true, silent = true, desc = 'Show [E]rror in window' })
 
 -- Golang if err != nil
-remap('n', '<leader>se', 'oif err != nil {<CR>}<Esc>Oreturn err<Esc>', 
-  { noremap = true, silent = true, desc = 'Golang [S]nippit if [e]rr != nil snippit' })
+remap('n', '<leader>se', 'oif err != nil {<CR>}<Esc>Oreturn err<Esc>',{ noremap = true, silent = true, desc = 'Golang [S]nippit if [e]rr != nil snippit' })
 
 --------------------------------------------------------------------
 --      ___                     _     __  __           _          --
@@ -97,6 +96,8 @@ remap('n', '<leader>se', 'oif err != nil {<CR>}<Esc>Oreturn err<Esc>',
 -- Press jk fast to exit insert mode 
 -- remap('i', 'jk', '<ESC>', { noremap = true, silent = true, desc = 'jk for extra fast insert mode exit' })
 remap('i', 'kj', '<ESC>', { noremap = true, silent = true, desc = 'kj for extra fast insert mode exit' })
+
+-- Navigate while in insert mode
 
 -- copilot
 vim.g.copilot_no_tab_map = true

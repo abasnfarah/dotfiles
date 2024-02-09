@@ -125,7 +125,7 @@ return {
           workspace = { checkThirdParty = false },
           telemetry = { enable = false },
           hint = {
-            enable = true,
+            enable = false,
           },
           diagnostics = {
             disable = {"missing-fields", "incomplete-signature-doc" },
