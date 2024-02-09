@@ -3,8 +3,9 @@
 #audible_bell = false
 #clickable_url = true
 #dynamic_title = true
-font = Monospace 18
-;font = MesloLGS
+font = JetBrainsMono Nerd Font 17
+#font = Meslo Nerd Font
+#font = MesloLGS
 #fullscreen = true
 #geometry = 640x480
 #icon_name = terminal

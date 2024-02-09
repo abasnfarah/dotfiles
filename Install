@@ -226,8 +226,8 @@ ln -fs "${dotfiles_path}/tmux/tmux.conf" "${HOME}/.tmux.conf"
 ln -fs "${dotfiles_path}/zsh/plugins/plugins.zsh" "${HOME}/.plugins.zsh"
 
 if [ $MY_OS = "Linux" ]; then
-    ln -fs "${dotfiles_path}/arch/.config/awesome/rc.lua" "${HOME}/.config/awesome/rc.lua"
-    ln -fs "${dotfiles_path}/arch/.config/termite/config" "${HOME}/.config/termite/config"
+    ln -fs "${dotfiles_path}/arch/config/awesome/rc.lua" "${HOME}/.config/awesome/rc.lua"
+    ln -fs "${dotfiles_path}/arch/config/termite/config" "${HOME}/.config/termite/config"
     ln -fs "${dotfiles_path}/arch/.xinitrc" "${HOME}/.xinitrc"
 fi
 
@@ -244,7 +244,7 @@ ln -fs "${dotfiles_path}/ssh/config" "${HOME}/.ssh/config"
 ###############################################################################
 
 # git clone --recurse-submodules --remote-submodules --depth 1 -j 2 https://github.com/lcpz/awesome-copycats.git
-# mv -bv awesome-copycats/{*,.[^.]*} ~/.config/awesome; rm -rf awesome-copycats
+# mv -bv awesome-copycats/{*,.[^.]*} ~/config/awesome; rm -rf awesome-copycats
 
 ###############################################################################
 # Installing vim plugins  
