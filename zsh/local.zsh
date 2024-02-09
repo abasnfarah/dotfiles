@@ -85,9 +85,9 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 # Uncomment the following command to set TMUX colors
 #alias tmux="TERM=screen-256color tmux -2"
 
-# Watch starwars in terminal
-function StarWars {
-    telnet towel.blinkenlights.nl 
+# terminal games and fun
+function telehack{
+    telnet telehack.com
 }
 
 # Easy way to check for command_existing in shell scripts
