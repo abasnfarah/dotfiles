@@ -224,10 +224,16 @@ ln -fs "${dotfiles_path}/zsh/aliases.zsh" "${HOME}/.aliases.zsh"
 ln -fs "${dotfiles_path}/vim/vimrc" "${HOME}/.vimrc"
 ln -fs "${dotfiles_path}/tmux/tmux.conf" "${HOME}/.tmux.conf"
 ln -fs "${dotfiles_path}/zsh/plugins/plugins.zsh" "${HOME}/.plugins.zsh"
+ln -fs "${dotfiles_path}/neovim/nvim" "${HOME}/.config/nvim"
 
 if [ $MY_OS = "Linux" ]; then
+    mkdir -p "${HOME}/.config/awesome"
+    mkdir -p "${HOME}/.config/termite"
+    mkdir -p "${HOME}/.config/alacritty"
+
     ln -fs "${dotfiles_path}/arch/config/awesome/rc.lua" "${HOME}/.config/awesome/rc.lua"
     ln -fs "${dotfiles_path}/arch/config/termite/config" "${HOME}/.config/termite/config"
+    ln -fs "${dotfiles_path}/arch/config/alacritty/alacritty.toml" "${HOME}/.config/alacritty/alacritty.toml"
     ln -fs "${dotfiles_path}/arch/.xinitrc" "${HOME}/.xinitrc"
 fi
 
