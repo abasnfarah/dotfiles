@@ -87,7 +87,7 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
 # Watch starwars in terminal
 function StarWars {
-    echo "Are you ready for some StarWars Brahh" && archey && sleep 2 && tree ~ && telnet towel.blinkenlights.nl 
+    telnet towel.blinkenlights.nl 
 }
 
 # Easy way to check for command_existing in shell scripts
