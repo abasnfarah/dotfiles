@@ -36,6 +36,7 @@ alias fd="find . -type d -name"
 alias ff="find . -type f -name"
 alias b="bat"
 alias bcat="b --paging=never"
+alias viewPath="echo $PATH | sed 's/:/\n/g'"
 
 # config files
 alias prof="v ~/.zshrc"
@@ -144,6 +145,12 @@ alias got="go test ./..."
 #alias ns="npm start"
 #alias nrb="npm run build"
 #alias nrd="npm run deploy"
+
+# pnpm aliases
+alias prb="pnpm run build"
+alias prd="pnpm run dev"
+alias prl="pnpm run lint"
+alias pdtl="pnpm dlx turbo login" # enable remote caching on vercel
 
 ###############################################################################
 # Git Aliases

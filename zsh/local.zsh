@@ -6,6 +6,11 @@
 # export MANPATH="/opt/homebrew/share/man${MANPATH+:$MANPATH}:";
 # export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}";
 
+# command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init -)"
+
+export PATH=~/.npm-global/bin:$PATH
+
 # Uncomment the following line to add pic32 microcontroller compiler path
 # export XC32_LIBRARY_PATH="/Applications/microchip/xc32/v4.21/lib"
 
