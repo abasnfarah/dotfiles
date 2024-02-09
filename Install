@@ -43,7 +43,7 @@ case $MY_OS in
     Darwin*) 
         MY_OS="macOS" && MY_DISTRO="macOS"
 
-        if [ -f "/opt" ]; then
+        if [ -d "/opt" ]; then
             MY_ARCHITECTURE="ARM"
         else
             MY_ARCHITECTURE="x86_64"

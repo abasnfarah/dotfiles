@@ -6,7 +6,7 @@ MY_OS="$(uname -s)"
 
 case $MY_OS in 
     Darwin*) 
-        if [ -f "/opt" ]; then # ARM
+        if [ -d "/opt" ]; then # ARM
             # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
             source $DOTFILES/zsh/mac/arm.zsh
             source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme
@@ -17,7 +17,7 @@ case $MY_OS in
               [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
         else # x86_64
-            source $DOTFILES/zsh/mac/x86_65.zsh
+            source $DOTFILES/zsh/mac/x86_64.zsh
             source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme
             source $(brew --prefix)/share/zsh-syntax-highlighting/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
         fi
