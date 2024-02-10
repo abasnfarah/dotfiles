@@ -94,6 +94,9 @@ remap('n', '<leader>E', ':lua vim.diagnostic.open_float(0, {scope="line"})<CR>',
 -- Golang if err != nil
 remap('n', '<leader>se', 'oif err != nil {<CR>}<Esc>Oreturn err<Esc>',mergeOpts(opts, { desc = 'Golang [S]nippit if [e]rr != nil snippit' }))
 
+-- remove noice.nvim messages
+remap('n', '<leader>nd', '<cmd>NoiceDismiss<CR>', mergeOpts(opts, { desc = 'Dismiss noice.nvim messages' }))
+
 --------------------------------------------------------------------
 --      ___                     _     __  __           _          --
 --     |_ _|_ __  ___  ___ _ __| |_  |  \/  | ___   __| | ___     --

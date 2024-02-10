@@ -114,6 +114,8 @@ return {
       -- },
     })
 
+    telescope.load_extension('noice')
+
     local remap = vim.keymap.set
     pcall(telescope.load_extension, 'fzf')
     -- See `:help telescope.builtin`
