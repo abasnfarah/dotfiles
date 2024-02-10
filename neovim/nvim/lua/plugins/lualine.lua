@@ -55,9 +55,12 @@ return {
         icons_enabled = true,
         theme = 'auto',
         -- component_separators = { left = '', right = ''},
-        component_separators = { left = '', right = ''},
-        section_separators = { left = '', right = ''},
+        -- component_separators = { left = '', right = ''},
+        component_separators = '|',
+        -- section_separators = { left = '', right = ''},
+        -- section_separators = { left = '', right = ''},
         -- section_separators = { left = '', right = ''},
+        section_separators = { left = '', right = ''},
         disabled_filetypes = {
           statusline = {},
           winbar = {},
@@ -73,13 +76,23 @@ return {
       },
       sections = {
 		    -- lualine_a = { branch, diagnostics },
-		    lualine_a = {mode},
-        lualine_b = {branch, diff, diagnostics, filename},
-        lualine_c = {},
+		    -- lualine_a = { mode , separator = { left = '' }, right_padding = 2, colored = true},
+		    lualine_a = {
+          { 'mode', separator = { left = '' }, right_padding = 2}
+        },
+        -- lualine_b = {branch, diff, diagnostics, filename},
+        lualine_b = {filename, branch},
+        lualine_c = {'fileformat'},
         -- lualine_x = {'encoding', 'fileformat', 'filetype'},
-		    lualine_x = { spaces, 'encoding', 'fileformat'},
-		    lualine_y = {filetype, 'location'},
-        lualine_z = {'progress'}
+		    -- lualine_x = { spaces, 'encoding', 'fileformat'},
+		    lualine_x = { spaces },
+		    -- lualine_y = {'fileformat', filetype, 'location'},
+		    -- lualine_y = {filetype, 'location'},
+		    lualine_y = {filetype, 'progress'},
+        -- lualine_z = {'progress'}
+        lualine_z = {
+          {'location', separator = { right = '' }, left_padding = 2}
+        },
       },
       inactive_sections = {
         lualine_a = {},

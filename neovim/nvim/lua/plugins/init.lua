@@ -10,6 +10,7 @@ return {
   'ellisonleao/gruvbox.nvim',
   'lunarvim/darkplus.nvim',
   'rebelot/kanagawa.nvim',
+  { 'catppuccin/nvim', name = 'catppuccin', priority = 1000 },
 
   -- tools
   'tpope/vim-surround', -- Awesome plugin for surround tags
@@ -36,8 +37,8 @@ return {
   'github/copilot.vim',
 
   {
-   "folke/trouble.nvim",
-   dependencies = { "nvim-tree/nvim-web-devicons" },
+   'folke/trouble.nvim',
+   dependencies = { 'nvim-tree/nvim-web-devicons' },
    opts = {
     -- your configuration comes here
     -- or leave it empty to use the default settings
@@ -46,8 +47,8 @@ return {
   },
 
   {
-    "folke/which-key.nvim",
-    event = "VeryLazy",
+    'folke/which-key.nvim',
+    event = 'VeryLazy',
     init = function()
       vim.o.timeout = true
       vim.o.timeoutlen = 300
@@ -60,19 +61,18 @@ return {
   },
 
   {
-    "folke/noice.nvim",
-    event = "VeryLazy",
+    'folke/noice.nvim',
+    event = 'VeryLazy',
     opts = {
       -- add any options here
     },
     dependencies = {
-      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-      "MunifTanjim/nui.nvim",
+      -- if you lazy-load any plugin below, make sure to add proper `module='...'` entries
+      'MunifTanjim/nui.nvim',
       -- OPTIONAL:
       --   `nvim-notify` is only needed, if you want to use the notification view.
       --   If not available, we use `mini` as the fallback
-      "rcarriga/nvim-notify",
+      'rcarriga/nvim-notify',
       }
-  }
-
+  },
 }

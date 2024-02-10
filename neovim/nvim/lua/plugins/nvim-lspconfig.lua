@@ -96,6 +96,7 @@ return {
           },
         },
       },
+
       tsserver = {
         javascript = {
           inlayHints = {
@@ -108,6 +109,7 @@ return {
             includeInlayVariableTypeHints = true,
           },
         },
+
         typescript = {
           inlayHints = {
             includeInlayEnumMemberValueHints = true,
@@ -116,10 +118,23 @@ return {
             includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all';
             includeInlayParameterNameHintsWhenArgumentMatchesName = true,
             includeInlayPropertyDeclarationTypeHints = true,
-            includeInlayVariableTypeHints = true,
+            includeInlayVariableTypeHints = false,
+          },
+        },
+
+        typescriptreact = {
+          inlayHints = {
+            includeInlayEnumMemberValueHints = true,
+            includeInlayFunctionParameterTypeHints = true,
+            includeInlayFunctionLikeReturnTypeHints = true,
+            includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all';
+            includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+            includeInlayPropertyDeclarationTypeHints = true,
+            includeInlayVariableTypeHints = false,
           },
         },
       },
+
       lua_ls = {
         Lua = {
           workspace = { checkThirdParty = false },
