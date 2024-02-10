@@ -53,9 +53,6 @@ return {
 				"xml",
 				"yaml",
 				"zig",
-				"bash-debug-adapter",
-				"js-debug-adapter",
-				"go-debug-adapter",
 			},
 
 			sync_install = false,
