@@ -86,5 +86,21 @@ return {
       --   If not available, we use `mini` as the fallback
       "rcarriga/nvim-notify",
     },
+    config = function()
+      require("noice").setup({
+        presets = { inc_rename = true },
+      })
+    end,
+  },
+
+  -- refactoring based on book by Martin Fowler
+  -- "ThePrimeagen/refactoring.nvim",
+
+  -- incremental rename
+  {
+    "smjonas/inc-rename.nvim",
+    config = function()
+      require("inc_rename").setup()
+    end,
   },
 }
