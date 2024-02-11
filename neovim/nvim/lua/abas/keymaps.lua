@@ -7,10 +7,10 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 function mergeOpts(t1, t2)
-	for k, v in pairs(t2) do
-		t1[k] = v
-	end
-	return t1
+  for k, v in pairs(t2) do
+    t1[k] = v
+  end
+  return t1
 end
 
 --------------------------------------------------------------------
@@ -24,10 +24,10 @@ end
 
 --find and replace
 remap(
-	"n",
-	"<leader>sr",
-	":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>",
-	{ noremap = true, silent = true, desc = "[S]earch and [R]eplace" }
+  "n",
+  "<leader>sr",
+  ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>",
+  { noremap = true, silent = true, desc = "[S]earch and [R]eplace" }
 )
 
 -- Let's us navigate panes using ctrl+vim movement
@@ -95,18 +95,18 @@ remap("n", "<leader>gs", ":Neotree git_status<CR>", mergeOpts(opts, { desc = "Ne
 
 -- Error
 remap(
-	"n",
-	"<leader>E",
-	':lua vim.diagnostic.open_float(0, {scope="line"})<CR>',
-	mergeOpts(opts, { desc = "Show [E]rror in window" })
+  "n",
+  "<leader>E",
+  ':lua vim.diagnostic.open_float(0, {scope="line"})<CR>',
+  mergeOpts(opts, { desc = "Show [E]rror in window" })
 )
 
 -- Golang if err != nil
 remap(
-	"n",
-	"<leader>se",
-	"oif err != nil {<CR>}<Esc>Oreturn err<Esc>",
-	mergeOpts(opts, { desc = "Golang [S]nippit if [e]rr != nil snippit" })
+  "n",
+  "<leader>se",
+  "oif err != nil {<CR>}<Esc>Oreturn err<Esc>",
+  mergeOpts(opts, { desc = "Golang [S]nippit if [e]rr != nil snippit" })
 )
 
 -- remove noice.nvim messages
