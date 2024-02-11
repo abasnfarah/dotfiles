@@ -113,7 +113,7 @@ remap(
 remap("n", "<leader>nd", "<cmd>NoiceDismiss<CR>", mergeOpts(opts, { desc = "Dismiss noice.nvim messages" }))
 
 -- incremental rename
-remap("n", "<leader>rn", "<cmd>IncRename<CR>", mergeOpts(opts, { desc = "[R]e[N]ame LSP value" }))
+remap("n", "<leader>rn", ":IncRename ", { desc = "[R]e[N]ame LSP value" })
 
 --------------------------------------------------------------------
 --      ___                     _     __  __           _          --

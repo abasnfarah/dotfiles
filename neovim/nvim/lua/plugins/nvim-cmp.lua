@@ -10,13 +10,27 @@ return {
     "saadparwaiz1/cmp_luasnip",
     "rafamadriz/friendly-snippets",
     "onsails/lspkind.nvim",
+    "avneesh0612/react-nextjs-snippets",
   },
   config = function()
     local cmp = require("cmp")
-    local luasnip = require("luasnip")
+    local ls = require("luasnip")
+    local s = ls.snippet
+    local t = ls.text_node
+    local i = ls.insert_node
+
+    ls.add_snippets("lua", {
+      s("hello", {
+        t("print('Hello, '"),
+        i(1),
+        t("!')"),
+      }),
+    })
+
     local lspkind = require("lspkind")
-    require("luasnip/loaders/from_vscode").lazy_load()
-    luasnip.config.setup({})
+    require("luasnip.loaders.from_vscode").lazy_load()
+
+    ls.config.setup({})
 
     local icons = {
       Namespace = "󰌗",
@@ -109,7 +123,7 @@ return {
       snippet = {
         -- REQUIRED - you must specify a snippet engine
         expand = function(args)
-          luasnip.lsp_expand(args.body) -- For `luasnip` users.
+          ls.lsp_expand(args.body) -- For `luasnip` users.
         end,
       },
 
@@ -138,10 +152,10 @@ return {
         ["<Tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.select_next_item()
-          elseif luasnip.expandable() then
-            luasnip.expand_or_jumpable()
-          elseif luasnip.expand_or_jumpable() then
-            luasnip.expand_or_jump()
+          elseif ls.expandable() then
+            ls.expand_or_jumpable()
+          elseif ls.expand_or_jumpable() then
+            ls.expand_or_jump()
           else
             fallback()
           end
@@ -149,8 +163,8 @@ return {
         ["<S-Tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.select_prev_item()
-          elseif luasnip.jumpable(-1) then
-            luasnip.jump(-1)
+          elseif ls.jumpable(-1) then
+            ls.jump(-1)
           else
             fallback()
           end

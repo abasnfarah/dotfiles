@@ -4,6 +4,7 @@ return {
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-lua/popup.nvim",
+    "nvim-telescope/telescope-ui-select.nvim",
   },
   config = function()
     local telescope = require("telescope")
@@ -105,16 +106,20 @@ return {
       -- Now the picker_config_key will be applied every time you call this
       -- builtin picker
       -- },
-      -- extensions = {
-      -- Your extension configuration goes here:
-      -- extension_name = {
-      --   extension_config_key = value,
-      -- }
+      extensions = {
+        -- Your extension configuration goes here:
+        -- extension_name = {
+        -- extension_config_key = value,
+        ["ui-select"] = {
+          require("telescope.themes").get_dropdown({}),
+        },
+      },
       -- please take a look at the readme of the extension you want to configure
       -- },
     })
 
     telescope.load_extension("noice")
+    telescope.load_extension("ui-select")
 
     local remap = vim.keymap.set
     pcall(telescope.load_extension, "fzf")

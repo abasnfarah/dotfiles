@@ -16,6 +16,9 @@ return {
 
     -- Lsp inlay hints
     "lvimuser/lsp-inlayhints.nvim",
+
+    -- Tailwind colors for LSP
+    "themaxmarchuk/tailwindcss-colors.nvim",
   },
   config = function()
     -- configure lsp inlay hints
@@ -43,7 +46,7 @@ return {
         vim.keymap.set("n", keys, func, { buffer = bufnr, desc = desc })
       end
 
-      nmap("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
+      -- nmap("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
       nmap("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
       nmap("gd", vim.lsp.buf.definition, "[G]oto [D]efinition")
       --nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
@@ -69,7 +72,14 @@ return {
         vim.lsp.buf.format()
       end, { desc = "Format current buffer with LSP" })
 
+      -- inlay hints
       ih.on_attach(c, bufnr)
+
+      -- Tailwindcss colors but only on tsserver
+      -- if c.name == "tsserver" then
+      --   require("tailwindcss-colors").buf_attach(bufnr)
+      -- end
+      require("tailwindcss-colors").buf_attach(bufnr)
     end
 
     local servers = {
@@ -146,6 +156,12 @@ return {
           },
         },
       },
+
+      -- tailwindcss = {
+      --   tailwindCSS = {
+      --     colorDecorators = true,
+      --   },
+      -- },
     }
 
     require("neodev").setup()
