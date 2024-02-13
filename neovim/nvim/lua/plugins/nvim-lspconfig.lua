@@ -223,8 +223,8 @@ return {
 
     local formatters = {
       ensure_installed = {
-        "black",
         "beautysh",
+        "black",
         "clang_format",
         "prettier",
         "rustfmt",

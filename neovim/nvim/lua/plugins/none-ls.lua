@@ -4,6 +4,7 @@ return {
   opts = function()
     local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
     local null_ls = require("null-ls")
+
     local opts = {
       sources = {
         null_ls.builtins.diagnostics.cpplint,
@@ -11,14 +12,16 @@ return {
         null_ls.builtins.diagnostics.pylint,
         null_ls.builtins.diagnostics.selene,
         null_ls.builtins.diagnostics.yamllint,
-        null_ls.builtins.formatting.prettier,
-        null_ls.builtins.formatting.stylua,
-        null_ls.builtins.formatting.clang_format,
         null_ls.builtins.formatting.black,
         null_ls.builtins.formatting.beautysh,
+        null_ls.builtins.formatting.clang_format,
+        null_ls.builtins.formatting.prettier,
+        null_ls.builtins.formatting.rustfmt,
+        null_ls.builtins.formatting.stylua,
         -- null_ls.builtins.formatting.ocamlformat,
-        null_ls.builtins.formatting.sql_formatter.with({ command = { "sleek" } }),
+        -- null_ls.builtins.formatting.sql_formatter.with({ command = { "sleek" } }),
       },
+
       on_attach = function(client, bufnr)
         if client.supports_method("textDocument/formatting") then
           vim.api.nvim_clear_autocmds({
