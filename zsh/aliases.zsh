@@ -16,6 +16,7 @@ alias @tmr='~/.tmux/resurrect/'
 alias @n='~/.config/nvim/'
 alias @db='~/workspaces/CSCI_5451/'
 alias @ra='~/workspaces/Tennis-Self-Serve'
+alias @ql='~/workspaces/quill'
 
 ###############################################################################
 # Basic Aliases
@@ -147,9 +148,9 @@ alias got="go test ./..."
 #alias nrd="npm run deploy"
 
 # pnpm aliases
-alias prb="pnpm run build"
-alias prd="pnpm run dev"
-alias prl="pnpm run lint"
+alias prb="pnpm build"
+alias prd="pnpm dev"
+alias prl="pnpm lint"
 alias pdtl="pnpm dlx turbo login" # enable remote caching on vercel
 
 ###############################################################################
