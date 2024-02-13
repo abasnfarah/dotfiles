@@ -79,7 +79,8 @@ return {
       -- if c.name == "tsserver" then
       --   require("tailwindcss-colors").buf_attach(bufnr)
       -- end
-      require("tailwindcss-colors").buf_attach(bufnr)
+      -- require("tailwindcss-colors").buf_attach(bufnr)
+      require("tailwindcss-colors").on_attach(c, bufnr)
     end
 
     local servers = {

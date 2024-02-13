@@ -4,5 +4,5 @@ require("abas.lazy")
 require("abas.markdown")
 
 vim.o.background = "dark"
--- vim.cmd([[colorscheme catppuccin]])
-vim.cmd([[colorscheme darkplus]])
+vim.cmd([[colorscheme catppuccin]])
+-- vim.cmd([[colorscheme darkplus]])

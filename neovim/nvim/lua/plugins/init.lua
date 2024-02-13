@@ -28,15 +28,6 @@ return {
   -- Go
   "fatih/vim-go",
 
-  -- Tailwindcss colors
-  {
-    "themaxmarchuk/tailwindcss-colors.nvim",
-    module = "tailwindcss_colors",
-    config = function()
-      require("tailwindcss-colors").setup()
-    end,
-  },
-
   -- Tmux and vim integration
   -- 'alexghergh/nvim-tmux-navigation',
 
