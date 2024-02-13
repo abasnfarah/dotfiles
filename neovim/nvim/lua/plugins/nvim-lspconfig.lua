@@ -4,9 +4,13 @@ return {
     -- Automatically install LSPs to stdpath for neovim
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
+
+    -- Automatically install formatters and linters to stdpath for neovim
+    { "jay-babu/mason-null-ls.nvim", event = { "BufReadPre", "BufNewFile" } },
+
     -- Useful status updates for LSP
     -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-    { "j-hui/fidget.nvim",              tag = "legacy",        opts = {} },
+    { "j-hui/fidget.nvim", tag = "legacy", opts = {} },
 
     -- Additional lua configuration, makes nvim stuff amazing!
     "folke/neodev.nvim",
@@ -18,7 +22,7 @@ return {
     "lvimuser/lsp-inlayhints.nvim",
 
     -- Tailwind colors for LSP
-    "abasnfarah/tailwindcss-colors.nvim",
+    -- "abasnfarah/tailwindcss-colors.nvim",
   },
   config = function()
     -- configure lsp inlay hints
@@ -75,15 +79,28 @@ return {
       -- inlay hints
       ih.on_attach(c, bufnr)
 
-      require("tailwindcss-colors").on_attach(c, bufnr)
+      -- require("tailwindcss-colors").on_attach(c, bufnr)
     end
 
     local servers = {
-      -- clangd = {},
-      -- pyright = {},
-      -- rust_analyzer = {},
-      -- barium = {},
+      --Bash
+      bashls = {},
 
+      -- C/C++
+      clangd = {},
+
+      -- Prisma
+      prismals = {},
+
+      -- JSON/YAML/TOML/MARKDOWN
+      yamlls = {},
+      taplo = {},
+      marksman = {},
+
+      -- python
+      pylsp = {},
+
+      -- Go
       gopls = {
         go = {
           inlayHints = {
@@ -102,6 +119,7 @@ return {
         },
       },
 
+      -- Javascript/Typescript
       tsserver = {
         javascript = {
           inlayHints = {
@@ -139,7 +157,9 @@ return {
           },
         },
       },
+      tailwindcss = {},
 
+      -- Lua
       lua_ls = {
         Lua = {
           workspace = { checkThirdParty = false },
@@ -149,6 +169,17 @@ return {
           },
           diagnostics = {
             disable = { "missing-fields", "incomplete-signature-doc" },
+          },
+        },
+      },
+
+      -- rust
+      rust_analyzer = {
+        rust = {
+          inlayHints = {
+            chainingHints = true,
+            parameterHints = true,
+            typeHints = true,
           },
         },
       },
@@ -177,6 +208,40 @@ return {
           settings = servers[server_name],
         })
       end,
+    })
+
+    local linters = {
+      ensure_installed = {
+        "cpplint",
+        "eslint_d",
+        "pylint",
+        "selene",
+        "yamllint",
+        -- golangci_lint = {},
+      },
+    }
+
+    local formatters = {
+      ensure_installed = {
+        "black",
+        "beautysh",
+        "clang_format",
+        "prettier",
+        "rustfmt",
+        "stylua",
+      },
+    }
+
+    local function merge_lists(a, b)
+      for _, v in ipairs(b) do
+        table.insert(a, v)
+      end
+      return a
+    end
+
+    require("mason-null-ls").setup({
+      ensured_installed = merge_lists(linters.ensure_installed, formatters.ensure_installed),
+      automatic_installation = true,
     })
   end,
 }
