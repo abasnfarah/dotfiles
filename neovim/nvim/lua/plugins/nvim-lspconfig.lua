@@ -6,7 +6,7 @@ return {
     "williamboman/mason-lspconfig.nvim",
     -- Useful status updates for LSP
     -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-    { "j-hui/fidget.nvim", tag = "legacy", opts = {} },
+    { "j-hui/fidget.nvim",              tag = "legacy",        opts = {} },
 
     -- Additional lua configuration, makes nvim stuff amazing!
     "folke/neodev.nvim",
@@ -18,7 +18,7 @@ return {
     "lvimuser/lsp-inlayhints.nvim",
 
     -- Tailwind colors for LSP
-    "themaxmarchuk/tailwindcss-colors.nvim",
+    "abasnfarah/tailwindcss-colors.nvim",
   },
   config = function()
     -- configure lsp inlay hints
@@ -80,7 +80,11 @@ return {
       --   require("tailwindcss-colors").buf_attach(bufnr)
       -- end
       -- require("tailwindcss-colors").buf_attach(bufnr)
-      require("tailwindcss-colors").on_attach(c, bufnr)
+      -- require("tailwindcss-colors").on_attach(c, bufnr)
+      local tc = require("tailwindcss-colors")
+      tc.on_attach(c, bufnr)
+      tc.buf_detach(bufnr)
+      tc.setup()
     end
 
     local servers = {
@@ -157,12 +161,6 @@ return {
           },
         },
       },
-
-      -- tailwindcss = {
-      --   tailwindCSS = {
-      --     colorDecorators = true,
-      --   },
-      -- },
     }
 
     require("neodev").setup()

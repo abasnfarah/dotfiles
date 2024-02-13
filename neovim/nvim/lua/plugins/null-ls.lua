@@ -8,7 +8,8 @@ return {
       sources = {
         null_ls.builtins.diagnostics.eslint_d,
         null_ls.builtins.diagnostics.pylint,
-        null_ls.builtins.diagnostics.luacheck,
+        -- null_ls.builtins.diagnostics.luacheck,
+        -- null_ls.builtins.diagnostics.selene,
         null_ls.builtins.diagnostics.golangci_lint,
         null_ls.builtins.diagnostics.yamllint,
         null_ls.builtins.formatting.prettier,
