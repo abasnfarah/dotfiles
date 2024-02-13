@@ -1,11 +1,19 @@
 # Dot Files
 
-#### Screenshot of Vim and TMUX setup
-![alt text](images/vimScreenshot.png "Vim Setup")
+#### Screenshot of Neovim and TMUX setup
+
+<!-- ![alt text](public/vimScreenshot.png "Vim Setup") -->
+
+![alt text](public/Neovim-Tmux-Config.png "Neovim-Tmux Setup")
+
+#### Neovim and toggle term
+
+![alt text](public/Neovim-Toggle-Term.png "Neovim W/ Toggleterm Setup")
 
 ## Installation
 
 To install paste the following on a macOS terminal or a shell prompt:
+
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/abasnfarah/dotfiles/main/Install)"
 ```
@@ -21,20 +29,20 @@ To change this list you can clone this repo and update `brew.sh` file.
 
 ```bash
 packages=(
-    bash 
-    git 
-    zsh 
-    neofetch 
+    bash
+    git
+    zsh
+    neofetch
     tmux
-    tree 
+    tree
     coreutils
-    zsh-syntax-highlighting 
-    npm 
-    mvn 
-    yarn 
-    go 
-    python3 
-    fzf 
+    zsh-syntax-highlighting
+    npm
+    mvn
+    yarn
+    go
+    python3
+    fzf
     romkatv/powerlevel10k/powerlevel10k
 )
 ```
@@ -78,60 +86,64 @@ CASKS=(
 ### Arch Linux
 
 #### Screenshot of Vim and TMUX setup
-![alt text](images/archScreenshot.png "Vim Setup")
 
-##### PreInstall Arch Linux: 
+![alt text](public/archScreenshot.png "Vim Setup")
+
+##### PreInstall Arch Linux:
+
 For a guide to install Arch w/ UEFI go to [Arch Install Guide](https://github.com/abasnfarah/dotfiles/blob/main/arch/README.md)
 
-##### Package List: 
+##### Package List:
+
 This is the package list installed with yay.
 To change this list you can clone this repo and update `arch.sh` file.
+
 ```bash
 packages=(
     anki
     curl
-    discord 
+    discord
     docker
-    emacs 
-    expressvpn 
-    fzf 
-    git 
+    emacs
+    expressvpn
+    fzf
+    git
     go
-    google-chrome 
+    google-chrome
     grep
-    gzip 
+    gzip
     maven
     mpv
-    neofetch 
-    nerd-fonts-complete 
-    nodejs 
-    npm 
+    neofetch
+    nerd-fonts-complete
+    nodejs
+    npm
     ntp
     nvm
-    openssh 
+    openssh
     obs-studio
-    python3 
-    sed 
+    python3
+    sed
     slack-desktop
     smplayer
     spotify
-    stow 
+    stow
     termite
     termite-terminfo
     the_silver_searcher
-    tree 
-    tree 
+    tree
+    tree
     tmux
-    unzip 
+    unzip
     vim
     wget
-    xclip 
-    yarn 
-    zip 
+    xclip
+    yarn
+    zip
     zoom
-    zsh 
-    zsh-syntax-highlighting 
-    zsh-theme-powerlevel10k-git 
+    zsh
+    zsh-syntax-highlighting
+    zsh-theme-powerlevel10k-git
 )
 ```
 
@@ -150,12 +162,12 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Go plugin for vim development
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
-" File tree 
+" File tree
 Plug 'scrooloose/nerdtree'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 " Markdown Preview
-Plug 'iamcco/markdown-preview.nvim' 
+Plug 'iamcco/markdown-preview.nvim'
 
 " git integration
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -177,9 +189,9 @@ Plug 'jparise/vim-graphql'
 
 
 " fuzzy file finder
-Plug 'ctrlpvim/ctrlp.vim' 
+Plug 'ctrlpvim/ctrlp.vim'
 
-" Commenter 
+" Commenter
 Plug 'preservim/nerdcommenter'
 
 " JSX
