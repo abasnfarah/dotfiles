@@ -33,7 +33,7 @@ return {
 
   -- cmp plugins
   --'hrsh7th/nvim-cmp',
-
+  --
   -- install without yarn or npm
   {
     "iamcco/markdown-preview.nvim",
@@ -101,6 +101,22 @@ return {
     "smjonas/inc-rename.nvim",
     config = function()
       require("inc_rename").setup()
+    end,
+  },
+
+  -- annotation toolkit
+  {
+    "danymat/neogen",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+    },
+    config = function()
+      require("neogen").setup({})
+      local opts = {
+        silent = true,
+        noremap = true,
+      }
+      vim.api.nvim_set_keymap("n", "<leader>nf", ":lua require('neogen').generate()<CR>", opts)
     end,
   },
 }
