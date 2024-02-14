@@ -22,7 +22,7 @@ return {
     "lvimuser/lsp-inlayhints.nvim",
 
     -- Tailwind colors for LSP
-    -- "abasnfarah/tailwindcss-colors.nvim",
+    "abasnfarah/tailwindcss-colors.nvim",
   },
   config = function()
     -- configure lsp inlay hints
@@ -79,7 +79,7 @@ return {
       -- inlay hints
       ih.on_attach(c, bufnr)
 
-      -- require("tailwindcss-colors").on_attach(c, bufnr)
+      require("tailwindcss-colors").on_attach(c, bufnr)
     end
 
     local servers = {

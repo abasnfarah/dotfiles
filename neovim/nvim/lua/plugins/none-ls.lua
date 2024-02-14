@@ -15,7 +15,19 @@ return {
         null_ls.builtins.formatting.black,
         null_ls.builtins.formatting.beautysh,
         null_ls.builtins.formatting.clang_format,
-        null_ls.builtins.formatting.prettier,
+        -- make prettier also format .prisma files
+        null_ls.builtins.formatting.prettier.with({
+          filetypes = {
+            "javascript",
+            "javascriptreact",
+            "typescript",
+            "typescriptreact",
+            "json",
+            "yaml",
+            "markdown",
+            "prisma",
+          },
+        }),
         null_ls.builtins.formatting.rustfmt,
         null_ls.builtins.formatting.stylua,
         -- null_ls.builtins.formatting.ocamlformat,
