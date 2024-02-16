@@ -5,7 +5,6 @@ require("abas.markdown")
 
 -- This saves buffer folds on exit and loads them on open
 vim.cmd("autocmd VimLeave * mkview")
-vim.cmd("autocmd BufWinLeave * mkview")
 vim.cmd("autocmd BufWinEnter * silent! loadview")
 
 vim.o.background = "dark"
