@@ -13,10 +13,6 @@ return {
     vim.keymap.set("n", "zR", require("ufo").openAllFolds)
     vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
 
-    -- custom keymaps to make it easier to use
-    vim.keymap.set("n", "<leader>z", "vi{")
-    vim.keymap.set("v", "f", ":fold<CR>")
-
     require("ufo").setup()
   end,
 }
