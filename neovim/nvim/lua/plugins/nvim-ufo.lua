@@ -10,8 +10,14 @@ return {
     vim.o.foldenable = true
 
     -- Using ufo provider need remap `zR` and `zM`. If Neovim is 0.6.1, remap yourself
-    vim.keymap.set("n", "zR", require("ufo").openAllFolds)
-    vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
+    vim.keymap.set("n", "zR", require("ufo").openAllFolds, { desc = "Open All Folds" })
+    vim.keymap.set("n", "zM", require("ufo").closeAllFolds, { desc = "Close All Folds" })
+    vim.keymap.set("n", "zK", function()
+      local winid = require("ufo").peekFoldedLinesUnderCursor()
+      if not winid then
+        vim.lsp.buf.hover()
+      end
+    end, { desc = "Peek Fold" })
 
     require("ufo").setup()
   end,
