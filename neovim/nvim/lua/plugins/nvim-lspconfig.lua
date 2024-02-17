@@ -118,6 +118,15 @@ return {
           },
         },
       },
+      templ = {
+        templ = {
+          inlayHints = {
+            chainingHints = true,
+            parameterHints = true,
+            typeHints = true,
+          },
+        },
+      },
 
       -- Javascript/Typescript
       tsserver = {
@@ -157,7 +166,9 @@ return {
           },
         },
       },
-      tailwindcss = {},
+      tailwindcss = {
+        filetypes = { "html", "css", "scss", "javascript", "javascriptreact", "typescript", "typescriptreact", "templ" },
+      },
 
       -- Lua
       lua_ls = {
