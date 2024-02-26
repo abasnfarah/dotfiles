@@ -100,6 +100,10 @@ return {
       -- python
       pylsp = {},
 
+      -- HTML/HTMX
+      html = {},
+      htmx = {},
+
       -- Go
       gopls = {
         go = {
@@ -125,6 +129,8 @@ return {
             parameterHints = true,
             typeHints = true,
           },
+          cmd = { "templ", "lsp" },
+          filetypes = { "templ" },
         },
       },
 
@@ -168,6 +174,7 @@ return {
       },
       tailwindcss = {
         filetypes = { "html", "css", "scss", "javascript", "javascriptreact", "typescript", "typescriptreact", "templ" },
+        init_options = { userLanguages = { templ = "html" } },
       },
 
       -- Lua

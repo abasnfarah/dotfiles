@@ -15,6 +15,9 @@ return {
         null_ls.builtins.formatting.black,
         null_ls.builtins.formatting.beautysh,
         null_ls.builtins.formatting.clang_format,
+        null_ls.builtins.formatting.templ.with({
+          filetypes = { "templ" },
+        }),
         -- make prettier also format .prisma files
         null_ls.builtins.formatting.prettier.with({
           filetypes = {

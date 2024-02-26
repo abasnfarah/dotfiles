@@ -7,6 +7,13 @@ return {
   },
   build = ":TSUpdate",
   config = function()
+    vim.filetype.add({
+      extension = {
+        templ = "templ",
+      },
+    })
+    vim.treesitter.language.register("templ", "templ")
+
     local configs = require("nvim-treesitter.configs")
     configs.setup({
       autotag = {
