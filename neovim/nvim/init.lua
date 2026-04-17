@@ -8,5 +8,6 @@ vim.cmd("autocmd VimLeave * mkview")
 vim.cmd("autocmd BufWinEnter * silent! loadview")
 
 vim.o.background = "dark"
-vim.cmd([[colorscheme catppuccin]])
+-- vim.cmd([[colorscheme catppuccin]])
 -- vim.cmd([[colorscheme darkplus]])
+vim.cmd([[colorscheme cyberdream]])

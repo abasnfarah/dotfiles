@@ -41,6 +41,10 @@ remap("n", "<C-l>", "<C-w>l", mergeOpts(opts, { desc = "Move to right pane" }))
 remap("n", "n", "nzzzv", opts)
 remap("n", "N", "Nzzzv", opts)
 
+-- keep cursor centered during vertical movement
+remap("n", "<C-d>", "<C-d>zz", opts)
+remap("n", "<C-u>", "<C-u>zz", opts)
+
 -- Split windows
 remap("n", "<leader>|", ":vsplit<CR>", mergeOpts(opts, { desc = "Split window [|]vertically" }))
 remap("n", "<leader>-", ":split<CR>", mergeOpts(opts, { desc = "Split window [-]horizontally" }))

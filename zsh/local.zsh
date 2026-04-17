@@ -4,6 +4,9 @@ export PATH=$GOPATH/bin:$PATH
 export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOPATH:$GOBIN
 
+# Bin path
+export PATH=$PATH:$HOME/.local/bin
+
 # Cuda Enviroment/Path
 export CUDA=/opt/cuda/bin/
 export PATH=$CUDA:$PATH
@@ -26,6 +29,11 @@ export PATH=$PATH:$OPT_LOCAL_BIN
 export TMPDIR="$HOME/tmp"
 
 { eval "$(ssh-agent -s)"; ssh-add -q ~/.ssh/id_rsa; ssh-add -q ~/.ssh/id_rsa_umn; } &>/dev/null
+echo 'eval "$(atuin init zsh)"' >> ~/.zshrc 
+
+# links treesitter to emacs
+export LD_LIBRARY_PATH=/usr/local/lib/
+export PATH=$PATH:$HOME/.config/emacs/bin
 
 ####################
 # Main config

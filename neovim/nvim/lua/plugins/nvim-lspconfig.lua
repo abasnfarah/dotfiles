@@ -135,7 +135,7 @@ return {
       },
 
       -- Javascript/Typescript
-      tsserver = {
+      ts_ls = {
         javascript = {
           inlayHints = {
             includeInlayEnumMemberValueHints = true,
@@ -201,6 +201,16 @@ return {
           },
         },
       },
+
+      ocamllsp = {
+        ocamllsp = {
+          inlayHints = {
+            chainingHints = true,
+            parameterHints = true,
+            typeHints = true,
+          },
+        },
+      },
     }
 
     require("neodev").setup()
@@ -223,16 +233,6 @@ return {
       ensure_installed = vim.tbl_keys(servers),
     })
 
-    mason_lspconfig.setup_handlers({
-      function(server_name)
-        require("lspconfig")[server_name].setup({
-          capabilities = capabilities,
-          on_attach = on_attach,
-          settings = servers[server_name],
-        })
-      end,
-    })
-
     local linters = {
       ensure_installed = {
         "cpplint",
@@ -252,6 +252,7 @@ return {
         "prettier",
         "rustfmt",
         "stylua",
+        "ocamlformat",
       },
     }
 
